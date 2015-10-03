@@ -1,0 +1,89 @@
+/*Set the body of the pages*/
+.home{
+    background: url('../Images/Site/giphy.gif') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.pageTeam, .pageAbout{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+.pageTeam{
+    background: url('../Images/Site/Screenshots/ss7.png') no-repeat center center fixed;
+}
+.pageAbout, .pageLitReview{
+    background: url('../Images/Site/Screenshots/ss3.jpg') no-repeat center center fixed;
+}
+
+/*Style game page*/
+.game{
+    background-color: black;
+}
+canvas{
+    margin: auto;
+}
+#gameCanvas{
+    margin-top: 50px;
+}
+#gameControls1, #gameControls2{
+    text-align: center;
+    color: white;
+}
+
+/*Set up carousel*/
+html, body, .carousel, .item, .active, .carousel-inner, .fill{
+    height: 100%;
+}
+.fill {
+    width: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/*Style team page*/
+#danielTextColumn{
+    margin-top: 150px;
+    font-size: 17px;
+    color: white;
+    word-spacing: 5px;
+    background-color: black;
+}
+#danielImageColumn{
+    margin-top: 150px;
+    background-color: black;
+}
+#danielImage{
+    margin-left: 150px;
+}
+
+/*Style game information page*/
+#gameInfo1, #gameInfo2{
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+}
+
+/*Style lit review page*/
+#litReview1, #litReview2{
+    color: white;
+    background-color: black;
+
+}
+#litReview1{
+    margin-left: 125px;
+}
+#litReview2{
+    float: right;
+    margin-right: 125px;
+}
+.litReviewHeader{
+    text-align: center;
+    text-decoration: underline;
+}
