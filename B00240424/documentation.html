@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="B00240424 Game">
+    <meta name="author" content="Daniel Taylor">
+
+    <title>B00240424 Project</title>
+
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/navBar.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+
+    <script src="JavaScript/Styling/jquery-2.1.4.min.js"></script>
+    <script src="JavaScript/Styling/bootstrap.min.js"></script>
+</head>
+<body class="pageDocumentation">
+    <!--Nav Bar-->
+    <div id="main-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="game.html">GAME</a></li>
+                    <li><a href="screenshots.html">SCREENSHOTS</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li class="active"><a href="documentation.html">DOCUMENTATION</a> </li>
+                    <li><a href="team.html">TEAM</a></li>
+                    <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Review-->
+    <div class="col-md-8 col-centered" id="documentation1">
+        <br><img src="brainlessGamesLogo.png" alt="Brainless Games Logo" style="width: 150px; height: 150px;"><br>
+
+        <br><h4>Documentation For:</h4>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">The Dead of Night</h1><br>
+
+        <br><h4>All work copyright 2015 Brainless Games</h4>
+        <h4>Written by Daniel Taylor (B00240424)</h4>
+        <h4>Version #1.0</h4>
+        <h4>Friday, October 9th, 2015</h4>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Research into Game</h1>
+        <p>I originally wanted to create a First Person Shooter genre of game for the project, since however we were not
+            able to use any other framework I decided to go with a top down shooter style of game. My reason for going
+            with this genre is that it is similar to my original game and I have played other web based top down
+            shooters that I really enjoyed. To mix up the gameplay from the general top down shooters, I decided to
+            cross the gameplay with some gameplay features from both Call of Duty Zombies and Killing Floor.
+        Once I knew about the genre of game I wanted to make and I had thought more about the features from Call of Duty
+            Zombies and Killing Floor that I wanted to implement I created a small description of the game. After
+            writing this description I asked some friends who fit into my target audience what they though. After
+            getting some feedback I seen this was an idea that people liked so decided to go with it.
+        I will be taking Call of Duty Zombies weapon feature where you can buy guns or ammo at any point in the round;
+            I feel this is better than randomly spawning in weapons or ammo whenever a player kills a zombie as it
+            gives them more choice and verity. The upgrade system I will be implementing is inspired by a class upgrade
+            system featured in the Killing Floor series. The difference being the Killing Floor upgrades differ between
+            the classes in the game were as my game will be using a more generalised system.</p>
+
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Story</h1>
+        <p>
+            You find yourself waking up on a cold, damp, hard floor, with your head pounding as if you were running
+            through incoming enemy artillery. That however would be too plausible, but all you can see is a group of
+            red dots getting closer and closer and the sound of painful growls getting louder by the second.<br>
+            <br>Seconds later you see… soldiers… but they weren’t really soldiers anymore.<br>
+            <br>One of them charges into you and you put him down with a double tap from your pistol. Still unsure what is
+            really going on your only instinct now is to survive by any means necessary until you have some time
+            to figure out what is happening around here.
+        </p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Genre</h1>
+        <p>The games genre will be a 2D top down shooter style of game crossed with a wave based survival game
+            genre seen in such titles as Call of Duty Zombies and Killing Floor 1 & 2.</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Player Goals</h1>
+        <p>The object for the game is for the player to continually kill zombies in order to gain money and get the
+            most points to set their high score, if at any time the player runs out of ammo they will need to buy a
+            new weapon or more ammo placed around the level. The player will also need to decided what weapons they
+            buy as well as how cautious they are in making every shot count in order to save as much money as
+            possible to buy more and more upgrades.</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Intended Experience</h1>
+        <p>Before the first zombie of each wave even gets in the level I want the players to be on edge and
+            feel extremely tense as they don’t know what is coming or even when it is coming. During an attack from
+            the zombies they player should feel like they keep coming and will not stop no matter what, overall the
+            game itself should feel difficult and challenging. The player will need to constantly think about what
+            they are doing and what the plan to do in order to not get surrounded or have their back up against a wall.</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Target Audience</h1>
+        <p>The audience the game will be targeted towards will be both males and females from the age of 15 and
+            over that have or had an interest in top down shooter and wave based survival games.</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Intended Gameplay</h1>
+        Table 3 shows the controls the player will be able to use during gameplay.
+        <table border="5" style="width: 100%">
+            <tr>
+                <td>Player Action</td>
+                <td>Controls</td>
+            </tr>
+            <tr>
+                <td>Movement</td>
+                <td>W, A, S & D keys</td>
+            </tr>
+            <tr>
+                <td>Rotate and aim player</td>
+                <td>Mouse</td>
+            </tr>
+            <tr>
+                <td>Fire weapons</td>
+                <td>Left mouse button</td>
+            </tr>
+            <tr>
+                <td>Purchase weapons</td>
+                <td>E key</td>
+            </tr>
+        </table>
+        <p style="font-size: 10px"> Table 3: Player Input</p>
+        <p>During the game the player and zombies will be able to collide with each other and static
+            level objects such as walls, of the player collides with a zombie however they will lose health.
+            The player will also be able to kill the zombies by shooting them, each time the player does kills
+            a zombie they will earn some money and points which will display their top score. The money they
+            earn will be used to but new guns/ammo which will be placed around the level. Once the player
+            has been killed they will then be able to purchase upgrades to their ammo count, damage and
+            more health, these upgrades will also be saved  to the users account.</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Development Method</h1>
+        <p>The development method I have decided to adopt for the project is the Agile method. I have decided to
+            use this method compared to other methods such as the Waterfall method, this is due to the fact the
+            Agile method focuses less on the projects documentation and building the entire project at once but
+            rather develop the project incrementally. Another benefit of using the Agile method over the Waterfall
+            method is that the Agile method welcomes changes late into the development cycle; this can prove to
+            be extremely beneficial due to the short development time available for the project. “At its core,
+            agile is about being efficient, focusing on delivering quality in the work products,
+            and being adaptive to change.”[1]</p>
+
+        <img src="agiledevelopmentprocess1.gif" alt="Agile Development Method Image" style="width: 350px; height: 250px;"><br>
+        <br>Fig 1: Forsyth, A. (2013) Agile development method cycle [Online] http://www.myglobalit.com/blog/waterfall-vs-agile-models-software-development [Accessed: 08/10/2015]
+
+        <br>Table 2 shows the pros and cons between the Agile and Waterfall development methods.
+        <table border="5" style="width: 100%">
+            <tr>
+                <td>Agile Method</td>
+                <td></td>
+                <td>Waterfall Method</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pro</td>
+                <td>Con</td>
+                <td>Pro</td>
+                <td>Con</td>
+            </tr>
+            <tr>
+                <!-- Agile Pro Con-->
+                <td>Welcomes Changes.</td>
+                <td>Unclear instructions could hurt project.</td>
+                <!-- Waterfall Pro Con-->
+                <td>Easy to follow and manage.</td>
+                <td>Changes are hard to implement late into development.</td>
+            </tr>
+            <tr>
+                <!-- Agile Pro Con-->
+                <td>Does not require large documentation.</td>
+                <td></td>
+                <!-- Waterfall Pro Con-->
+                <td>Benefits small projects.</td>
+                <td>No Software until late stages of development.</td>
+            </tr>
+            <tr>
+                <!-- Agile Pro Con-->
+                <td>Software is being constantly developed.</td>
+                <td></td>
+                <!-- Waterfall Pro Con-->
+                <td>Steps do not overlap.</td>
+                <td>High risk.</td>
+            </tr>
+            <tr>
+                <!-- Agile Pro Con-->
+                <td>Benefits small projects.</td>
+                <td></td>
+                <!-- Waterfall Pro Con-->
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- Agile Pro Con-->
+                <td>Shows attention to both good design and technical implementation.</td>
+                <td></td>
+                <!-- Waterfall Pro Con-->
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p style="font-size: 10px"> Table 2: Agile development methodology vs Waterfall development methodology</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Risk Analysis</h1>
+        <p>Table 1 shows the risk analysis taken for the games development stage to ensure any problems
+            that may arises are assessed early.</p>
+
+        <p>
+            Key :( very low=1, low=2, medium=3, high=4, very high=5)<br>
+            Estimated Probability (1-5)<br>
+            Estimated impact (1-5)<br>
+        </p>
+        <table border="5" style="width: 100%">
+            <tr>
+                <td>Risk</td>
+                <td>Score</td>
+                <td>Recognition</td>
+                <td>Resolution</td>
+            </tr>
+            <tr>
+                <td>Too much or too little money from killing the zombies.</td>
+                <td>Estimated Probability (2) <br> Estimated impact (5)</td>
+                <td>Will make the game too easy or hard to buy weapons or upgrades.</td>
+                <td>Testing will need to be carried out to ensure the amount of money gained is balanced.</td>
+            </tr>
+            <tr>
+                <td>Zombies moving too fast or slow.</td>
+                <td>Estimated Probability (1) <br> Estimated impact (5)</td>
+                <td>Making zombies too fast or slow will make the game too hard or easy and put players off.</td>
+                <td>Testing will be required from players of various game skills to ensure movement speed is balanced.</td>
+            </tr>
+            <tr>
+                <td>Upgrades cost too little.</td>
+                <td>Estimated Probability (3) <br> Estimated impact (4)</td>
+                <td>Making the players upgrades too easy to acquire will make the game boring. </td>
+                <td>With the design of the game being purposefully difficult, the cost of the upgrades will need to reflect this design decision.</td>
+            </tr>
+            <tr>
+                <td>Not enough weapon verity.</td>
+                <td>Estimated Probability (1) <br> Estimated impact (3)</td>
+                <td>Not having enough types of weapons could leave the game boring and bland.</td>
+                <td>I will need to ensure the game focuses on a verity of weapons instead of just a large number of the one type.</td>
+            </tr>
+        </table>
+        <p style="font-size: 10px"> Table 1: Risk analysis for game development</p>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">Concept Art</h1>
+        Below are sketches to show the intended design and look of the game menu, level, characters and weapons.
+        <h2>10.1. Level</h2>
+        <h2>10.2. Characters</h2>
+
+        <h1 style="color: rgba(197, 179, 88, 1)">References</h1>
+        1. Douglass, P, B. (2016) What are Agile Methods and Why Should I Care? Agile Systems Engineering, pp.41-84
+    </div>
+
+
+</body>
+</html>

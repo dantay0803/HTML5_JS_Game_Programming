@@ -15,8 +15,9 @@
 .pageTeam{
     background: url('../Images/Site/Screenshots/ss7.png') no-repeat center center fixed;
 }
-.pageAbout, .pageLitReview{
-    background: url('../Images/Site/Screenshots/ss3.jpg') no-repeat center center fixed;
+.pageAbout, .pageDocumentation{
+    background: url('../Images/Site/Screenshots/logoBack.png') no-repeat center center fixed;
+    text-align: center;
 }
 
 /*Style game page*/
@@ -67,23 +68,25 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
 #gameInfo1, #gameInfo2{
     margin-top: 100px;
     color: white;
-    text-align: center;
 }
-
-/*Style lit review page*/
-#litReview1, #litReview2{
-    color: white;
-    background-color: black;
-
+#gameInfo1{
+    float: left;
+    margin-left: 100px;
 }
-#litReview1{
-    margin-left: 125px;
-}
-#litReview2{
+#gameInfo2{
     float: right;
-    margin-right: 125px;
+    margin-right: 100px;
 }
-.litReviewHeader{
-    text-align: center;
-    text-decoration: underline;
+
+/*Style documentation page*/
+#documentation1{
+    margin-top: 75px;
+    margin-left: auto;
+}
+
+/*Center Columns*/
+.col-centered {
+    display:inline-block;
+    float:none;
+    color: white;
 }
