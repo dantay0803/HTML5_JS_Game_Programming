@@ -3,9 +3,13 @@
  */
 var game;
 
+var canvasWidth = 896;
+var canvasHeight = 512;
+
+
 window.onload = function(){
     console.log(1);
-    game = new Phaser.Game(896, 512, Phaser.AUTO, 'gameCanvas', {preload: preload, create: create, update: update});
+    game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, 'gameCanvas', {preload: preload, create: create, update: update});
 };
 
 function preload(){
