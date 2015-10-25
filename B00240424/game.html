@@ -15,7 +15,9 @@
     <script src="JavaScript/Styling/jquery-2.1.4.min.js"></script>
     <script src="JavaScript/Styling/bootstrap.min.js"></script>
     <script src="JavaScript/Game/phaser.min.js"></script>
-    <script src="JavaScript/Game/main.js"></script>
+    <script src="JavaScript/Game/scr_preloader.js"></script>
+    <script src="JavaScript/Game/scr_mainMenu.js"></script>
+    <script src="JavaScript/Game/scr_controls.js"></script>
 
 </head>
 <body class="game">
@@ -46,18 +48,34 @@
     <!-- Position Canvas-->
     <div class="col-md-12" id="gameCanvas"></div>
 
-    <!-- Game Information -->
-    <div class="col-md-6" id="gameControls1">
-        <h2>Move:</h2>
-        <img src="Images/Site/Controls/wasd_icon.png" style="width: 25%; height: 25%;">
-    </div>
+    <script type="text/javascript">
+        /*Game Strut
 
-    <!-- List of Game Features -->
-    <div class="col-md-6" id="gameControls2">
-        <h2 >Shoot:</h2>
-        <img src="Images/Site/Controls/mouseInstructions.png" style="width: 15%; height: 15%;">
-    </div>
+         preload
+         main menu
+         controls
+         options
+         game
+         upgrades
+         score/gameover
+         */
 
+        //Level Size - 2496 x 1600px 64x64px per block
+        //CanvasSize
+        var canvasWidth = 832, canvasHeight = 800;
+        //NewPhaserGame
+        var game = new Phaser.Game(canvasWidth, canvasHeight);
+
+        //AddGameStates
+        game.state.add('preloader', MyGame.StateA);
+        game.state.add('mainMenu', MyGame.StateB);
+        game.state.add('controls', MyGame.StateC);
+
+        //StartPreloader
+        game.state.start('preloader');
+
+
+    </script>
 
 </body>
 </html>

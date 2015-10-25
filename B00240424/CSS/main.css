@@ -1,6 +1,6 @@
 /*Set the body of the pages*/
 .home{
-    background: url('../Images/Site/giphy.gif') no-repeat center center fixed;
+    background: url('../Assets/Site/giphy.gif') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -13,10 +13,10 @@
     -o-background-size: cover;
 }
 .pageTeam{
-    background: url('../Images/Site/Screenshots/ss7.png') no-repeat center center fixed;
+    background: url('../Assets/Site/Screenshots/ss7.png') no-repeat center center fixed;
 }
 .pageAbout, .pageDocumentation{
-    background: url('../Images/Site/Screenshots/logoBack.png') no-repeat center center fixed;
+    background: url('../Assets/Site/Screenshots/logoBack.png') no-repeat center center fixed;
     text-align: center;
 }
 
@@ -29,10 +29,6 @@ canvas{
 }
 #gameCanvas{
     margin-top: 50px;
-}
-#gameControls1, #gameControls2{
-    text-align: center;
-    color: white;
 }
 
 /*Set up carousel*/
@@ -89,4 +85,10 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
     display:inline-block;
     float:none;
     color: white;
+}
+
+.minutes{
+    display: inline-block;
+    text-align:left;
+    width: 35em;
 }
