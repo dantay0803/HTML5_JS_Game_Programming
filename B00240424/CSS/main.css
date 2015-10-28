@@ -45,7 +45,7 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
 }
 
 /*Style team page*/
-#danielTextColumn{
+.teamTextColumn{
     margin-top: 150px;
     font-size: 17px;
     color: white;
@@ -91,4 +91,8 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
     display: inline-block;
     text-align:left;
     width: 35em;
+}
+
+.container-fluid{
+    padding: 0;
 }
