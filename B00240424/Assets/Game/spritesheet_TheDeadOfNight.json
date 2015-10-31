@@ -1,0 +1,108 @@
+{"frames": {
+
+"bg_controls.png":
+{
+	"frame": {"x":2,"y":2,"w":832,"h":640},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":832,"h":640},
+	"sourceSize": {"w":832,"h":640}
+},
+"bg_mainMenu.png":
+{
+	"frame": {"x":836,"y":2,"w":832,"h":640},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":832,"h":640},
+	"sourceSize": {"w":832,"h":640}
+},
+"spr_ControlsButton.png":
+{
+	"frame": {"x":1670,"y":2,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+},
+"spr_ControlsButtonSelected.png":
+{
+	"frame": {"x":1670,"y":100,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+},
+"spr_MusicButton.png":
+{
+	"frame": {"x":1670,"y":492,"w":130,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":96},
+	"sourceSize": {"w":130,"h":96}
+},
+"spr_MusicButtonSelected.png":
+{
+	"frame": {"x":1670,"y":590,"w":130,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":96},
+	"sourceSize": {"w":130,"h":96}
+},
+"spr_SFXButton.png":
+{
+	"frame": {"x":1802,"y":492,"w":130,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":96},
+	"sourceSize": {"w":130,"h":96}
+},
+"spr_SFXButtonSelected.png":
+{
+	"frame": {"x":1802,"y":590,"w":130,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":96},
+	"sourceSize": {"w":130,"h":96}
+},
+"spr_StartButton.png":
+{
+	"frame": {"x":1670,"y":198,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+},
+"spr_StartButtonSelected.png":
+{
+	"frame": {"x":1670,"y":296,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+},
+"spr_audioMutedIndecator.png":
+{
+	"frame": {"x":1934,"y":492,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53}
+},
+"spr_backButton.png":
+{
+	"frame": {"x":1670,"y":394,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sprietsheet_TheDeadOfNight.png",
+	"format": "RGBA8888",
+	"size": {"w":1988,"h":688},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:cc5aef357d9234748026588ccf4c0a25:048662000174216252ea49852d15d789:e040f7d448989dc55e65ff0519c7be93$"
+}
+}

@@ -3,12 +3,28 @@
  */
 
 //NewGameObject
-var MyGame = {};
+var MyGame = {
+    //GlobalVariables
+    //AudioStatus
+    playMusic: false,
+    playSFX: false,
+    //GameMusic
+    //MusicForGameMenus
+    music_menus: null,
+    music_noComabt: null,
+    music_comabt: null,
+    //GameMoney
+    money: 0
+};
 
 
-var musicIsPlaying = true;
-var sfxIsPlaying = true;
-
+//PlayButtonClick
+MyGame.playButtonClick = function(){
+    var buttonClick = game.add.audio('snd_buttonClick', 1, false);
+    if(MyGame.playSFX){
+        buttonClick.play();
+    }
+};
 
 MyGame.StateA = function (game){
 
@@ -19,7 +35,7 @@ MyGame.StateA.prototype = {
     //LoadAssets
     preload: function(){
         //LoadMainMenuImages
-        game.load.atlasJSONHash('spr_mainMenu', './Assets/Game/spr_mainMenu.png', './Assets/Game/spr_mainMenu.json');
+        game.load.atlasJSONHash('spr_game', './Assets/Game/sprietsheet_TheDeadOfNight.png', './Assets/Game/spritesheet_TheDeadOfNight.json');
 
         //LoadMainMenuMusic
         game.load.audio('music_mainMenu', './Assets/Game/Audio/AdventureMeme.mp3');
@@ -28,6 +44,9 @@ MyGame.StateA.prototype = {
     },
 
     create: function(){
+        //SetMenuMusicFile
+        MyGame.music_menus = game.add.audio('music_mainMenu', 1, true);
+
         //LoadMenuAfterAssetsAreLoaded
         this.state.start('mainMenu');
     }

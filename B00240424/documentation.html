@@ -16,357 +16,628 @@
     <script src="JavaScript/Styling/bootstrap.min.js"></script>
 </head>
 <body class="pageDocumentation">
-    <!--Nav Bar-->
-    <div id="main-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span><span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="game.html">GAME</a></li>
-                    <li><a href="screenshots.html">SCREENSHOTS</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li class="active"><a href="documentation.html">DOCUMENTATION</a> </li>
-                    <li><a href="team.html">TEAM</a></li>
-                    <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
-                </ul>
-            </div>
+<!--Nav Bar-->
+<div id="main-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span><span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="game.html">GAME</a></li>
+                <li><a href="screenshots.html">SCREENSHOTS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li class="active"><a href="documentation.html">DOCUMENTATION</a></li>
+                <li><a href="team.html">TEAM</a></li>
+                <li><a href="minutes.html">MINUTES</a></li>
+                <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <!-- Document Review-->
-    <div class="col-md-8 col-centered" id="documentation1">
-        <br><img src="Assets/Site/Documentation/brainlessGamesLogo.png" alt="Brainless Games Logo" style="width: 150px; height: 150px;"><br>
+<!-- Document Review-->
+<div class="col-md-8 col-centered" id="documentation1">
+    <!--Documentation Title-->
+    <br><img src="Assets/Site/Documentation/brainlessGamesLogo.png" alt="Brainless Games Logo"
+             style="width: 150px; height: 150px;"><br>
+    <h4>Documentation For:</h4>
 
-        <br><h4>Documentation For:</h4>
+    <h1>The Dead of Night</h1><br>
+    <h4>All work copyright 2015 Brainless Games</h4>
+    <h4>Written by Daniel Taylor (B00240424)</h4>
+    <h4>Version #1.8</h4>
+    <h4>Friday, October 30th, 2015</h4>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">The Dead of Night</h1><br>
+    <!--Game Design Research -->
+    <h1>Research into Game</h1>
 
-        <br><h4>All work copyright 2015 Brainless Games</h4>
-        <h4>Written by Daniel Taylor (B00240424)</h4>
-        <h4>Version #1.4</h4>
-        <h4>Wednesday, October 28th, 2015</h4>
+    <p>I originally wanted to create a First Person Shooter genre of game for the project, since however we were
+        tasked with using a 2D framework I decided to go with a top down shooter genre of game. Choosing this genre
+        of game meant I could incorporate a lot of elements and play styles found in First Person Shooters, my
+        other reason for choosing this genre of game was that I know from experience and reading reviews of similar
+        games online it can be extremely enjoyable to play. Once I had the main genre of game I wanted to create
+        locked down I looked at what features I wanted to incorporate into the game, I then decided that I wanted
+        to incorporate what I think are the best features from the Hotline Miami, Call of Duty Zombies and Killing
+        Floor series of games.</p>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Research into Game</h1>
-        <p>I originally wanted to create a First Person Shooter genre of game for the project, since however we were not
-            able to use any other framework I decided to go with a top down shooter style of game. My reason for going
-            with this genre is that it is similar to my original game and I have played other web based top down
-            shooters that I really enjoyed. To mix up the gameplay from the general top down shooters, I decided to
-            cross the gameplay with some gameplay features from both Call of Duty Zombies and Killing Floor.
-        Once I knew about the genre of game I wanted to make and I had thought more about the features from Call of Duty
-            Zombies and Killing Floor that I wanted to implement I created a small description of the game. After
-            writing this description I asked some friends who fit into my target audience what they though. After
-            getting some feedback I seen this was an idea that people liked so decided to go with it.
-        I will be taking Call of Duty Zombies weapon feature where you can buy guns or ammo at any point in the round;
-            I feel this is better than randomly spawning in weapons or ammo whenever a player kills a zombie as it
-            gives them more choice and verity. The upgrade system I will be implementing is inspired by a class upgrade
-            system featured in the Killing Floor series. The difference being the Killing Floor upgrades differ between
-            the classes in the game were as my game will be using a more generalised system.</p>
+    <h2>Hotline Miami</h2>
+    <b>Copies Sold:</b> 130,000 (Seven Week Period on PC) (Purchese, 2012)
+    <p>Hotline Miami see’s the player play as a character named “Jacket”, “Jacket” has been receiving phone calls
+        from a strange group of people who send him to various locations through an 80’s inspired Miami. At
+        these locations “Jacket” has to kill various enemies including gangsters, cops and Russian mobsters
+        or “Jacket” will supposedly be killed by the group that keeps calling. The game is a 2D top down shooter
+        with a retro inspired art style, in terms of gameplay Hotline Miami focuses on speed by using an arcade
+        style of score with the faster the player kills people one after the other the higher the score for
+        each level they gain.</p>
 
+    <h3>Features to Incorporate</h3>
+    <ul style="list-style-type: none">
+        <li><b style="color: rgba(197, 179, 88, 1)">Retro inspired graphics:</b> My intentions for the
+            art style of the game is to use a similar retro inspired style like used in Hotline Miami,
+            using this art style helps give the game a distinct look and with it using less detail in
+            the images it means less server space required and it will help with performance.
+        </li>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Story</h1>
-        <p>
-            You find yourself waking up on a cold, damp, hard floor, with your head pounding as if you were running
-            through incoming enemy artillery. That however would be too plausible, but all you can see is a group of
-            red dots getting closer and closer and the sound of painful growls getting louder by the second.<br>
-            <br>Seconds later you see… soldiers… but they weren’t really soldiers anymore.<br>
-            <br>One of them charges into you and you put him down with a double tap from your pistol. Still unsure what is
-            really going on your only instinct now is to survive by any means necessary until you have some time
-            to figure out what is happening around here.
-        </p>
+        <br>
+        <li><b style="color: rgba(197, 179, 88, 1)">Harsh and unforgiving gameplay:</b> The harsh
+            gameplay of not being able to die during each level of the game or you will need to restart that
+            level makes for a fun and tense gaming experience, contrary to what you would think. This is
+            shown in other games such as rogue-lite genre based games where you need to restart once you die
+            like the Binding of Isaac which has sales of over 1.8 million copies and FTL: Faster Than Light
+            which is said to have sold over 1.6 million copies (Orland, 2014).
+        </li>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Genre</h1>
-        <p>The games genre will be a 2D top down shooter style of game crossed with a wave based survival game
-            genre seen in such titles as Call of Duty Zombies and Killing Floor 1 & 2.</p>
+        <br>
+        <li><b style="color: rgba(197, 179, 88, 1)">Limited health:</b> Unlike the other two games
+            that inspired my game idea I want to go with a similar health design like Hotline Miami, however
+            unlike Hotline Miami only giving the player one life to beat an entire level I think this would
+            make the game too hard and boring. So in order to counter this I will give the player 100 hit
+            points every time they play the level, by doing this it should keep the game challenging but not
+            too challenging like Hotline Miami and should not let the player get too bored by having
+            regenerating health like in the other games.
+        </li>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Player Goals</h1>
-        <p>The object for the game is for the player to continually kill zombies in order to gain money and get the
-            most points to set their high score, if at any time the player runs out of ammo they will need to buy a
-            new weapon or more ammo placed around the level. The player will also need to decided what weapons they
-            buy as well as how cautious they are in making every shot count in order to save as much money as
-            possible to buy more and more upgrades.</p>
-
-        <h1 style="color: rgba(197, 179, 88, 1)">Intended Experience</h1>
-        <p>Before the first zombie of each wave even gets in the level I want the players to be on edge and
-            feel extremely tense as they don’t know what is coming or even when it is coming. During an attack from
-            the zombies they player should feel like they keep coming and will not stop no matter what, overall the
-            game itself should feel difficult and challenging. The player will need to constantly think about what
-            they are doing and what the plan to do in order to not get surrounded or have their back up against a wall.</p>
-
-        <h1 style="color: rgba(197, 179, 88, 1)">Target Audience</h1>
-        <p>The audience the game will be targeted towards will be both males and females from the age of 15 and
-            over that have or had an interest in top down shooter and wave based survival games.</p>
-
-        <h1 style="color: rgba(197, 179, 88, 1)">Intended Gameplay</h1>
-        Table 3 shows the controls the player will be able to use during gameplay.
-        <table border="5" style="width: 100%">
-            <tr>
-                <td>Player Action</td>
-                <td>Controls</td>
-            </tr>
-            <tr>
-                <td>Movement</td>
-                <td>W, A, S & D keys</td>
-            </tr>
-            <tr>
-                <td>Rotate and aim player</td>
-                <td>Mouse</td>
-            </tr>
-            <tr>
-                <td>Fire weapons</td>
-                <td>Left mouse button</td>
-            </tr>
-            <tr>
-                <td>Purchase weapons</td>
-                <td>E key</td>
-            </tr>
-        </table>
-        <p style="font-size: 10px"> Table 3: Player Input</p>
-        <p>During the game the player and zombies will be able to collide with each other and static
-            level objects such as walls, of the player collides with a zombie however they will lose health.
-            The player will also be able to kill the zombies by shooting them, each time the player does kills
-            a zombie they will earn some money and points which will display their top score. The money they
-            earn will be used to but new guns/ammo which will be placed around the level. Once the player
-            has been killed they will then be able to purchase upgrades to their ammo count, damage and
-            more health, these upgrades will also be saved  to the users account.</p>
-
-        <h1 style="color: rgba(197, 179, 88, 1)">Intended Goal</h1>
-        <p>My intended goal for the game is to create a fun, enjoyable and challenging experience by combining
-            what I personally feel are the best features from both the Call of Duty Zombies and Killing Floor
-            franchise to create the best survival wave based shooter experience. By also mixing these features
-            into a game with top down perspective and by using 2D graphics it means the game will be able to
-            perform better across a verity of systems and mean the game can reach potentially a wider audience.</p>
+        <br>
+        <li><b style="color: rgba(197, 179, 88, 1)">Gore:</b> One part of Hotline Miami that seen
+            the game gather a lot of attention both good and bad was the amount of gore within the game,
+            due to my game also being a violent type of game I want to incorporate some gore with blood
+            splatter when a zombie is shot or a player is damaged. This type of detail adds to the overall
+            experience of games which a lot of gamers enjoy.
+        </li>
+    </ul>
 
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Development Method</h1>
-        <p>The development method I have decided to adopt for the project is the Agile method. I have decided to
-            use this method compared to other methods such as the Waterfall method, this is due to the fact the
-            Agile method focuses less on the projects documentation and building the entire project at once but
-            rather develop the project incrementally. Another benefit of using the Agile method over the Waterfall
-            method is that the Agile method welcomes changes late into the development cycle; this can prove to
-            be extremely beneficial due to the short development time available for the project. “At its core,
-            agile is about being efficient, focusing on delivering quality in the work products,
-            and being adaptive to change.”[1]</p>
+    <h2>Call of Duty: World at War Zombies</h2>
+    <b>Copies Sold:</b> Over 11 million (McWhertor, 2009)
+    <p>The zombie’s mode in Call of Duty: World at War see’s the player wake up as an unknown soldier inside of
+        a ruined building. After a short time of waking up the player hears a strange noise off in the distance and
+        sees a strange figure running towards them. After a short time undead soldiers in Nazi uniforms brake into
+        the building and the soldier has to defend himself. To help there are strange markings on the wall where the
+        player can magically get weapons from, similarity there is a box where the player can get a randomly
+        selected gun to help kill the undead soldiers. The player must kill of the zombies in order to survive for
+        as long as possible.</p>
 
-        <img src="Assets/Site/Documentation/agiledevelopmentprocess1.gif" alt="Agile Development Method Image" style="width: 350px; height: 250px;"><br>
-        <br>Fig 1: Forsyth, A. (2013) Agile development method cycle [Online] http://www.myglobalit.com/blog/waterfall-vs-agile-models-software-development [Accessed: 08/10/2015]
+    <h3>Features to Incorporate</h3>
+    <ul style="list-style-type: none">
+        <li><b style="color: rgba(197, 179, 88, 1)">Endless waves of enemies to survive:</b> In my game I am going to
+            use the same endless game mode used in Call of Duty Zombies where enemies will continue to spawn until the
+            player is dead. This method means that the game gets increasingly harder over time unlike Killing Floor
+            where
+            the game ends at around 10 rounds, which means players can never push themselves. By having the ability to
+            go
+            for a higher number of rounds survived means the user will be able to make use of their upgrades and be able
+            to
+            keep challenging themselves, which can add to the appeal and longevity of the game.
+        </li>
 
-        <br>Table 2 shows the pros and cons between the Agile and Waterfall development methods.
-        <table border="5" style="width: 100%">
-            <tr>
-                <td>Agile Method</td>
-                <td></td>
-                <td>Waterfall Method</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Pro</td>
-                <td>Con</td>
-                <td>Pro</td>
-                <td>Con</td>
-            </tr>
-            <tr>
-                <!-- Agile Pro Con-->
-                <td>Welcomes Changes.</td>
-                <td>Unclear instructions could hurt project.</td>
-                <!-- Waterfall Pro Con-->
-                <td>Easy to follow and manage.</td>
-                <td>Changes are hard to implement late into development.</td>
-            </tr>
-            <tr>
-                <!-- Agile Pro Con-->
-                <td>Does not require large documentation.</td>
-                <td></td>
-                <!-- Waterfall Pro Con-->
-                <td>Benefits small projects.</td>
-                <td>No Software until late stages of development.</td>
-            </tr>
-            <tr>
-                <!-- Agile Pro Con-->
-                <td>Software is being constantly developed.</td>
-                <td></td>
-                <!-- Waterfall Pro Con-->
-                <td>Steps do not overlap.</td>
-                <td>High risk.</td>
-            </tr>
-            <tr>
-                <!-- Agile Pro Con-->
-                <td>Benefits small projects.</td>
-                <td></td>
-                <!-- Waterfall Pro Con-->
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <!-- Agile Pro Con-->
-                <td>Shows attention to both good design and technical implementation.</td>
-                <td></td>
-                <!-- Waterfall Pro Con-->
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <p style="font-size: 10px"> Table 2: Agile development methodology vs Waterfall development methodology</p>
+        <li><b style="color: rgba(197, 179, 88, 1)">Ability to buy weapons and ammo at any point in the game:</b> I will
+            be taking Call of Duty Zombies weapon feature where you can buy guns or ammo at any point in the round; I
+            feel
+            this is better than randomly spawning in weapons or ammo whenever a player kills a zombie as it gives them
+            more
+            choice and verity.
+        </li>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Risk Analysis</h1>
-        <p>Table 1 shows the risk analysis taken for the games development stage to ensure any problems
-            that may arises are assessed early.</p>
+        <li><b style="color: rgba(197, 179, 88, 1)">Smaller enclosed level:</b> Similar to Call of Duty I plan on using
+            smaller enclosed levels in my game, having the levels smaller means the player will have to think tactically
+            about where to move so they do not get surrounded by too many enemies. Making this design choice also adds
+            to
+            the challenge of the game.
+        </li>
+    </ul>
 
-        <p>
-            Key :( very low=1, low=2, medium=3, high=4, very high=5)<br>
-            Estimated Probability (1-5)<br>
-            Estimated impact (1-5)<br>
-        </p>
-        <table border="5" style="width: 100%">
-            <tr>
-                <td>Risk</td>
-                <td>Score</td>
-                <td>Recognition</td>
-                <td>Resolution</td>
-            </tr>
-            <tr>
-                <td>Too much or too little money from killing the zombies.</td>
-                <td>Estimated Probability (2) <br> Estimated impact (5)</td>
-                <td>Will make the game too easy or hard to buy weapons or upgrades.</td>
-                <td>Testing will need to be carried out to ensure the amount of money gained is balanced.</td>
-            </tr>
-            <tr>
-                <td>Zombies moving too fast or slow.</td>
-                <td>Estimated Probability (1) <br> Estimated impact (5)</td>
-                <td>Making zombies too fast or slow will make the game too hard or easy and put players off.</td>
-                <td>Testing will be required from players of various game skills to ensure movement speed is balanced.</td>
-            </tr>
-            <tr>
-                <td>Upgrades cost too little.</td>
-                <td>Estimated Probability (3) <br> Estimated impact (4)</td>
-                <td>Making the players upgrades too easy to acquire will make the game boring. </td>
-                <td>With the design of the game being purposefully difficult, the cost of the upgrades will need to reflect this design decision.</td>
-            </tr>
-            <tr>
-                <td>Not enough weapon verity.</td>
-                <td>Estimated Probability (1) <br> Estimated impact (3)</td>
-                <td>Not having enough types of weapons could leave the game boring and bland.</td>
-                <td>I will need to ensure the game focuses on a verity of weapons instead of just a large number of the one type.</td>
-            </tr>
-        </table>
-        <p style="font-size: 10px"> Table 1: Risk analysis for game development</p>
+    <h2>Killing Floor</h2>
+    <b>Copies Sold:</b> Over 1 million (Watts, 2012)
+    <p>Killing Floor is an FPS set in London, England and sees the player take controls of their choice of character
+        from a selection of soldiers and special police officers. The aim of the game is to survive through a set number
+        of
+        waves based on the games difficulty by killing an endless army military mutations that have escaped enclosure
+        from
+        a science company known as Biotech’s Headquarters.</p>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Concept Art</h1>
-        <p>Below are sketches to show the intended design and look of the game menu, level, characters and weapons.
-            The final design of all the game components is subject to change once development and testing begins,
-            in order to create a better play experience for the users.</p>
-        
-        <h2>10.1. Menus</h2>
-        <p>The design for the menus are below, the content on the menus will be the same at the finished
-            stage however the colour scheme and layout will be different and fit the overall aesthetic and
-            colour pallet of the game.</p>
-        <img src="Assets/Site/Documentation/MainMenu.png" alt="Main Menu Concept" style="width: 40%; height: 40%;">
-        <img src="Assets/Site/Documentation/controls.png" alt="Controls Concept" style="width: 40%; height: 40%;">
-        
-        <h2>10.2. Level</h2>
-        <p>Below is a concept for the playable level in the game, the white squares inside of the
-            level indicate the position of the guns that the user will be able to purchase during gameplay.</p>
-        <img src="Assets/Site/Documentation/Map.png" alt="Level Concept" style="width: 75%; height: 75%;">
+    <h3>Features to Incorporate</h3>
+    <ul style="list-style-type: none">
+        <li><b style="color: rgba(197, 179, 88, 1)">Upgrade system:</b> To add more depth to my game I want to include
+            an
+            upgrade system to my game similar to Killing Floors. The difference however is that in Killing Floor you can
+            play as different classes and the upgrades you can unlock are pre-set, I plan on including a selection of
+            upgrades with various stages to each and the user can choose which one they upgrade at the end of each run.
+        </li>
+    </ul>
 
-        <h2>10.3. Player Character</h2>
-        <p>This is the concept for the character that the play will be controlling, the look of
-            the player will change as they use different weapons.</p>
-        <img src="Assets/Site/Documentation/player.png" alt="Player Concept" style="width: 15%; height: 15%">
+    <h2>Features to Incorporate from both Call of Duty Zombies and Killing Floor</h2>
+    <ul style="list-style-type: none">
+        <li><b style="color: rgba(197, 179, 88, 1)">Verity of weapons available:</b> A feature included in Call of Duty
+            Zombies and Killing Floor is the inclusions of a verity of guns and gun types, including this kind of verity
+            is
+            a must in a game that requires users to restively play in order to get better and better as well as make use
+            of
+            all its components. Due to this I aim to include a verity of guns and gun types into my own game.
+        </li>
+    </ul>
 
-        <h2>10.4. Zombie</h2>
-        <p>This is the design concept for the zombie enemies in the game which the player will
-            be required to kill, the final design may change to show an undead and rotted body design.</p>
-        <img src="Assets/Site/Documentation/zombie.png" alt="Player Concept" style="width: 15%; height: 15%">
+    <h2>Similar Games</h2>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">References</h1>
-        1. Douglass, P, B. (2016) What are Agile Methods and Why Should I Care? Agile Systems Engineering, pp.41-84
+    <p>To also help in my design choices for my game I also looked at similar games available to purchase through the
+        PC video game store Steam.</p>
 
-        <h1 style="color: rgba(197, 179, 88, 1)">Appendix</h1>
-            <h2>Minutes of Meeting Week 2 - 28/09/2015</h2>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
-            <ul class="minutes">
-                <li>Plan rough website design based on research.</li>
-                <li>Come up with game idea(s).</li>
-            </ul>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
-            <ul class="minutes">
-                <li>N/A</li>
-            </ul>
+    <h3>Zombie Zoeds</h3>
 
-            <h2>Minutes of Meeting Week 3 - 05/10/2015</h2>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
-            <ul class="minutes">
-                <li>Start on creation of website.</li>
-                <li>Acquire temporary images/assets to be used on website until completion of game.</li>
-                <li>Set up XAMPP on home computer.</li>
-                <li>Download and install Tiled and TexturePacker on home computer.</li>
-            </ul>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
-            <ul class="minutes">
-                <li>I have come up with a website design to use by looking at various gaming company websites.</li>
-                <li>After writing down 3 game ideas, I have decided to go for a top down shooter mixed with mechanics
-                    from Call of Duty Zombies and the Killing Floor franchise. I feel this idea fits into a scope
-                    I could complete within the short time frame but still has rich enjoyable content.</li>
-            </ul>
+    <p>Zombie Zoeds is also a 2D top down shooter it has similar features to the game I aim to create such as verity of
+        weapons and limited health. Zombie Zoeds however has gotten a lot of bad reviews on steam with users complaining
+        about bad controls, bad looking graphics and you can only shoot in the direction you are moving. These issues
+        will
+        be taken on board during my development to ensure I create a better gaming experience.</p>
 
-            <h2>Minutes of Meeting Week 4 - 12/10/2015</h2>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
-            <ul class="minutes">
-                <li>Start writing documentation for website and place documentation on the website.</li>
-            </ul>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
-            <ul class="minutes">
-                <li>The website has been fully created, I used some placeholder assets in the website creation
-                    to allow me to see the layout whilst the game is not yet complete. I also used Twitter’s Bootstrap
-                    3 framework as it offers a lot of features without massive amounts of HTML, CSS or JavaScript.</li>
-                <li>All of the software required for the project has been installed and activated on my home PC as
-                    well as my portable hard drive so I can make use of it in University.</li>
-            </ul>
+    <h3>Xenocide</h3>
 
-            <h2>Minutes of Meeting Week 5 - 19/10/2015</h2>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
-            <ul class="minutes">
-                <li>Take individual minutes of tasks that have been completed each week.</li>
-                <li>Start on main menu design and implementation into Phaser.</li>
-                <li>Look at scaling the game in Phaser.</li>
-            </ul>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
-            <ul class="minutes">
-                <li>The required documentation plus some extra details has been written and added to my website.
-                    I originally had the documentation embedded as a PDF file on the website but after asking people's
-                    opinions they preferred the documentation added as plain HTML as it fit more with the websites design.</li>
-            </ul>
+    <p>Xenocide is another top down shooter with a lot of similarities to the game I want to create with the differences
+        being in Xenocide you can collect power ups and it appears there is more than one enemy type. In terms of user
+        feedback on the games Steam page it has received Mostly Positive reviews, the positive reviews highlighted that
+        having unlimited ammo was a nice touch as well as no need to reload, it had a good verity of weapons and
+        upgrades as
+        well as the increasing difficulty kept the game fun. Whereas the negative reviews highlighted the game felt
+        short
+        for the price, it didn’t have a lot of weapons in some people’s opinion and there was not a lot of enemy
+        types.</p>
 
-            <h2>Minutes of Meeting Week 6 - 26/10/2015</h2>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
-            <ul class="minutes">
-                <li>Implement controls menu.</li>
-                <li>Implement sound options either as buttons on the main menu or in a settings page.</li>
-                <li>Design a better looking main menu.</li>
-                <li>Start working on the map for the game.</li>
 
-            </ul>
-            <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
-            <ul class="minutes">
-                <li>Solo minutes discussing my tasks and what I have accomplished each week have been taken.</li>
-                <li>I have also implemented a working menu with a rough design. The menu can be navigated
-                    and selections can be made with the keyboard and mouse, the included keyboard buttons
-                    are W, S, up and down arrows and the enter button. The main menu also has background
-                    music and button click sounds playing.</li>
-                <li>All of the concept art for the game has been completed and entered into the
-                    documentation section of the website.</li>
-                <li>In terms of scaling the game I have purchased a book written by the Phaser creator
-                    that explains how to scale games and will look at implementing this feature when
-                    the main game features are complete.</li>
-                <li>The first draft of the website has been submitted to meet the class deadline.</li>
-            </ul>
-    </div>
+    <!--Game Story-->
+    <h1>Story</h1>
+
+    <p>You find yourself waking up on a cold, damp, hard floor, with your head pounding as if you were running
+        through incoming enemy artillery. That however would be too plausible, but all you can see is a group of
+        red dots getting closer and closer and the sound of painful growls getting louder by the second.<br>
+        <br>Seconds later you see… soldiers… but they weren’t really soldiers anymore.<br>
+        <br>One of them charges into you and you put him down with a double tap from your pistol. Still unsure
+        what is really going on your only instinct now is to survive by any means necessary until you have some
+        time to figure out what is happening around here.</p>
+
+    <!--Game Genre-->
+    <h1>Genre</h1>
+
+    <p>The games genre will be a 2D top down shooter style of game crossed with a wave based survival game
+        genre seen in such titles as Call of Duty Zombies and Killing Floor 1 & 2.</p>
+
+    <!--Player Goals-->
+    <h1>Player Goals</h1>
+
+    <p>The object for the game is for the player to continually kill zombies in order to gain money and get the
+        most points to set their high score, if at any time the player runs out of ammo they will need to buy a
+        new weapon or more ammo placed around the level. The player will also need to decided what weapons they
+        buy as well as how cautious they are in making every shot count in order to save as much money as
+        possible to buy more and more upgrades.</p>
+
+    <!--Intended Experience-->
+    <h1>Intended Experience</h1>
+
+    <p>Before the first zombie of each wave even gets in the level I want the players to be on edge and
+        feel extremely tense as they don’t know what is coming or even when it is coming. During an attack from
+        the zombies they player should feel like they keep coming and will not stop no matter what, overall the
+        game itself should feel difficult and challenging. The player will need to constantly think about what
+        they are doing and what the plan to do in order to not get surrounded or have their back up against a
+        wall.</p>
+
+    <!--Target Audience-->
+    <h1>Target Audience</h1>
+
+    <p>The audience the game will be targeted towards will be both males and females from the age of 15 and
+        over that have or had an interest in top down shooter and wave based survival games.</p>
+
+    <!--Scope of the Project-->
+    <h1>Project Scope</h1>
+
+    <h2>Levels</h2>
+
+    <p>The basic version of the game will include one playable level filled with various debris and objects
+        to provide more detail and life to the level. The level will also contain various weapons to purchase
+        and entry points for the zombies to attack the player from. If there is any development time available
+        after all the basic features of the game have been implemented more levels and a level select screen
+        may be added.</p>
+
+    <h2>Player Character</h2>
+
+    <p>The character controlled by the player will come designed in a solider uniform to fit the back story
+        of the game, however the player will be able to purchase different weapons which will affect the
+        way the character looks.</p>
+
+    <h2>Enemies</h2>
+
+    <p>The game will feature one type of enemy which is a zombie, however through the game the zombies
+        will gain slightly more health and speed ever round that the user survives. The main use of
+        the zombies is to spawn in large number of zombies and apply pressure through numbers of
+        enemies rather than various types. To add a slight verity and to throw off the play a zombie
+        will have a randomly generated chance to move faster than the other zombies.</p>
+
+    <!--Intended Gameplay-->
+    <h1>Intended Gameplay</h1>
+    Table 3 shows the controls the player will be able to use during gameplay.
+    <table border="5" style="width: 100%">
+        <tr>
+            <td>Player Action</td>
+            <td>Controls</td>
+        </tr>
+        <tr>
+            <td>Movement</td>
+            <td>W, A, S & D keys</td>
+        </tr>
+        <tr>
+            <td>Rotate and aim player</td>
+            <td>Mouse</td>
+        </tr>
+        <tr>
+            <td>Fire weapons</td>
+            <td>Left mouse button</td>
+        </tr>
+        <tr>
+            <td>Purchase weapons</td>
+            <td>E key</td>
+        </tr>
+    </table>
+    <p style="font-size: 10px"> Table 3: Player Input</p>
+
+    <p>During the game the player and zombies will be able to collide with each other and static
+        level objects such as walls, of the player collides with a zombie however they will lose health.
+        The player will also be able to kill the zombies by shooting them, each time the player does kills
+        a zombie they will earn some money and points which will display their top score. The money they
+        earn will be used to but new guns/ammo which will be placed around the level. Once the player
+        has been killed they will then be able to purchase upgrades to their ammo count, damage and
+        more health, these upgrades will also be saved to the users account.</p>
+
+    <!--Intended Goal-->
+    <h1>Intended Goal</h1>
+
+    <p>My intended goal for the game is to create a fun, enjoyable and challenging experience by combining
+        what I personally feel are the best features from both the Call of Duty Zombies and Killing Floor
+        franchise to create the best survival wave based shooter experience. By also mixing these features
+        into a game with top down perspective and by using 2D graphics it means the game will be able to
+        perform better across a verity of systems and mean the game can reach potentially a wider audience.</p>
+
+    <!--Technical Info-->
+    <h1>Technical Information</h1>
+    <!--Game Mechanics-->
+    <h2>Mechanics</h2>
+
+    <p>See appendix 1 for flowcharts for the games main mechanics.</p>
+
+    <!--Software to be Used-->
+    <h2>Software</h2>
+
+    <h3>IDE</h3>
+
+    <p>The development environment I will be using to create both the website to host the game and to create
+        the game itself will be WebStorm from JetBrains.</p>
+    <h4>Reasoning and Features</h4>
+
+    <p>The reasons for using WebStorm as my IDE is the amount of different features and benefits it brings
+        compared to using a text editor like Notepad++ or Sublime Text, these features include:</p>
+    <ul class="minutes">
+        <li>Spellchecker.</li>
+        <li>Certain empty fills come with basic required code or text, such as HTML pages contain basic
+            required tags.
+        </li>
+        <li>Code and text is automatically updated if you rename a file.</li>
+        <li>Contains auto complete feature for keywords and repeatedly used keywords.</li>
+    </ul>
+    <p>These features alone make WebStorm an effective tool to use for any development as it can save
+        a good bit of time.</p>
+
+    <h3>Game Framework</h3>
+
+    <p>The framework we have been tasked to use in the creation of the game is Phaser. Phaser is a fast and free
+        2D framework that uses WebGL for powering browser run games and includes a canvas fall back for browsers
+        with no WebGL support.</p>
+
+    <h3>Scripting Language</h3>
+
+    <p>To code the game I will be using vanilla JavaScript as I am more comfortable with it, I have opted not to
+        use JQuery even though it can help reduce the amount of code you write just because I do not have a lot
+        of experience with it and I do not want to spent too much time learning that instead of Phaser.
+        TypeScript is another option that could be used when coding in Phaser but similar to JQuery I have
+        no experience using TypeScript.</p>
+
+    <h3>Tiled</h3>
+
+    <p>To create and export the levels for the game I will be using the Tiled Software. The software allows
+        you to create the made using different images and then allows you to export the map in various
+        formats, one format that is helpful for web games is the JSON exporter as it compiles the image
+        locations and properties into a JSON file you can use to easily create your level.</p>
+
+    <h3>TexturePacker</h3>
+
+    <p>I will be using a program known as TexturePacker in order to add all of my images into an atlas
+        and export it as a .png and JSON file with all the images properties and the name of the single
+        image file. This allows me to load the atlas in Phaser and reference each image by using the key
+        name defined in the JSON file. The other benefit of this software is that it can drastically reduce
+        the amount of memory required for the images which is important with web based games as this can
+        help improve performance.</p>
+
+    <h3>Piskel</h3>
+
+    <p>Piskel is an online pixel art tool to create and export images, I will be using this to create
+        the graphical assets for my game as it is an easy to use tool.</p>
+    <!--Game AI-->
+    <h2>AI</h2>
+
+    <h3>Enemy Movement and Path Finding</h3>
+
+    <p>The enemies will be able to navigate through the level avoiding various objects and walls as well as
+        each other in order to reach the players position.</p>
+
+    <h3>Enemy Attacking Player</h3>
+
+    <p>Once the player is within a certain range to the enemies the enemies will then be able to attack
+        the player and reduce the player’s health. Whilst the enemy is attacking the player the enemy
+        will play an attack animation to show that they are able to hurt the player.</p>
+
+    <!--Physics System-->
+    <h2>Physics</h2>
+
+    <p>The game will use some of the basic laws of physics such as projectiles being limited in their speed
+        and range, characters not being able to move through solid objects. However in terms of movement the
+        player will not experience acceleration or deceleration due to the nature of top down shooters.</p>
+
+    <!--Game Audio-->
+    <h1>Audio</h1>
+
+    <h2>Music</h2>
+
+    <p>The music used within the game will add suspense during moments with no enemies in the level to keep
+        the player guessing when they will appear. During combat music with a faster beat will be played to
+        help heighten the action and excitement during encounters with the enemy. To help accompany the retro
+        look and feel of the pixel art I hope to use a retro style of video game music in the form of 8-bit
+        music or chiptunes, seen in older games such as early Super Mario Bros and the Castlevania series.</p>
+
+    <h2>Sound Effects</h2>
+
+    <p>Sound effects will be used to express all of the actions in the game. These sound effect s will be used
+        numerous times and will be used for various animations, collision events and different gun attacks.
+        Some of the sound effects to be included in the game have been listed below:</p>
+    <ul class="minutes">
+        <li>Button clicks</li>
+        <li>Enemy attacks</li>
+        <li>Player damage</li>
+        <li>Different gun shots</li>
+        <li>Player death</li>
+        <li>Zombie death</li>
+        <li>Purchase sound</li>
+    </ul>
+
+    <!--Development Approach-->
+    <h1>Development Method</h1>
+
+    <p>The development method I have decided to adopt for the project is the Agile method. I have decided to
+        use this method compared to other methods such as the Waterfall method, this is due to the fact the
+        Agile method focuses less on the projects documentation and building the entire project at once but
+        rather develop the project incrementally. Another benefit of using the Agile method over the Waterfall
+        method is that the Agile method welcomes changes late into the development cycle; this can prove to
+        be extremely beneficial due to the short development time available for the project. “At its core,
+        agile is about being efficient, focusing on delivering quality in the work products,
+        and being adaptive to change.”[1]</p>
+
+    <img src="Assets/Site/Documentation/agiledevelopmentprocess1.gif" alt="Agile Development Method Image"
+         style="width: 350px; height: 250px;"><br>
+    <br>Fig 1: Forsyth, A. (2013) Agile development method cycle [Online]
+    http://www.myglobalit.com/blog/waterfall-vs-agile-models-software-development [Accessed: 08/10/2015]
+
+    <br>Table 2 shows the pros and cons between the Agile and Waterfall development methods.
+    <table border="5" style="width: 100%">
+        <tr>
+            <td>Agile Method</td>
+            <td></td>
+            <td>Waterfall Method</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Pro</td>
+            <td>Con</td>
+            <td>Pro</td>
+            <td>Con</td>
+        </tr>
+        <tr>
+            <!-- Agile Pro Con-->
+            <td>Welcomes Changes.</td>
+            <td>Unclear instructions could hurt project.</td>
+            <!-- Waterfall Pro Con-->
+            <td>Easy to follow and manage.</td>
+            <td>Changes are hard to implement late into development.</td>
+        </tr>
+        <tr>
+            <!-- Agile Pro Con-->
+            <td>Does not require large documentation.</td>
+            <td></td>
+            <!-- Waterfall Pro Con-->
+            <td>Benefits small projects.</td>
+            <td>No Software until late stages of development.</td>
+        </tr>
+        <tr>
+            <!-- Agile Pro Con-->
+            <td>Software is being constantly developed.</td>
+            <td></td>
+            <!-- Waterfall Pro Con-->
+            <td>Steps do not overlap.</td>
+            <td>High risk.</td>
+        </tr>
+        <tr>
+            <!-- Agile Pro Con-->
+            <td>Benefits small projects.</td>
+            <td></td>
+            <!-- Waterfall Pro Con-->
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <!-- Agile Pro Con-->
+            <td>Shows attention to both good design and technical implementation.</td>
+            <td></td>
+            <!-- Waterfall Pro Con-->
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <p style="font-size: 10px"> Table 2: Agile development methodology vs Waterfall development methodology</p>
+
+    <!--Risk Analysis on Game-->
+    <h1>Risk Analysis</h1>
+
+    <p>Table 1 shows the risk analysis taken for the games development stage to ensure any problems
+        that may arises are assessed early.</p>
+
+    <p>
+        Key :( very low=1, low=2, medium=3, high=4, very high=5)<br>
+        Estimated Probability (1-5)<br>
+        Estimated impact (1-5)<br>
+    </p>
+    <table border="5" style="width: 100%">
+        <tr>
+            <td>Risk</td>
+            <td>Score</td>
+            <td>Recognition</td>
+            <td>Resolution</td>
+        </tr>
+        <tr>
+            <td>Too much or too little money from killing the zombies.</td>
+            <td>Estimated Probability (2) <br> Estimated impact (5)</td>
+            <td>Will make the game too easy or hard to buy weapons or upgrades.</td>
+            <td>Testing will need to be carried out to ensure the amount of money gained is balanced.</td>
+        </tr>
+        <tr>
+            <td>Zombies moving too fast or slow.</td>
+            <td>Estimated Probability (1) <br> Estimated impact (5)</td>
+            <td>Making zombies too fast or slow will make the game too hard or easy and put players off.</td>
+            <td>Testing will be required from players of various game skills to ensure movement speed is balanced.</td>
+        </tr>
+        <tr>
+            <td>Upgrades cost too little.</td>
+            <td>Estimated Probability (3) <br> Estimated impact (4)</td>
+            <td>Making the players upgrades too easy to acquire will make the game boring.</td>
+            <td>With the design of the game being purposefully difficult, the cost of the upgrades will need to reflect
+                this design decision.
+            </td>
+        </tr>
+        <tr>
+            <td>Not enough weapon verity.</td>
+            <td>Estimated Probability (1) <br> Estimated impact (3)</td>
+            <td>Not having enough types of weapons could leave the game boring and bland.</td>
+            <td>I will need to ensure the game focuses on a verity of weapons instead of just a large number of the one
+                type.
+            </td>
+        </tr>
+    </table>
+    <p style="font-size: 10px"> Table 1: Risk analysis for game development</p>
+
+    <!--Gantt Chart-->
+    <h1>Project Development Time Frame</h1>
+
+    <p>A Gantt Chart has been completed to designate and track the time to each of the tasks in the game to
+        ensure the project meets its development deadline.</p>
+    <img src="Assets/Site/Documentation/ProjectGanttChart.PNG" alt="Project Gantt Chart" style="width: 90%;">
+
+    <!--Rough Design of Game Objects-->
+    <h1>Concept Art</h1>
+
+    <p>Below are sketches to show the intended design and look of the game menu, level, characters and weapons.
+        The final design of all the game components is subject to change once development and testing begins,
+        in order to create a better play experience for the users.</p>
+
+    <h2>Menus</h2>
+
+    <p>The design for the menus are below, the content on the menus will be the same at the finished
+        stage however the colour scheme and layout will be different and fit the overall aesthetic and
+        colour pallet of the game.</p>
+    <img src="Assets/Site/Documentation/MainMenu.png" alt="Main Menu Concept" style="width: 40%; height: 40%;">
+    <img src="Assets/Site/Documentation/controls.png" alt="Controls Concept" style="width: 40%; height: 40%;">
+
+    <h2>Level</h2>
+
+    <p>Below is a concept for the playable level in the game, the white squares inside of the
+        level indicate the position of the guns that the user will be able to purchase during gameplay.</p>
+    <img src="Assets/Site/Documentation/Map.png" alt="Level Concept" style="width: 75%; height: 75%;">
+
+    <h2>Player Character</h2>
+
+    <p>This is the concept for the character that the play will be controlling, the look of
+        the player will change as they use different weapons.</p>
+    <img src="Assets/Site/Documentation/player.png" alt="Player Concept" style="width: 15%; height: 15%">
+
+    <h2>Zombie</h2>
+
+    <p>This is the design concept for the zombie enemies in the game which the player will
+        be required to kill, the final design may change to show an undead and rotted body design.</p>
+    <img src="Assets/Site/Documentation/zombie.png" alt="Player Concept" style="width: 15%; height: 15%">
+
+    <!--References-->
+    <h1 style="color: rgba(197, 179, 88, 1)">References</h1>
+    Douglass, P, B. (2016) What are Agile Methods and Why Should I Care? Agile Systems Engineering, pp.41-84.<br>
+
+    <br>Orland, K. (2014) Steam Gauge: Addressing your questions and concerns
+    [Accessed: http://arstechnica.com/gaming/2014/04/steam-gauge-addressing-your-questions-and-concerns/2/ 30th October
+    2015]<br>
+
+    <br>Purchese, R. (2012) The Hotline Miami sales story, and more
+    [Accessed: http://www.eurogamer.net/articles/2012-12-11-the-hotline-miami-sales-story-and-more 30th October
+    2015]<br>
+
+    <br>McWhertor, M. (2009) Call of Duty: World At War Tops 11 Million
+    [Accessed: http://kotaku.com/5291547/call-of-duty-world-at-war-tops-11-million 30th October 2015]<br>
+
+    <br>Watts, S. (2012) Killing Floor hits a million sales, discounted on Steam
+    [Accessed: http://www.shacknews.com/article/72460/killing-floor-hits-a-million-sales-offers-steam-sale 30th October
+    2015]<br>
+
+    <!--Appendix-->
+    <h1>Appendix</h1>
+    <!--Mechanics Flowcharts-->
+    <h2>Appendix 1 - Mechanics Flowcharts</h2>
+
+    <h3>Appendix 1.1 - Player Movement</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/PlayerMovementFlowChart.png" alt="Player Movement Flowchart"
+         style="width: 50%; height: 50%;">
+
+    <h3>Appendix 1.2 - Player Shooting</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/PlayerShootFlowchart.png" alt="Player Shoot Flowchart"
+         style="width: 50%; height: 50%;">
+
+    <h3>Appendix 1.3 - Player Gun Purchase</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/PlayerGunPurchaseFlowchart.png" alt="Player Gun Purchase Flowchart"
+         style="width: 50%; height: 50%;">
+
+    <h3>Appendix 1.4 - Object Death</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/ObjectDeathFlowchart.png" alt="Object Death Flowchart"
+         style="width: 50%; height: 50%;">
+
+    <h3>Appendix 1.5 - Enemy Movement</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/EnemyMovementFlowchart.png" style="width: 50%; height: 50%;">
+
+    <h3>Appendix 1.6 - Enemy Attack</h3>
+    <img src="Assets/Site/Documentation/Flowcharts/EnemyAttackFlowchart.png" style="width: 50%; height: 50%;">
+</div>
 
 </body>
 </html>

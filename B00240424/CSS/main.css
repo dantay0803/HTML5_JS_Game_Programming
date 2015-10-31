@@ -15,14 +15,15 @@
 .pageTeam{
     background: url('../Assets/Site/Screenshots/ss7.png') no-repeat center center fixed;
 }
-.pageAbout, .pageDocumentation{
-    background: url('../Assets/Site/Screenshots/logoBack.png') no-repeat center center fixed;
+.pageAbout, .pageDocumentation, .minutes{
+    background: url('../Assets/Site/WebsiteBackground.png') no-repeat center center fixed;
     text-align: center;
 }
 
 /*Style game page*/
 .game{
     background-color: black;
+    cursor: url('../Assets/spr_cursor.png'), default;
 }
 canvas{
     margin: auto;
@@ -74,10 +75,11 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
     margin-right: 100px;
 }
 
-/*Style documentation page*/
-#documentation1{
+/*Style documentation & minutes page*/
+#documentation1, #minutesOfMeeting{
     margin-top: 75px;
     margin-left: auto;
+    font-size: 18px;
 }
 
 /*Center Columns*/
@@ -87,7 +89,7 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
     color: white;
 }
 
-.minutes{
+.minutesList{
     display: inline-block;
     text-align:left;
     width: 35em;
@@ -95,4 +97,8 @@ html, body, .carousel, .item, .active, .carousel-inner, .fill{
 
 .container-fluid{
     padding: 0;
+}
+
+h1, h2, h3, a{
+    color: rgba(197, 179, 88, 1);
 }
