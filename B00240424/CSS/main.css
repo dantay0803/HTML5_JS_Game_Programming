@@ -25,12 +25,6 @@
     background-color: black;
     cursor: url('../Assets/spr_cursor.png'), default;
 }
-canvas{
-    margin: auto;
-}
-#gameCanvas{
-    margin-top: 50px;
-}
 
 /*Set up carousel*/
 html, body, .carousel, .item, .active, .carousel-inner, .fill{
