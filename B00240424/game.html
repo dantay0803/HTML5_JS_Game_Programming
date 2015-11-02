@@ -54,12 +54,11 @@
      score/gameover
      */
 
-    //Level Size - 2496 x 1600px 64x64px per block
+
     //CanvasSize
-    var canvasWidth = 832, canvasHeight = 640;
+    var canvasWidth = 960, canvasHeight = 640;
     //NewPhaserGame
     var game = new Phaser.Game(canvasWidth, canvasHeight);
-
     //AddGameStates
     game.state.add('preloader', MyGame.StateA);
     game.state.add('mainMenu', MyGame.StateB);
@@ -67,7 +66,6 @@
     game.state.add('level', MyGame.StateD);
     game.state.add('upgrades', MyGame.StateE);
     game.state.add('score', MyGame.StateF);
-
     //StartPreloader
     game.state.start('preloader');
 </script>
