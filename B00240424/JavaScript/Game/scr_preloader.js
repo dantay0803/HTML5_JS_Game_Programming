@@ -17,7 +17,6 @@ var MyGame = {
     money: 0
 };
 
-
 //PlayButtonClick
 MyGame.playButtonClick = function(){
     var buttonClick = game.add.audio('snd_buttonClick', 1, false);
@@ -26,10 +25,9 @@ MyGame.playButtonClick = function(){
     }
 };
 
-MyGame.StateA = function (game){
+MyGame.StateA = function (){
 
 };
-
 
 MyGame.StateA.prototype = {
     //LoadAssets
@@ -37,7 +35,6 @@ MyGame.StateA.prototype = {
         //LoadMapJsonFile
         game.load.tilemap('level1', './Assets/Game/Maps/Map.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image('spr_tiles', './Assets/Game/Sprites/MapTiles.png');
-
         //LoadImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
         //LoadMainMenuMusic
@@ -51,11 +48,10 @@ MyGame.StateA.prototype = {
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.scale.pageAlignHorizontally = true;
         game.scale.pageAlignVertically = true;
+        //RefreshTheDisplayAfterScalingTheGame
         game.scale.refresh();
-
         //SetMenuMusicFile
         MyGame.music_menus = game.add.audio('music_mainMenu', 1, true);
-
         //LoadMenuAfterAssetsAreLoaded
         this.state.start('mainMenu');
     }

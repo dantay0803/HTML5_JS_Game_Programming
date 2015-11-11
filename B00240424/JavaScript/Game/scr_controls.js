@@ -3,7 +3,8 @@
  */
 
 
-MyGame.StateC = function(game){
+MyGame.StateC = function(){
+    this.background = null;
     this.backButton = null;
     this.enterKey = null;
 };
@@ -20,16 +21,15 @@ MyGame.StateC.prototype = {
         this.playerKeyboardInput();
     },
 
-    update: function(){
-
-    },
-
     //AddImagesToStage
     addImages: function(){
         //AddBackgroundToGame
-        this.add.sprite(0, 0, 'spr_game', 'bg_controls.png');
+        this.background = this.add.sprite(0, 0, 'spr_game', 'bg_controls.png');
+        //SetBackgroundToFitScreen
+        this.background.width = canvasWidth;
+        this.background.height = canvasHeight;
         //AddButtonsToGame
-        this.backButton = this.add.sprite(145, 592, 'spr_game', 'spr_backButton.png');
+        this.backButton = this.add.sprite(220, 680, 'spr_game', 'spr_backButton.png');
     },
 
 
@@ -54,6 +54,4 @@ MyGame.StateC.prototype = {
         //GoToControlsPage
         this.state.start('mainMenu');
     }
-
-
 };
