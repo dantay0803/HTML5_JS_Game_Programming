@@ -24,19 +24,20 @@
       <file leaf-file-name="scr_level.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5584416">
-              <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.68722945">
+              <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
                 <element signature="e#379#616#0" expanded="false" />
                 <element signature="e#961#1168#0" expanded="false" />
-                <element signature="e#1491#1614#0" expanded="false" />
-                <element signature="e#1663#2285#0" expanded="false" />
-                <element signature="e#2338#3258#0" expanded="false" />
-                <element signature="e#4537#4925#0" expanded="false" />
-                <element signature="e#4981#6279#0" expanded="false" />
-                <element signature="e#6353#6544#0" expanded="false" />
-                <element signature="e#6594#6797#0" expanded="false" />
+                <element signature="e#1682#1805#0" expanded="false" />
+                <element signature="e#1854#2476#0" expanded="false" />
+                <element signature="e#2529#3449#0" expanded="false" />
+                <element signature="e#3500#4016#0" expanded="false" />
+                <element signature="e#4836#5224#0" expanded="false" />
+                <element signature="e#5280#6578#0" expanded="false" />
+                <element signature="e#6652#6843#0" expanded="false" />
+                <element signature="e#6893#7096#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,7 +118,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -225,6 +225,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -615,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45768374">
           <caret line="14" column="2381" selection-start-line="14" selection-start-column="2380" selection-end-line="14" selection-end-column="2381" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,14 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/spritesheet_TheDeadOfNight.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33295062">
-          <caret line="290" column="1" selection-start-line="290" selection-start-column="1" selection-end-line="290" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/team.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29955456">
@@ -673,21 +665,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/spritesheet_TheDeadOfNight.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5584416">
-          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.68722945">
+          <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
             <element signature="e#379#616#0" expanded="false" />
             <element signature="e#961#1168#0" expanded="false" />
-            <element signature="e#1491#1614#0" expanded="false" />
-            <element signature="e#1663#2285#0" expanded="false" />
-            <element signature="e#2338#3258#0" expanded="false" />
-            <element signature="e#4537#4925#0" expanded="false" />
-            <element signature="e#4981#6279#0" expanded="false" />
-            <element signature="e#6353#6544#0" expanded="false" />
-            <element signature="e#6594#6797#0" expanded="false" />
+            <element signature="e#1682#1805#0" expanded="false" />
+            <element signature="e#1854#2476#0" expanded="false" />
+            <element signature="e#2529#3449#0" expanded="false" />
+            <element signature="e#3500#4016#0" expanded="false" />
+            <element signature="e#4836#5224#0" expanded="false" />
+            <element signature="e#5280#6578#0" expanded="false" />
+            <element signature="e#6652#6843#0" expanded="false" />
+            <element signature="e#6893#7096#0" expanded="false" />
           </folding>
         </state>
       </provider>

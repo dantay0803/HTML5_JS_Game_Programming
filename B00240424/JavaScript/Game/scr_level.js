@@ -53,6 +53,8 @@ MyGame.StateD.prototype = {
         game.physics.arcade.collide(this.obj_player, this.Wall);
         game.physics.arcade.collide(this.obj_player, this.Wall2);
         //BulletsHitWalls
+        game.physics.arcade.collide(this.bullets, this.Wall, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
     },
 
     //AddImagesToStage
@@ -130,6 +132,11 @@ MyGame.StateD.prototype = {
         //CheckIfBulletGoesOutOfBoundsAndDestroyThem
         this.bullets.setAll('outOfBoundsKill', true);
         this.bullets.setAll('checkWorldBounds', true);
+    },
+
+    //DestroyBulletOnCollisionWithWall
+    destroyBullets: function(bullet){
+        bullet.kill();
     },
 
     //DefineTheKeysForPlayerMovements
