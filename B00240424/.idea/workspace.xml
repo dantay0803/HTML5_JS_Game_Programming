@@ -21,23 +21,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="scr_preloader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level1.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/Level1.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="87.73077">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="scr_level.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68722945">
-              <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.5984849">
+              <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <element signature="e#379#616#0" expanded="false" />
+                <element signature="e#666#936#0" expanded="false" />
                 <element signature="e#961#1168#0" expanded="false" />
-                <element signature="e#1682#1805#0" expanded="false" />
-                <element signature="e#1854#2476#0" expanded="false" />
-                <element signature="e#2529#3449#0" expanded="false" />
-                <element signature="e#3500#4016#0" expanded="false" />
-                <element signature="e#4836#5224#0" expanded="false" />
-                <element signature="e#5280#6578#0" expanded="false" />
-                <element signature="e#6652#6843#0" expanded="false" />
-                <element signature="e#6893#7096#0" expanded="false" />
+                <element signature="e#1684#1807#0" expanded="false" />
+                <element signature="e#2537#3457#0" expanded="false" />
+                <element signature="e#3508#4024#0" expanded="false" />
+                <element signature="e#4084#4669#0" expanded="false" />
+                <element signature="e#4747#4777#0" expanded="false" />
+                <element signature="e#4844#5232#0" expanded="false" />
+                <element signature="e#5288#6586#0" expanded="false" />
+                <element signature="e#6660#6851#0" expanded="false" />
+                <element signature="e#6901#7104#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -76,8 +97,9 @@
         <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/JavaScript/Game/scr_mainMenu.js" />
         <option value="$PROJECT_DIR$/CSS/main.css" />
-        <option value="$PROJECT_DIR$/JavaScript/Game/scr_preloader.js" />
         <option value="$PROJECT_DIR$/team.html" />
+        <option value="$PROJECT_DIR$/Assets/Game/Maps/Map.json" />
+        <option value="$PROJECT_DIR$/JavaScript/Game/scr_preloader.js" />
         <option value="$PROJECT_DIR$/JavaScript/Game/scr_level.js" />
       </list>
     </option>
@@ -222,6 +244,28 @@
               <option name="myItemId" value="Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="B00240424" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="B00240424" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -237,10 +281,13 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Maps" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Maps" />
       <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Sprites" />
       <recent name="C:\xampp\htdocs\B00240424\Assets" />
-      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Maps" />
       <recent name="C:\xampp\htdocs\B00240424\JavaScript" />
       <recent name="C:\xampp\htdocs\B00240424\JavaScript\Game\Lib" />
     </key>
@@ -306,19 +353,19 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626262" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32632744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -334,7 +381,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -402,10 +449,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Site/giphy.gif">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="LargeFileEditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="LargeFileEditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
@@ -578,11 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/MapTiles.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSS/navBar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31277058">
@@ -612,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/Map.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45768374">
-          <caret line="14" column="2381" selection-start-line="14" selection-start-column="2380" selection-end-line="14" selection-end-column="2381" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSS/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.3430736">
@@ -634,14 +669,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Crosshair_02.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="157" selection-start-line="38" selection-start-column="157" selection-end-line="38" selection-end-column="157" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_mainMenu.js">
@@ -661,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29955456">
           <caret line="88" column="107" selection-start-line="88" selection-start-column="107" selection-end-line="88" selection-end-column="107" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,26 +695,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/Level1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="87.73077">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68722945">
-          <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.5984849">
+          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <element signature="e#379#616#0" expanded="false" />
+            <element signature="e#666#936#0" expanded="false" />
             <element signature="e#961#1168#0" expanded="false" />
-            <element signature="e#1682#1805#0" expanded="false" />
-            <element signature="e#1854#2476#0" expanded="false" />
-            <element signature="e#2529#3449#0" expanded="false" />
-            <element signature="e#3500#4016#0" expanded="false" />
-            <element signature="e#4836#5224#0" expanded="false" />
-            <element signature="e#5280#6578#0" expanded="false" />
-            <element signature="e#6652#6843#0" expanded="false" />
-            <element signature="e#6893#7096#0" expanded="false" />
+            <element signature="e#1684#1807#0" expanded="false" />
+            <element signature="e#2537#3457#0" expanded="false" />
+            <element signature="e#3508#4024#0" expanded="false" />
+            <element signature="e#4084#4669#0" expanded="false" />
+            <element signature="e#4747#4777#0" expanded="false" />
+            <element signature="e#4844#5232#0" expanded="false" />
+            <element signature="e#5288#6586#0" expanded="false" />
+            <element signature="e#6660#6851#0" expanded="false" />
+            <element signature="e#6901#7104#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -33,8 +33,8 @@ MyGame.StateA.prototype = {
     //LoadAssets
     preload: function(){
         //LoadMapJsonFile
-        game.load.tilemap('level1', './Assets/Game/Maps/Map.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.image('spr_tiles', './Assets/Game/Sprites/MapTiles.png');
+        game.load.tilemap('map_Level1', './Assets/Game/Maps/Level1.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
         //LoadImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
         //LoadMainMenuMusic

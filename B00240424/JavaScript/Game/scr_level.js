@@ -21,7 +21,7 @@ MyGame.StateD.prototype = {
         //StartArcadePhysics
         game.physics.startSystem(Phaser.Physics.ARCADE);
         //SetGameBounds
-        game.world.setBounds(0, 0, 4928, 3840);
+        game.world.setBounds(0, 0, 5056, 3904);
         //ChangeTheCursorToACrosshairImage
         this.updateCursor();
     },
@@ -50,10 +50,10 @@ MyGame.StateD.prototype = {
     //CheckForInGameCollision
     collisionChecking: function(){
         //CheckForCollisionWithMapObjects
-        game.physics.arcade.collide(this.obj_player, this.Wall);
+        game.physics.arcade.collide(this.obj_player, this.Wall1);
         game.physics.arcade.collide(this.obj_player, this.Wall2);
         //BulletsHitWalls
-        game.physics.arcade.collide(this.bullets, this.Wall, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
         game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
     },
 
@@ -67,18 +67,18 @@ MyGame.StateD.prototype = {
 
     //DefineMapObject
     setUpMap: function(){
-        this.map = this.game.add.tilemap('level1');
+        this.map = this.game.add.tilemap('map_Level1');
         //LoadTileSetUsedToCreateMap
         //FirstParamIsTheTilesetNameDefinedInTiledAndTheSecondNameIsTheSpritesheetKey
-        this.map.addTilesetImage('MapTiles', 'spr_tiles');
+        this.map.addTilesetImage('MapTiles', 'MapTiles');
         //CreateMapLayer
         //LayerNameMustBeTheSameAsInTiled
         this.Floor = this.map.createLayer('Floor');
-        this.Wall = this.map.createLayer('Wall');
+        this.Wall1 = this.map.createLayer('Wall1');
         this.Wall2 = this.map.createLayer('Wall2');
         //SetUpCollisionsOnMapWallLayers
-        this.map.setCollisionBetween(1, 20, true, 'Wall');
-        this.map.setCollisionBetween(1, 20, true, 'Wall2');
+        this.map.setCollisionBetween(0, 20, true, 'Wall1');
+        this.map.setCollisionBetween(0, 20, true, 'Wall2');
     },
 
     //SetUpPlayer
