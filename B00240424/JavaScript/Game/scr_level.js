@@ -13,6 +13,15 @@ MyGame.StateD = function(){
     this.bullets;
 
     this.fireRate = 0;
+
+    //DefinePathFindingEngine
+    this.easystar = null;
+
+
+    //zombieGroup
+    this.zombieGroup;
+
+    this.tween;
 };
 
 MyGame.StateD.prototype = {
@@ -36,15 +45,28 @@ MyGame.StateD.prototype = {
         game.camera.follow(this.obj_player);
         //CreateBulletGroup
         this.createBulletGroup();
+        //CreateZombies
+        this.createZombieGroup();
+
+        //GetTheFirstBulletInsatnceFromThePreCreatedGroup
+        var zombie = this.zombieGroup.getFirstExists(false);
+        if(zombie){
+            //PlaceTheBulletAtThePlayerObject
+            zombie.reset(this.obj_player.x, this.obj_player.y+128);
+        }
     },
 
-    update: function(){
+    update: function() {
         //CheckForInGameCollision
         this.collisionChecking();
         //MoveThePlayer
         this.movePlayerObject();
         //RotatePlayerObjectToFaceMouse
         this.rotatePlayerObject();
+        //MoveZombies
+        this.zombieMovement();
+        //RotateZombieToFacePlayer
+        this.rotateZombie();
     },
 
     //CheckForInGameCollision
@@ -55,6 +77,9 @@ MyGame.StateD.prototype = {
         //BulletsHitWalls
         game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
         game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
+        //ZombieCollisionWithWalls
+        game.physics.arcade.collide(this.zombieGroup, this.Wall1);
+        game.physics.arcade.collide(this.zombieGroup, this.Wall2);
     },
 
     //AddImagesToStage
@@ -188,6 +213,52 @@ MyGame.StateD.prototype = {
     rotatePlayerObject: function(){
         this.obj_player.rotation = game.physics.arcade.angleToPointer(this.obj_player);
         this.obj_playerLegs.rotation = game.physics.arcade.angleToPointer(this.obj_playerLegs);
+    },
+
+    //CreateZombieObjects
+    createZombieGroup: function(){
+        //CreateGroup
+        this.zombieGroup = game.add.group();
+        //EnableBodyProperties
+        this.zombieGroup.enableBody = true;
+        //EnablePhysics
+        this.zombieGroup.physicsBodyType = Phaser.Physics.ARCADE;
+        //PreCreateZombies
+        this.zombieGroup.createMultiple(100, 'spr_game', 'Zombie_Stand.png');
+        //SetAnchorPoints
+        this.zombieGroup.forEach(function(zombie){
+                zombie.anchor.setTo(0.5, 0.5);
+            }
+        );
+    },
+
+    //MoveZombies
+    zombieMovement: function(){
+        //GetThePlayerObjectProperties
+        var player = this.obj_player;
+        //UpdateMovementForAllZombies
+        this.zombieGroup.forEach(function(zombie){
+            //IfTheZombieIsWithinA64x64BoxAroundThePlayerStopMoving
+            if(zombie.x >= player.x - 64 && zombie.x <= player.x + 64 &&
+               zombie.y >= player.y - 64 && zombie.y <= player.y + 64){
+                game.physics.arcade.moveToXY(zombie, player.x, player.y, 0);
+                console.log("stop");
+            }
+            else{
+                //MoveZombieToPlayer
+                game.physics.arcade.moveToXY(zombie, player.x, player.y, 270);
+            }
+        });
+    },
+
+    //ZombieFacePlayer
+    rotateZombie: function(){
+        //GetThePropertiesOfThePlayerObject
+        var player = this.obj_player;
+        //RotateZombiesToFacePlayer
+        this.zombieGroup.forEach(function(zombie){
+                zombie.rotation = game.physics.arcade.angleBetween(zombie, player);
+        });
     },
 
     //ChangeCursor
