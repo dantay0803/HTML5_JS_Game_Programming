@@ -19,7 +19,7 @@ MyGame.StateB.prototype = {
         //CheckAudioVariablesStatusToUpdateImages
         this.checkAudioStatus();
         //PlayMenuMusic
-        this.playMainMenuMusic();
+        //this.playMainMenuMusic();
         //SetTheButtonObjectProperties
         this.buttonObjectSettings();
         //SetUpInputKeys
@@ -127,6 +127,8 @@ MyGame.StateB.prototype = {
         }
         //GoToLevel1
         this.state.start('level');
+
+        this.hideHTMLMenu();
     },
 
     //GoToControlsPageWhenButtonClicked
@@ -336,6 +338,10 @@ MyGame.StateB.prototype = {
         if(this.mainMenuButtons[3].frameName === 'spr_sfxButtonSelected.png'){
             this.toggleSFX();
         }
-    }
+    },
 
+    hideHTMLMenu: function(){
+        var menu = document.getElementById("main-bootstrap-menu");
+        menu.style.display = 'none';
+    }
 };

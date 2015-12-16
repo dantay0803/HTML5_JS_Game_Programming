@@ -41,6 +41,8 @@ MyGame.StateA.prototype = {
         game.load.audio('music_mainMenu', './Assets/Game/Audio/AdventureMeme.mp3');
         //LoadInButtonClick
         game.load.audio('snd_buttonClick', './Assets/Game/Audio/buttonClick.wav');
+        //LoadFont
+        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
     },
 
     create: function(){
@@ -54,5 +56,6 @@ MyGame.StateA.prototype = {
         MyGame.music_menus = game.add.audio('music_mainMenu', 1, true);
         //LoadMenuAfterAssetsAreLoaded
         this.state.start('mainMenu');
+
     }
 };
