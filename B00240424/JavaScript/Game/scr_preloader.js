@@ -37,6 +37,11 @@ MyGame.StateA.prototype = {
         game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
         //LoadImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
+
+
+        game.load.image('light', './Assets/Game/Sprites/spr_light.png');
+
+
         //LoadMainMenuMusic
         game.load.audio('music_mainMenu', './Assets/Game/Audio/AdventureMeme.mp3');
         //LoadInButtonClick

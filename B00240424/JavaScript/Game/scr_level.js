@@ -13,46 +13,64 @@ MyGame.StateD = function(){
     //SetPlayerSpeed
     this.playerSpeed = 275;
     //HoldBullets
-    this.bullets;
+    this.bullets = null;
     //SetTheFireRateOfTheWeapons
     this.fireRate = 0;
     //0=pistol
     this.equipedWeapon = 0;
     //ZombieObjectsAndVariables
     //zombieGroup
-    this.zombieGroup;
+    this.zombieGroup = null;
     //DefineGUIVariablesAndObjects
-    //DefineHealth
-    this.healthCount = 100;
     //DefineHealthTextAndSprite
-    this.txt_health, this.spr_health;
+    this.txt_health, this.spr_health = null;
     //DefineAmmoAmount
-    this.ammoCount = 3000;
+    this.ammoCount = 300;
     //DefineAmmoCountTextAndSprite
-    this.txt_ammoCount, this.spr_ammo;
+    this.txt_ammoCount, this.spr_ammo = null;
     //DefineMoneyAmount
     this.moneyCount = 200;
     //DefineMoneyCountTextAndSprite
-    this.txt_moneyCount, this.spr_money;
+    this.txt_moneyCount, this.spr_money = null;
+    //ParticleEmitters
+    this.bloodSplatter, this.shellCasings = null;
 };
 
 MyGame.StateD.prototype = {
-    //InitilizeGame
+    //InitializeGame
     init: function(){
         //StartArcadePhysics
         game.physics.startSystem(Phaser.Physics.ARCADE);
         //SetGameBounds
-        game.world.setBounds(0, 0, 5056, 3904);
+        game.world.setBounds(-10, -10, 5066, 3914);
         //ChangeTheCursorToACrosshairImage
         this.updateCursor();
     },
 
     //SetUpControlsState
     create: function(){
-        //AddImagesToLevel
-        this.addImages();
+        //AddMapToTheGame
+        this.setUpMap();
+        //CreateBloodParticles
+        this.setupBloodParticles();
+        //CreateShellCasingParticles
+        this.setupShellCasingParticles();
+        //CreateSmokeParticles
+        this.setupSmokeParticles();
+        //AddPlayerImagesToGame
+        this.setPlayerObjects();
         //CreateZombies
         this.createZombieGroup();
+        //CreateBulletGroup
+        this.createBulletGroup();
+        //AddLightEffectSprite
+        this.setUpLightEffect();
+        //SetUpGUI
+        this.setUpGUI();
+        //DefineTheKeysForPlayerMovements
+        this.setUpInput();
+        //SetCameraToFollowPlayer
+        game.camera.follow(this.obj_player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
         //GetTheFirstBulletInstanceFromThePreCreatedGroup
         var zombie = this.zombieGroup.getFirstExists(false);
         if(zombie){
@@ -64,26 +82,20 @@ MyGame.StateD.prototype = {
             //PlaceTheBulletAtThePlayerObject
             zombie2.reset(this.obj_player.x+100, this.obj_player.y+128);
         }
-        //CreateBulletGroup
-        this.createBulletGroup();
-        //SetUpGUI
-        this.setUpGUI();
-        //DefineTheKeysForPlayerMovements
-        this.setUpInput();
-        //SetCameraToFollowPlayer
-        game.camera.follow(this.obj_player);
     },
 
     //updateGame
     update: function() {
+        //LightEffectToFollowPlayer
+        this.lightEffectFollow();
         //CheckForInGameCollision
         this.collisionChecking();
         //MoveThePlayer
         this.movePlayerObject();
         //RotatePlayerObjectToFaceMouse
         this.rotatePlayerObject();
-        //MoveZombies
-        this.zombieMovement();
+        //ZombieMovementAndPlayerAttacking
+        this.zombieActions();
         //RotateZombieToFacePlayer
         this.rotateZombie();
     },
@@ -104,58 +116,168 @@ MyGame.StateD.prototype = {
         game.physics.arcade.collide(this.zombieGroup, this.Wall1);
         game.physics.arcade.collide(this.zombieGroup, this.Wall2);
         //ZombiesCollisionWithBullets
-        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.zombieDamage, null, this);
+        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
+        //SetCollisionWithShellCasingAndWall
+        game.physics.arcade.collide(this.shellCasings, this.Wall1);
+        game.physics.arcade.collide(this.shellCasings, this.Wall2);
     },
 
-    //AddImagesToStage
-    addImages: function(){
-        //AddMapToTheGame
-        this.setUpMap();
-        //AddPlayerImagesToGame
-        this.setPlayerObjects();
+    //Particles
+    setupBloodParticles: function(){
+        //CreateParticleSystem
+        this.bloodSplatter = this.add.emitter(0, 0, 150);
+        //SetParticleSprite
+        this.bloodSplatter.makeParticles('spr_game', 'spr_bloodSplatter.png');
+        //DisableGravity
+        this.bloodSplatter.gravity = 0;
+        //DisableRotation
+        this.bloodSplatter.setRotation();
+        //SetTheSpeedOfTheParticles
+        this.bloodSplatter.setXSpeed(0, 0);
+        this.bloodSplatter.setYSpeed(0, 0);
+        //AddScaleAnimationToMakeParticleSmallerAndAppearToSoakIntoGround
+        this.bloodSplatter.setScale(1, 0, 1, 0, 5000, "Linear");
+    },
+
+    //SpawnInBloodSplatterParticles
+    spawnBloodSplatterParticle: function(objectPosition){
+        //SetThePositionOfTheParticles
+        //XPosition
+        if(this.obj_player.x < objectPosition.x){
+            this.bloodSplatter.x = objectPosition.x + 32;
+        }
+        else if(this.obj_player.x > objectPosition.x){
+            this.bloodSplatter.x = objectPosition.x - 32;
+        }
+        //YPosition
+        if(this.obj_player.y < objectPosition.y){
+            this.bloodSplatter.y = objectPosition.y+32;
+        }
+        else if(this.obj_player.y > objectPosition.y){
+            this.bloodSplatter.y = objectPosition.y-32;
+        }
+        for(var i=0; i<5; i++){
+            this.bloodSplatter.x += game.rnd.integerInRange(-10, 10);
+            this.bloodSplatter.y += game.rnd.integerInRange(-5, 5);
+            //EmnitParticle
+            this.bloodSplatter.start(true, 3000, null, 1);
+        }
+    },
+
+    //CreateShellCasingParticles
+    setupShellCasingParticles: function(){
+        //CreateEmitter
+        this.shellCasings = this.add.emitter(0,0,256);
+        //SetParticleSprite
+        this.shellCasings.makeParticles('spr_game', 'spr_shellCasing.png');
+        //DisableGravity
+        this.shellCasings.gravity = 0;
+        //SetTheRotationOfTheBullet
+        this.shellCasings.setRotation(1, 360);
+        //SetTheSpeedOfTheBullet
+        this.shellCasings.setXSpeed(-100, 100);
+        this.shellCasings.setYSpeed(-100, 100);
+        this.shellCasings.angularDrag = 50;
+    },
+
+    //SpawnShellCasingParticlesInGame
+    spawnShellCasingParticle: function(){
+        //SetPositionOfParticles
+        this.shellCasings.x = this.obj_player.x;
+        this.shellCasings.y = this.obj_player.y;
+        //EmitParticles
+        this.shellCasings.start(true, 1000, null, 1);
+    },
+
+    //CreateSmokeParticles
+    setupSmokeParticles: function(){
+        //CreateEmitter
+        this.smoke = this.add.emitter(0,0,256);
+        //SetParticleSprite
+        this.smoke.makeParticles('spr_game', 'spr_smoke1.png');
+        //AddAnimation
+        this.smoke.forEach(function(smoke){
+            smoke.animations.add('anim_smoke', ['spr_smoke1.png', 'spr_smoke2.png', 'spr_smoke3.png', 'spr_smoke4.png', 'spr_smoke5.png'], 5, false);
+        });
+        //DisableGravity
+        this.smoke.gravity = 0;
+        //DisableRotation
+        this.smoke.setRotation();
+        //DisableMovement
+        this.smoke.setXSpeed(0, 0);
+        this.smoke.setYSpeed(0, 0);
+    },
+
+    //SpawnSmokeParticleInGame
+    spawnSmokeParticle: function(bullet){
+        //SetPositionOfParticles
+        this.smoke.x = bullet.x;
+        this.smoke.y = bullet.y;
+        //EmitParticles
+        this.smoke.start(true, 1000, null, 1);
+        //PlayAnimationForAllParticlesThatExists
+        this.smoke.forEachExists(function(smoke) {
+            //CheckIfAnimationIsNotPlaying
+            if (!smoke.animations.isPlaying){
+                //IfNotPlayAnimation
+                smoke.animations.play('anim_smoke');
+            }
+        });
+    },
+
+    //AddAnOverlayOnTheScreenThatGivesTheIllusionOfLightComingFromThePlayer
+    setUpLightEffect: function(){
+        this.light = game.add.image(this.obj_player.x, this.obj_player.y, 'light');
+        this.light.anchor.setTo(0.5, 0.5);
+    },
+
+    //LightEffectToFollowPlayer
+    lightEffectFollow: function(){
+        this.light.x = this.obj_player.x;
+        this.light.y = this.obj_player.y;
     },
 
     //SetUpGUI
     setUpGUI: function(){
+        //AddMoneyGUI
+        //AddImage
+        this.spr_money = this.add.sprite(game.camera.x + 5, game.camera.height - 50, 'spr_game', 'spr_moneyDisplay.png');
+        //FixToCameraPosition
+        this.spr_money.fixedToCamera = true;
+        //IncreaseImageSize
+        this.spr_money.scale.setTo(1.5, 1.5);
+        //MoneyText
+        this.txt_moneyCount = game.add.text(game.camera.x + 60, game.camera.height - 47.5, this.moneyCount, {fontSize: '35px', fill: '#ffffff'});
+        //SetFont
+        this.txt_moneyCount.font = 'VT323';
+        //FixToCameraPosition
+        this.txt_moneyCount.fixedToCamera = true;
         //AddHealthGUI
         //HealthImage
-        this.spr_health = this.add.sprite(game.camera.width - 230, game.camera.height - 115, 'spr_game', 'spr_healthDisplay.png');
+        this.spr_health = this.add.sprite(game.camera.width - 75, game.camera.height - 115, 'spr_game', 'spr_healthDisplay.png');
         //FixToCameraPosition
         this.spr_health.fixedToCamera = true;
         //IncreaseImageSize
         this.spr_health.scale.setTo(3, 3);
         //HealthText
-        this.txt_health = game.add.text(game.camera.width - 155, game.camera.height - 87, this.healthCount, {fontSize: '35px', fill: '#ffffff'});
+        this.txt_health = game.add.text(game.camera.width - 95, game.camera.height - 87, this.obj_player.hp, {fontSize: '35px', fill: '#ffffff'});
         //SetFont
         this.txt_health.font = 'VT323';
         //FixToCameraPosition
         this.txt_health.fixedToCamera = true;
         //AddAmmoGUI
         //AmmoImage
-        this.spr_ammo = this.add.sprite(game.camera.width - 135, game.camera.height - 115, 'spr_game', 'spr_ammoDisplay.png');
+        this.spr_ammo = this.add.sprite(game.camera.width - 75, game.camera.height - 70, 'spr_game', 'spr_ammoDisplay.png');
         //FixToCameraPosition
         this.spr_ammo.fixedToCamera = true;
         //IncreaseImageSize
         this.spr_ammo.scale.setTo(3, 3);
         //AmmoText
-        this.txt_ammoCount = game.add.text(game.camera.width - 60, game.camera.height - 87, this.ammoCount, {fontSize: '35px', fill: '#ffffff'});
+        this.txt_ammoCount = game.add.text(game.camera.width - 95, game.camera.height - 40, this.ammoCount, {fontSize: '35px', fill: '#ffffff'});
         //SetFont
         this.txt_ammoCount.font = 'VT323';
         //FixToCameraPosition
         this.txt_ammoCount.fixedToCamera = true;
-        //AddMoneyGUI
-        //AddImage
-        this.spr_money = this.add.sprite(game.camera.width - 200, game.camera.height - 50, 'spr_game', 'spr_moneyDisplay.png');
-        //FixToCameraPosition
-        this.spr_money.fixedToCamera = true;
-        //IncreaseImageSize
-        this.spr_money.scale.setTo(1.5, 1.5);
-        //MoneyText
-        this.txt_moneyCount = game.add.text(game.camera.width - 150, game.camera.height - 45, this.moneyCount, {fontSize: '35px', fill: '#ffffff'});
-        //SetFont
-        this.txt_moneyCount.font = 'VT323';
-        //FixToCameraPosition
-        this.txt_moneyCount.fixedToCamera = true;
     },
 
     //DefineMapObject
@@ -191,6 +313,10 @@ MyGame.StateD.prototype = {
         //EnablePhysicsOnPlayerBody
         this.physics.enable(this.obj_player, Phaser.Physics.ARCADE);
         this.obj_player.enableBody = true;
+        //SetPlayerAsImmovableSoZombiesCannotPushItAround
+        this.obj_player.body.immovable = true;
+        //SetPlayerHealth
+        this.obj_player.hp = 100;
     },
 
     //PlayerShootGun
@@ -200,9 +326,13 @@ MyGame.StateD.prototype = {
             //GetTheFirstBulletInsatnceFromThePreCreatedGroup
             var bullet = this.bullets.getFirstExists(false);
             if(bullet){
+                //ApplyScreenShakeWhenShooting
+                game.time.events.repeat(10, 5, this.screenShake, this);
+                //SpawnShellCasingParticle
+                this.spawnShellCasingParticle();
                 //PlaceTheBulletAtThePlayerObject
                 bullet.reset(this.obj_player.x, this.obj_player.y);
-                game.physics.arcade.moveToPointer(bullet, 1000);
+                game.physics.arcade.moveToPointer(bullet, 750);
                 this.fireRate = game.time.now + 200;
                 //ReduceAmmoCount
                 this.ammoCount--;
@@ -210,6 +340,12 @@ MyGame.StateD.prototype = {
                 this.txt_ammoCount.text = this.ammoCount;
             }
         }
+    },
+
+    //ScreenShakeEffect
+    screenShake: function(){
+        game.camera.x += game.rnd.integerInRange(-10, 10);
+        game.camera.y += game.rnd.integerInRange(-10, 10);
     },
 
     //CreateBulletGroup
@@ -231,7 +367,8 @@ MyGame.StateD.prototype = {
 
     //DestroyBulletOnCollisionWithWall
     destroyBullets: function(bullet){
-        bullet.kill();
+        this.spawnSmokeParticle(bullet);
+        bullet.kill()
     },
 
     //DefineTheKeysForPlayerMovements
@@ -299,8 +436,11 @@ MyGame.StateD.prototype = {
         this.zombieGroup.forEach(function(zombie){
             //SetAnchorPoints
             zombie.anchor.setTo(0.5, 0.5);
-            //SetHealth
-            zombie.hp = 100 * zombieHealthMultiplier;
+            //SetBaseHealth
+            zombie.hp = 100;
+            //DelayToStopZombiesAttackingTooFast
+            zombie.zombieAttackDelay = 5000;
+            zombie.zombieAttackTimer = game.time.now + zombie.zombieAttackDelay;
             //CreateZombieAnimations
             //ZombieWalkAnimation
             zombie.animations.add('zombieWalk', ['Zombie_Walk_LeftStep_01.png', 'Zombie_Walk_LeftStep_02.png', 'Zombie_Walk_RightStep_01.png', 'Zombie_Walk_RightStep_02.png'], 5, true);
@@ -311,27 +451,43 @@ MyGame.StateD.prototype = {
         });
     },
 
-    //MoveZombies
-    zombieMovement: function(){
+    //ZombieMovementAndAttack
+    zombieActions: function(){
         //GetThePlayerObjectProperties
         var player = this.obj_player;
         //UpdateMovementForAllZombies
         this.zombieGroup.forEach(function(zombie){
             //IfTheZombieIsWithinA64x64BoxAroundThePlayerStopMoving
-            if(zombie.hp <= 0
-                || zombie.x >= player.x - 64 && zombie.x <= player.x + 64 && zombie.y <= player.y + 64 && zombie.y >= player.y - 64){
+            if(zombie.hp <= 0 || zombie.x >= player.x - 70 && zombie.x <= player.x + 70 && zombie.y <= player.y + 70 && zombie.y >= player.y - 70){
                 //StopZombieFromMoving
                 zombie.body.velocity.x = 0;
                 zombie.body.velocity.y = 0;
-            }
-            else {
-                if(zombie.hp > 0){
-                    //MoveZombieToPlayer
-                    game.physics.arcade.moveToXY(zombie, player.x, player.y, 270);
-                    zombie.play('zombieWalk');
+                //ZombieAttackPlayerWhenTheAttackDelayIsSmallerThanTheCurrentTime
+                if(game.time.now > zombie.zombieAttackTimer && zombie.hp > 0) {
+                    //PlayAttackAnimation
+                    zombie.play('zombieAttack');
+                    //DamagePlayerFunction
+                    zombie.animations.currentAnim.onComplete.addOnce(function(){
+                        //CheckPlayerIsStillInRange
+                        if(zombie.x >= player.x - 80 && zombie.x <= player.x + 80 && zombie.y <= player.y + 80 && zombie.y >= player.y - 80){
+                            //SetZombieToIdleAnimationAfterAttack
+                            zombie.frameName = "Zombie_Stand.png";
+                            //IfTrueApplyDamage
+                            player.hp -= 10;
+                        }
+                    });
+                    //IncreaseTheValueOfTheZombieAttackDelay
+                    zombie.zombieAttackTimer = game.time.now + zombie.zombieAttackDelay;
                 }
             }
+            else if(zombie.hp > 0 && (zombie.x < player.x - 70 || zombie.x > player.x + 70 || zombie.y < player.y - 70 || zombie.y > player.y + 70)){
+                //MoveZombieToPlayer
+                game.physics.arcade.moveToXY(zombie, player.x, player.y, 270);
+                zombie.play('zombieWalk');
+            }
         });
+        //UpdateTheGUI
+        this.txt_health.text = this.obj_player.hp;
     },
 
     //ZombieFacePlayer
@@ -356,7 +512,13 @@ MyGame.StateD.prototype = {
     },
 
     //ApplyDamageToZombies
-    zombieDamage: function(zombie, bullet){
+    damageZombie: function(zombie, bullet){
+        //BulletDestroy
+        bullet.kill();
+        //PlayBloodSplatterAnimation
+        this.spawnBloodSplatterParticle(zombie);
+        //AddMoneyForDamagingAZombie
+        this.moneyCount += 10;
         //ApplyBulletDamage
         switch(this.equipedWeapon) {
             //ApplyPistolDamage
@@ -377,6 +539,8 @@ MyGame.StateD.prototype = {
         }
         //CheckZombieHealthForDestroying
         if(zombie.hp <= 0){
+            //AddMoneyForKillingAZombie
+            this.moneyCount += 60;
             //PlayDeathAnimation
             zombie.play('zombieDeath');
             //KillObjectOnceDeathAnimationIsComplete
@@ -384,7 +548,7 @@ MyGame.StateD.prototype = {
                 zombie.kill();
             });
         }
-        //BulletDestroy
-        this.destroyBullets(bullet);
+        //UpdateGUI
+        this.txt_moneyCount.text = this.moneyCount;
     }
 };
