@@ -24,30 +24,34 @@
       <file leaf-file-name="scr_level.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39285713">
-              <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.6082251">
+              <caret line="305" column="10" selection-start-line="305" selection-start-column="10" selection-end-line="305" selection-end-column="10" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <element signature="e#2662#3076#0" expanded="false" />
-                <element signature="e#4289#4888#0" expanded="false" />
-                <element signature="e#4983#5814#0" expanded="false" />
-                <element signature="e#8045#8179#0" expanded="false" />
-                <element signature="e#8247#8338#0" expanded="false" />
-                <element signature="e#8380#10245#0" expanded="false" />
-                <element signature="e#10294#10922#0" expanded="false" />
-                <element signature="e#10975#12060#0" expanded="false" />
-                <element signature="e#12111#12984#0" expanded="false" />
-                <element signature="e#13038#13163#0" expanded="false" />
-                <element signature="e#13223#13808#0" expanded="false" />
-                <element signature="e#13886#13956#0" expanded="false" />
-                <element signature="e#14023#14411#0" expanded="false" />
-                <element signature="e#14467#15765#0" expanded="false" />
-                <element signature="e#15839#16030#0" expanded="false" />
-                <element signature="e#16092#17669#0" expanded="false" />
-                <element signature="e#17731#19685#0" expanded="false" />
-                <element signature="e#19739#20098#0" expanded="false" />
-                <element signature="e#20148#20351#0" expanded="false" />
-                <element signature="e#20423#21592#0" expanded="false" />
+                <element signature="e#1105#1346#0" expanded="false" />
+                <element signature="e#3106#4503#0" expanded="false" />
+                <element signature="e#4557#5156#0" expanded="false" />
+                <element signature="e#5251#6082#0" expanded="false" />
+                <element signature="e#6159#6669#0" expanded="false" />
+                <element signature="e#6751#6967#0" expanded="false" />
+                <element signature="e#7032#7647#0" expanded="false" />
+                <element signature="e#7721#8203#0" expanded="false" />
+                <element signature="e#8314#8468#0" expanded="false" />
+                <element signature="e#8536#8804#0" expanded="false" />
+                <element signature="e#8846#10711#0" expanded="false" />
+                <element signature="e#11822#12907#0" expanded="false" />
+                <element signature="e#12958#13831#0" expanded="false" />
+                <element signature="e#13885#14010#0" expanded="false" />
+                <element signature="e#14070#14655#0" expanded="false" />
+                <element signature="e#14733#14803#0" expanded="false" />
+                <element signature="e#14870#15258#0" expanded="false" />
+                <element signature="e#15314#16612#0" expanded="false" />
+                <element signature="e#16686#16877#0" expanded="false" />
+                <element signature="e#16939#18516#0" expanded="false" />
+                <element signature="e#18578#20532#0" expanded="false" />
+                <element signature="e#20586#20945#0" expanded="false" />
+                <element signature="e#20995#21198#0" expanded="false" />
+                <element signature="e#21270#22439#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+              <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -102,6 +106,7 @@
         <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/Assets/Game/Maps/LightEffectCover.json" />
         <option value="$PROJECT_DIR$/JavaScript/Game/cwsd" />
+        <option value="$PROJECT_DIR$/Assets/Game/Shaders/light.frag" />
         <option value="$PROJECT_DIR$/JavaScript/Game/scr_preloader.js" />
         <option value="$PROJECT_DIR$/JavaScript/Game/scr_level.js" />
       </list>
@@ -143,8 +148,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,9 +265,33 @@
               <option name="myItemId" value="Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="B00240424" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="B00240424" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,11 +304,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Sprites" />
       <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Sprites" />
       <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Maps" />
+      <recent name="C:\xampp\htdocs\B00240424\Assets\Game\Sprites" />
       <recent name="C:\xampp\htdocs\B00240424\Assets" />
       <recent name="C:\xampp\htdocs\B00240424\JavaScript" />
       <recent name="C:\xampp\htdocs\B00240424\JavaScript\Game\Lib" />
@@ -348,6 +376,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32526317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -359,7 +388,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32526317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -376,44 +404,58 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="83" />
+      <option name="time" value="88" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
+    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <element signature="e#1105#1346#0" expanded="false" />
+            <element signature="e#3106#4503#0" expanded="false" />
+            <element signature="e#4557#5156#0" expanded="false" />
+            <element signature="e#5251#6082#0" expanded="false" />
+            <element signature="e#6159#6669#0" expanded="false" />
+            <element signature="e#6751#6967#0" expanded="false" />
+            <element signature="e#7032#7647#0" expanded="false" />
+            <element signature="e#7721#8203#0" expanded="false" />
+            <element signature="e#8314#8468#0" expanded="false" />
+            <element signature="e#8536#8804#0" expanded="false" />
+            <element signature="e#8846#10711#0" expanded="false" />
+            <element signature="e#11822#12907#0" expanded="false" />
+            <element signature="e#12958#13831#0" expanded="false" />
+            <element signature="e#13885#14010#0" expanded="false" />
+            <element signature="e#14070#14655#0" expanded="false" />
+            <element signature="e#14733#14803#0" expanded="false" />
+            <element signature="e#14870#15258#0" expanded="false" />
+            <element signature="e#15314#16612#0" expanded="false" />
+            <element signature="e#16686#16877#0" expanded="false" />
+            <element signature="e#16939#18516#0" expanded="false" />
+            <element signature="e#18578#20532#0" expanded="false" />
+            <element signature="e#20586#20945#0" expanded="false" />
+            <element signature="e#20995#21198#0" expanded="false" />
+            <element signature="e#21270#22439#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+    <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="107" selection-start-line="39" selection-start-column="107" selection-end-line="39" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Site/giphy.gif">
-      <provider editor-type-id="images">
+      <provider selected="true" editor-type-id="LargeFileEditor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="LargeFileEditor">
+      <provider editor-type-id="images">
         <state />
       </provider>
     </entry>
@@ -674,19 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/MapTiles.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/Level1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3886414">
-          <caret line="3" column="1603" selection-start-line="3" selection-start-column="1603" selection-end-line="3" selection-end-column="1603" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/cwsd">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9046563">
@@ -694,17 +723,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/spr_light.png">
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/MapTiles.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/spritesheet_TheDeadOfNight.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/MapTiles2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/gunPurchaseTiles.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png">
@@ -712,40 +743,59 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Maps/Level1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Game/Sprites/spritesheet_TheDeadOfNight.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4716983">
+          <caret line="546" column="1" selection-start-line="546" selection-start-column="1" selection-end-line="546" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_preloader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+          <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/Game/scr_level.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39285713">
-          <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.6082251">
+          <caret line="305" column="10" selection-start-line="305" selection-start-column="10" selection-end-line="305" selection-end-column="10" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <element signature="e#2662#3076#0" expanded="false" />
-            <element signature="e#4289#4888#0" expanded="false" />
-            <element signature="e#4983#5814#0" expanded="false" />
-            <element signature="e#8045#8179#0" expanded="false" />
-            <element signature="e#8247#8338#0" expanded="false" />
-            <element signature="e#8380#10245#0" expanded="false" />
-            <element signature="e#10294#10922#0" expanded="false" />
-            <element signature="e#10975#12060#0" expanded="false" />
-            <element signature="e#12111#12984#0" expanded="false" />
-            <element signature="e#13038#13163#0" expanded="false" />
-            <element signature="e#13223#13808#0" expanded="false" />
-            <element signature="e#13886#13956#0" expanded="false" />
-            <element signature="e#14023#14411#0" expanded="false" />
-            <element signature="e#14467#15765#0" expanded="false" />
-            <element signature="e#15839#16030#0" expanded="false" />
-            <element signature="e#16092#17669#0" expanded="false" />
-            <element signature="e#17731#19685#0" expanded="false" />
-            <element signature="e#19739#20098#0" expanded="false" />
-            <element signature="e#20148#20351#0" expanded="false" />
-            <element signature="e#20423#21592#0" expanded="false" />
+            <element signature="e#1105#1346#0" expanded="false" />
+            <element signature="e#3106#4503#0" expanded="false" />
+            <element signature="e#4557#5156#0" expanded="false" />
+            <element signature="e#5251#6082#0" expanded="false" />
+            <element signature="e#6159#6669#0" expanded="false" />
+            <element signature="e#6751#6967#0" expanded="false" />
+            <element signature="e#7032#7647#0" expanded="false" />
+            <element signature="e#7721#8203#0" expanded="false" />
+            <element signature="e#8314#8468#0" expanded="false" />
+            <element signature="e#8536#8804#0" expanded="false" />
+            <element signature="e#8846#10711#0" expanded="false" />
+            <element signature="e#11822#12907#0" expanded="false" />
+            <element signature="e#12958#13831#0" expanded="false" />
+            <element signature="e#13885#14010#0" expanded="false" />
+            <element signature="e#14070#14655#0" expanded="false" />
+            <element signature="e#14733#14803#0" expanded="false" />
+            <element signature="e#14870#15258#0" expanded="false" />
+            <element signature="e#15314#16612#0" expanded="false" />
+            <element signature="e#16686#16877#0" expanded="false" />
+            <element signature="e#16939#18516#0" expanded="false" />
+            <element signature="e#18578#20532#0" expanded="false" />
+            <element signature="e#20586#20945#0" expanded="false" />
+            <element signature="e#20995#21198#0" expanded="false" />
+            <element signature="e#21270#22439#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -70,7 +70,7 @@ MyGame.StateD.prototype = {
         //DefineTheKeysForPlayerMovements
         this.setUpInput();
         //SetCameraToFollowPlayer
-        game.camera.follow(this.obj_player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
+        game.camera.follow(this.obj_player);
         //GetTheFirstBulletInstanceFromThePreCreatedGroup
         var zombie = this.zombieGroup.getFirstExists(false);
         if(zombie){
@@ -105,18 +105,22 @@ MyGame.StateD.prototype = {
         //CheckForCollisionWithMapObjects
         game.physics.arcade.collide(this.obj_player, this.Wall1);
         game.physics.arcade.collide(this.obj_player, this.Wall2);
+        game.physics.arcade.collide(this.obj_player, this.Debris);
         //CheckPlayerCollisionWithZombies
         game.physics.arcade.collide(this.obj_player, this.zombieGroup);
-        //BulletsHitWalls
-        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
-        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.zombieGroup, this.obj_player);
         //ZombieCollisionWithZombies
         game.physics.arcade.collide(this.zombieGroup);
         //ZombieCollisionWithWalls
         game.physics.arcade.collide(this.zombieGroup, this.Wall1);
         game.physics.arcade.collide(this.zombieGroup, this.Wall2);
+        game.physics.arcade.collide(this.zombieGroup, this.Debris);
         //ZombiesCollisionWithBullets
         game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
+        //BulletsHitWalls
+        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Debris, this.destroyBullets, null, this);
         //SetCollisionWithShellCasingAndWall
         game.physics.arcade.collide(this.shellCasings, this.Wall1);
         game.physics.arcade.collide(this.shellCasings, this.Wall2);
@@ -180,7 +184,7 @@ MyGame.StateD.prototype = {
         this.shellCasings.angularDrag = 50;
     },
 
-    //SpawnShellCasingParticlesInGame
+    //SpawnShellCasingParticlesInGamed
     spawnShellCasingParticle: function(){
         //SetPositionOfParticles
         this.shellCasings.x = this.obj_player.x;
@@ -227,14 +231,18 @@ MyGame.StateD.prototype = {
 
     //AddAnOverlayOnTheScreenThatGivesTheIllusionOfLightComingFromThePlayer
     setUpLightEffect: function(){
-        this.light = game.add.image(this.obj_player.x, this.obj_player.y, 'light');
+        this.light = game.add.image(this.obj_player.x, this.obj_player.y, 'spr_game', 'spr_light.png');
         this.light.anchor.setTo(0.5, 0.5);
     },
 
     //LightEffectToFollowPlayer
     lightEffectFollow: function(){
-        this.light.x = this.obj_player.x;
-        this.light.y = this.obj_player.y;
+        if(this.obj_player.x < game.world.width - (70*5) && this.obj_player.x > 64 * 5){
+            this.light.x = this.obj_player.x;
+        }
+        if(this.obj_player.y < game.world.height - (64*5) && this.obj_player.y > 64 * 3){
+            this.light.y = this.obj_player.y;
+        }
     },
 
     //SetUpGUI
@@ -286,14 +294,20 @@ MyGame.StateD.prototype = {
         //LoadTileSetUsedToCreateMap
         //FirstParamIsTheTilesetNameDefinedInTiledAndTheSecondNameIsTheSpritesheetKey
         this.map.addTilesetImage('MapTiles', 'MapTiles');
+        this.map.addTilesetImage('MapTiles2', 'MapTiles2');
+        this.map.addTilesetImage('gunPurchaseTiles', 'gunPurchaseTiles');
         //CreateMapLayer
         //LayerNameMustBeTheSameAsInTiled
         this.Floor = this.map.createLayer('Floor');
         this.Wall1 = this.map.createLayer('Wall1');
         this.Wall2 = this.map.createLayer('Wall2');
+        this.Debris = this.map.createLayer('Debris');
+        this.DebrisDetails = this.map.createLayer('DebrisDetail');
+        //this.icons = this.map.createLayer('gunPurchaseIcons');
         //SetUpCollisionsOnMapWallLayers
         this.map.setCollisionBetween(0, 20, true, 'Wall1');
         this.map.setCollisionBetween(0, 20, true, 'Wall2');
+        this.map.setCollisionBetween(1, 34, true, 'Debris');
     },
 
     //SetUpPlayer
@@ -308,6 +322,8 @@ MyGame.StateD.prototype = {
         this.obj_playerLegs.anchor.setTo(0.5, 0.5);
         //AddPlayerSprite
         this.obj_player = this.add.sprite(1730, 3450, 'spr_game', 'Pistol_Stand.png');
+        //CreateDeathAnimation
+        this.obj_player.animations.add('playerDeath', ['Player_Death_01.png', 'Player_Death_02.png', 'Player_Death_03.png', 'Player_Death_04.png', 'Player_Death_05.png', 'Player_Death_06.png','Player_Death_07.png', 'Player_Death_08.png', 'Player_Death_09.png', 'Player_Death_10.png', 'Player_Death_11.png',], 5, false);
         //CenterPlayerBody
         this.obj_player.anchor.setTo(0.5, 0.5);
         //EnablePhysicsOnPlayerBody
@@ -317,6 +333,49 @@ MyGame.StateD.prototype = {
         this.obj_player.body.immovable = true;
         //SetPlayerHealth
         this.obj_player.hp = 100;
+        //ApplyDamageToPlayer
+        this.obj_player.applyDamage = function(){
+            //ReduceHealth
+            this.hp -= 10;
+            //GameOver
+            if(this.hp <= 0){
+                //PlayerBloodEffect
+                this.bloodEffect();
+                //ShowGameOverText
+                var txt_gameOver = game.add.text(game.camera.x + (game.camera.width / 2), game.camera.y + (game.camera.height / 2), "Game Over!", {fontSize: '72px', fill: '#ffffff'});
+                //CenterText
+                txt_gameOver.anchor.setTo(0.5, 0.5);
+                //SetTextFont
+                txt_gameOver.font = 'VT323';
+                //playDeathAnimation
+                this.animations.play('playerDeath');
+                this.animations.currentAnim.onComplete.addOnce(this.goToUpGrades, this);
+            }
+        };
+        //BloodSplatterEffect
+        this.obj_player.bloodEffect = function(){
+            //CreateParticleSystem
+            var blood = game.add.emitter(this.x, this.y, 1);
+            //SetParticleSprite
+            blood.makeParticles('spr_game', 'spr_bloodSplatter.png');
+            //DisableGravity
+            blood.gravity = 0;
+            //DisableRotation
+            blood.setRotation();
+            //SetTheSpeedOfTheParticles
+            blood.setXSpeed(0, 0);
+            blood.setYSpeed(0, 0);
+            //AddScaleAnimation
+            blood.setScale(1, 5, 1, 5, 5000, "Linear");
+            //EmnitParticle
+            blood.start(true, 3000, null, 1);
+        },
+        //ChangeToUpgradeLevel
+        this.obj_player.goToUpGrades = function(){
+            //ChangeToUpgradesLevel
+            game.state.start('upgrades');
+        };
+
     },
 
     //PlayerShootGun
@@ -473,7 +532,7 @@ MyGame.StateD.prototype = {
                             //SetZombieToIdleAnimationAfterAttack
                             zombie.frameName = "Zombie_Stand.png";
                             //IfTrueApplyDamage
-                            player.hp -= 10;
+                            player.applyDamage();
                         }
                     });
                     //IncreaseTheValueOfTheZombieAttackDelay
@@ -486,8 +545,8 @@ MyGame.StateD.prototype = {
                 zombie.play('zombieWalk');
             }
         });
-        //UpdateTheGUI
-        this.txt_health.text = this.obj_player.hp;
+            //UpdateTheGUI
+            this.txt_health.text = this.obj_player.hp;
     },
 
     //ZombieFacePlayer

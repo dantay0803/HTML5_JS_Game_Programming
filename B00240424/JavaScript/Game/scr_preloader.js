@@ -34,14 +34,16 @@ MyGame.StateA.prototype = {
     preload: function(){
         //LoadMapJsonFile
         game.load.tilemap('map_Level1', './Assets/Game/Maps/Level1.json', null, Phaser.Tilemap.TILED_JSON);
+        //LoadFloorAndWallTiles
         game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
-        //LoadImages
+        //LoadDebrisTiles
+        game.load.image('MapTiles2', './Assets/Game/Maps/MapTiles2.png');
+        //LoadDebrisTiles
+        game.load.image('gunPurchaseTiles', './Assets/Game/Maps/gunPurchaseTiles.png');
+
+        game.load.image('spr_rifleOutline', './Assets/Game/Sprites/spr_rifleOutline.png');
+        //LoadGameImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
-
-
-        game.load.image('light', './Assets/Game/Sprites/spr_light.png');
-
-
         //LoadMainMenuMusic
         game.load.audio('music_mainMenu', './Assets/Game/Audio/AdventureMeme.mp3');
         //LoadInButtonClick
