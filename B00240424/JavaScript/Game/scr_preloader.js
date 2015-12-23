@@ -38,6 +38,13 @@ MyGame.StateA.prototype = {
         game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
         //LoadDebrisTiles
         game.load.image('MapTiles2', './Assets/Game/Maps/MapTiles2.png');
+<<<<<<< HEAD
+=======
+        //LoadDebrisTiles
+        game.load.image('gunPurchaseTiles', './Assets/Game/Maps/gunPurchaseTiles.png');
+
+        game.load.image('spr_rifleOutline', './Assets/Game/Sprites/spr_rifleOutline.png');
+>>>>>>> origin/master
         //LoadGameImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
         //LoadMainMenuMusic

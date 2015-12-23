@@ -397,6 +397,10 @@ MyGame.StateD.prototype = {
         //FirstParamIsTheTilesetNameDefinedInTiledAndTheSecondNameIsTheSpritesheetKey
         this.map.addTilesetImage('MapTiles', 'MapTiles');
         this.map.addTilesetImage('MapTiles2', 'MapTiles2');
+<<<<<<< HEAD
+=======
+        this.map.addTilesetImage('gunPurchaseTiles', 'gunPurchaseTiles');
+>>>>>>> origin/master
         //CreateMapLayer
         //LayerNameMustBeTheSameAsInTiled
         this.Floor = this.map.createLayer('Floor');
@@ -404,6 +408,10 @@ MyGame.StateD.prototype = {
         this.Wall2 = this.map.createLayer('Wall2');
         this.Debris = this.map.createLayer('Debris');
         this.DebrisDetails = this.map.createLayer('DebrisDetail');
+<<<<<<< HEAD
+=======
+        //this.icons = this.map.createLayer('gunPurchaseIcons');
+>>>>>>> origin/master
         //SetUpCollisionsOnMapWallLayers
         this.map.setCollisionBetween(0, 20, true, 'Wall1');
         this.map.setCollisionBetween(0, 20, true, 'Wall2');
@@ -436,9 +444,13 @@ MyGame.StateD.prototype = {
         //ApplyDamageToPlayer
         this.obj_player.applyDamage = function(){
             //ReduceHealth
+<<<<<<< HEAD
             this.hp -= zombieDamage;
             //UpdateTheGUI
             GUIElements[1][1].text = this.hp;
+=======
+            this.hp -= 10;
+>>>>>>> origin/master
             //GameOver
             if(this.hp <= 0){
                 //PlayerBloodEffect
@@ -471,12 +483,20 @@ MyGame.StateD.prototype = {
             blood.setScale(1, 5, 1, 5, 5000, "Linear");
             //EmnitParticle
             blood.start(true, 3000, null, 1);
+<<<<<<< HEAD
         };
+=======
+        },
+>>>>>>> origin/master
         //ChangeToUpgradeLevel
         this.obj_player.goToUpGrades = function(){
             //ChangeToUpgradesLevel
             game.state.start('upgrades');
         };
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     },
 
     //PlayerShootGun
@@ -646,6 +666,11 @@ MyGame.StateD.prototype = {
                 zombie.play('zombieWalk');
             }
         });
+<<<<<<< HEAD
+=======
+            //UpdateTheGUI
+            this.txt_health.text = this.obj_player.hp;
+>>>>>>> origin/master
     },
 
     //ZombieFacePlayer
