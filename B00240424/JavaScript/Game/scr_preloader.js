@@ -1,6 +1,24 @@
 /**
  * Created by Dan on 30/09/2015.
  */
+//SetDamageOfGuns
+const DAMAGE_PISTOL = 20, DAMAGE_KAR98 = 100, DAMAGE_THOMPSON = 50, DAMAGE_SHOTGUN = 300;
+//SetPriceOfWeapons
+const COST_PISTOL = 100, COST_KAR98 = 200, COST_THOMPSON = 300, COST_SHOTGUN = 400;
+//SetWeaponFireDelay
+const FIRERATE_PISTOL = 200, FIRERATE_KAR98 = 300, FIRERATE_THOMPSON = 100, FIRERATE_SHOTGUN = 300;
+//SetWeaponAmmoAmount
+const CLIPSIZE_PISTOL = 30, CLIPSIZE_KAR98 = 30, CLIPSIZE_THOMPSON = 30, CLIPSIZE_SHOTGUN = 30;
+//SetTheMoneyAmountForHittingAndKillingZombie
+const MONEY_ZOMBIEHIT = 10, MONEY_ZOMBIEKILL = 60;
+//SetSpeedOfObjects
+const SPEED_BULLET = 750, SPEED_PLAYER = 275, SPEED_ZOMBIE = 270;
+//SetBasicCostOfUpgrades
+const BASEMULTIPLIERCOST = 1000;
+//UpgradeVariables
+var healthMultiplier = 1;
+var ammoMultiplier = 1;
+var damageMultiplier = 1;
 
 //NewGameObject
 var MyGame = {
@@ -38,13 +56,6 @@ MyGame.StateA.prototype = {
         game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
         //LoadDebrisTiles
         game.load.image('MapTiles2', './Assets/Game/Maps/MapTiles2.png');
-<<<<<<< HEAD
-=======
-        //LoadDebrisTiles
-        game.load.image('gunPurchaseTiles', './Assets/Game/Maps/gunPurchaseTiles.png');
-
-        game.load.image('spr_rifleOutline', './Assets/Game/Sprites/spr_rifleOutline.png');
->>>>>>> origin/master
         //LoadGameImages
         game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
         //LoadMainMenuMusic

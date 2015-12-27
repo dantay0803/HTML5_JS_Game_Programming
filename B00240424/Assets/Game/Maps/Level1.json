@@ -54,89 +54,8 @@
          "width":79,
          "x":0,
          "y":0
-<<<<<<< HEAD
         }],
  "nextobjectid":20,
-=======
-        }, 
-        {
-         "draworder":"topdown",
-         "height":61,
-         "name":"gunPurchaseIcons",
-         "objects":[
-                {
-                 "gid":39,
-                 "height":64,
-                 "id":13,
-                 "name":"obj_thompsonIcon",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":448,
-                 "y":256
-                }, 
-                {
-                 "gid":38,
-                 "height":64,
-                 "id":14,
-                 "name":"obj_shotgunIcon",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":1024,
-                 "y":128
-                }, 
-                {
-                 "gid":37,
-                 "height":64,
-                 "id":15,
-                 "name":"obj_pistolIcon",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":2048,
-                 "y":3840
-                }, 
-                {
-                 "gid":38,
-                 "height":64,
-                 "id":16,
-                 "name":"obj_rifleIcon",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":3712,
-                 "y":3264
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":79,
-         "x":0,
-         "y":0
-        }],
- "nextobjectid":17,
->>>>>>> origin/master
  "orientation":"orthogonal",
  "properties":
     {
@@ -164,11 +83,7 @@
         }, 
         {
          "firstgid":16,
-<<<<<<< HEAD
          "image":"HTML5 & JS Game Programming\/Game Assets\/MapTiles2.png",
-=======
-         "image":"MapTiles2.png",
->>>>>>> origin/master
          "imageheight":192,
          "imagewidth":448,
          "margin":0,
@@ -184,11 +99,7 @@
         }, 
         {
          "firstgid":37,
-<<<<<<< HEAD
          "image":"HTML5 & JS Game Programming\/Game Assets\/gunPurchaseTiles.png",
-=======
-         "image":"gunPurchaseTiles.png",
->>>>>>> origin/master
          "imageheight":64,
          "imagewidth":192,
          "margin":0,

@@ -1,29 +1,18 @@
 /**
  * Created by Dan on 31/10/2015.
  */
-//SetDamageOfGuns
-const DAMAGE_PISTOL = 20, DAMAGE_KAR98 = 100, DAMAGE_THOMPSON = 50, DAMAGE_SHOTGUN = 300;
-//SetPriceOfWeapons
-const COST_PISTOL = 100, COST_KAR98 = 200, COST_THOMPSON = 300, COST_SHOTGUN = 400;
-//SetWeaponFireDelay
-const FIRERATE_PSITOL = 200, FIRERATE_KAR98 = 300, FIRERATE_THOMPSON = 100, FIRERATE_SHOTGUN = 300;
-//SetWeaponAmmoAmount
-const CLIPSIZE_PISTOL = 30, CLIPSIZE_KAR98 = 30, CLIPSIZE_THOMPSON = 30, CLIPSIZE_SHOTGUN = 30;
-//SetTheMoneyAmountForHittingAndKillingZombie
-const MONEY_ZOMBIEHIT = 10, MONEY_ZOMBIEKILL = 60;
-//SetSpeedOfObjects
-const SPEED_BULLET = 750, SPEED_PLAYER = 275, SPEED_ZOMBIE = 270;
-
 //0=moneyDisplay, 1=healthDisplay, 2=ammoDisplay, 3=weaponPurchaseInfo
 var GUIElements = [[null, null], [null, null], [null, null], [null, null]];
 //SetTheDelayBetweenShots
-var fireRateDelay = FIRERATE_PSITOL, currentFireRateDelay = 0;
+var fireRateDelay = FIRERATE_PISTOL;
+var currentFireRateDelay = 0;
 //SetBulletDamage;
 var bulletDamage = DAMAGE_PISTOL;
 //InGamePlayerMoney
 var playerMoney = 20000;
 //DefineAmmoAmount
 var playerAmmo = CLIPSIZE_PISTOL;
+playerAmmo = playerAmmo * ammoMultiplier;
 //UsedToIncreaseTheZombiesHealthForEverRoundThePlayerSurvives
 var zombieHealthMultiplier = 1;
 //SetZombieDamage
@@ -40,7 +29,7 @@ MyGame.StateD = function(){
     this.zombieGroup = null;
     //ParticleEmitters
     this.bloodSplatter, this.shellCasings = null;
-
+    //ArrayToHoldTheSpritesForTheAvalibleWeaponsThatCanBeBoughtInTheLevel
     this.avalibleWeapons = [];
 };
 
@@ -110,6 +99,10 @@ MyGame.StateD.prototype = {
         this.zombieActions();
         //RotateZombieToFacePlayer
         this.rotateZombie();
+        //PlayerShootAutomaticGun
+        if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
+            this.playerShoot();
+        }
     },
 
     //AddWeaponPurchaseObjectsToLevel
@@ -178,10 +171,9 @@ MyGame.StateD.prototype = {
             //PurchasedPistol
             case 0:
                 bulletDamage = DAMAGE_PISTOL;
-                fireRateDelay = FIRERATE_PSITOL;
+                fireRateDelay = FIRERATE_PISTOL;
                 playerMoney -= COST_PISTOL;
                 playerAmmo = CLIPSIZE_PISTOL;
-                console.log("pistol bought");
                 break;
             //PurchasedKAR98
             case 1:
@@ -189,7 +181,6 @@ MyGame.StateD.prototype = {
                 fireRateDelay = FIRERATE_KAR98;
                 playerMoney -= COST_KAR98;
                 playerAmmo = CLIPSIZE_KAR98;
-                console.log("KARK bought");
                 break;
             //PurchasedThompson
             case 2:
@@ -197,7 +188,6 @@ MyGame.StateD.prototype = {
                 fireRateDelay = FIRERATE_THOMPSON;
                 playerMoney -= COST_THOMPSON;
                 playerAmmo = CLIPSIZE_THOMPSON;
-                console.log("Thompson bought");
                 break;
             //PurchasedShotGun
             case 3:
@@ -205,9 +195,12 @@ MyGame.StateD.prototype = {
                 fireRateDelay = FIRERATE_SHOTGUN;
                 playerMoney -= COST_SHOTGUN;
                 playerAmmo = CLIPSIZE_SHOTGUN;
-                console.log("Shotgun bought");
                 break;
         }
+        //ApplyMultipliers
+        bulletDamage *= damageMultiplier;
+        playerAmmo *= ammoMultiplier;
+        //UpdateAmmoGUI
         GUIElements[2][1].text = playerAmmo;
     },
 
@@ -397,10 +390,6 @@ MyGame.StateD.prototype = {
         //FirstParamIsTheTilesetNameDefinedInTiledAndTheSecondNameIsTheSpritesheetKey
         this.map.addTilesetImage('MapTiles', 'MapTiles');
         this.map.addTilesetImage('MapTiles2', 'MapTiles2');
-<<<<<<< HEAD
-=======
-        this.map.addTilesetImage('gunPurchaseTiles', 'gunPurchaseTiles');
->>>>>>> origin/master
         //CreateMapLayer
         //LayerNameMustBeTheSameAsInTiled
         this.Floor = this.map.createLayer('Floor');
@@ -408,10 +397,6 @@ MyGame.StateD.prototype = {
         this.Wall2 = this.map.createLayer('Wall2');
         this.Debris = this.map.createLayer('Debris');
         this.DebrisDetails = this.map.createLayer('DebrisDetail');
-<<<<<<< HEAD
-=======
-        //this.icons = this.map.createLayer('gunPurchaseIcons');
->>>>>>> origin/master
         //SetUpCollisionsOnMapWallLayers
         this.map.setCollisionBetween(0, 20, true, 'Wall1');
         this.map.setCollisionBetween(0, 20, true, 'Wall2');
@@ -440,17 +425,13 @@ MyGame.StateD.prototype = {
         //SetPlayerAsImmovableSoZombiesCannotPushItAround
         this.obj_player.body.immovable = true;
         //SetPlayerHealth
-        this.obj_player.hp = 100;
+        this.obj_player.hp = 10 * healthMultiplier;
         //ApplyDamageToPlayer
         this.obj_player.applyDamage = function(){
             //ReduceHealth
-<<<<<<< HEAD
             this.hp -= zombieDamage;
             //UpdateTheGUI
             GUIElements[1][1].text = this.hp;
-=======
-            this.hp -= 10;
->>>>>>> origin/master
             //GameOver
             if(this.hp <= 0){
                 //PlayerBloodEffect
@@ -483,27 +464,19 @@ MyGame.StateD.prototype = {
             blood.setScale(1, 5, 1, 5, 5000, "Linear");
             //EmnitParticle
             blood.start(true, 3000, null, 1);
-<<<<<<< HEAD
         };
-=======
-        },
->>>>>>> origin/master
         //ChangeToUpgradeLevel
         this.obj_player.goToUpGrades = function(){
             //ChangeToUpgradesLevel
             game.state.start('upgrades');
         };
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     },
 
-    //PlayerShootGun
+    //PlayerShootSingleShotGun
     playerShoot: function(){
         //AddShootingDelay
-        if(game.time.now > currentFireRateDelay && playerAmmo > 0){
-            //GetTheFirstBulletInsatnceFromThePreCreatedGroup
+        if(game.time.now > currentFireRateDelay && playerAmmo > 0 && fireRateDelay != 50){
+            //GetTheFirstBulletInstanceFromThePreCreatedGroup
             var bullet = this.bullets.getFirstExists(false);
             if(bullet){
                 //ApplyScreenShakeWhenShooting
@@ -666,11 +639,6 @@ MyGame.StateD.prototype = {
                 zombie.play('zombieWalk');
             }
         });
-<<<<<<< HEAD
-=======
-            //UpdateTheGUI
-            this.txt_health.text = this.obj_player.hp;
->>>>>>> origin/master
     },
 
     //ZombieFacePlayer

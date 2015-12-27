@@ -19,7 +19,7 @@ MyGame.StateB.prototype = {
         //CheckAudioVariablesStatusToUpdateImages
         this.checkAudioStatus();
         //PlayMenuMusic
-        //this.playMainMenuMusic();
+        this.playMainMenuMusic();
         //SetTheButtonObjectProperties
         this.buttonObjectSettings();
         //SetUpInputKeys
