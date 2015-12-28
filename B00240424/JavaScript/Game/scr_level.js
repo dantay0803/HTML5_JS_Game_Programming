@@ -7,12 +7,11 @@ var GUIElements = [[null, null], [null, null], [null, null], [null, null]];
 var fireRateDelay = FIRERATE_PISTOL;
 var currentFireRateDelay = 0;
 //SetBulletDamage;
-var bulletDamage = DAMAGE_PISTOL;
+var bulletDamage;
 //InGamePlayerMoney
 var playerMoney = 20000;
 //DefineAmmoAmount
-var playerAmmo = CLIPSIZE_PISTOL;
-playerAmmo = playerAmmo * ammoMultiplier;
+var playerAmmo;
 //UsedToIncreaseTheZombiesHealthForEverRoundThePlayerSurvives
 var zombieHealthMultiplier = 1;
 //SetZombieDamage
@@ -46,6 +45,10 @@ MyGame.StateD.prototype = {
 
     //SetUpControlsState
     create: function(){
+        //SetAmmo
+        playerAmmo = CLIPSIZE_PISTOL * ammoMultiplier;
+        //SetDamage
+        bulletDamage = DAMAGE_PISTOL * damageMultiplier;
         //AddMapToTheGame
         this.setUpMap();
         //AddWeaponPurchaseObjects

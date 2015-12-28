@@ -25,9 +25,6 @@ MyGame.StateC.prototype = {
     addImages: function(){
         //AddBackgroundToGame
         this.background = this.add.sprite(0, 0, 'spr_game', 'bg_controls.png');
-        //SetBackgroundToFitScreen
-        this.background.width = canvasWidth;
-        this.background.height = canvasHeight;
         //AddButtonsToGame
         this.backButton = this.add.sprite(220, 680, 'spr_game', 'spr_backButton.png');
     },

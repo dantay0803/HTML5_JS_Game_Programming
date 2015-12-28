@@ -35,6 +35,7 @@
                 <li><a href="screenshots.html">SCREENSHOTS</a></li>
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="documentation.html">DOCUMENTATION</a></li>
+                <li><a href="devlog.html">DEVELOPMENT LOG</a></li>
                 <li><a href="team.html">TEAM</a></li>
                 <li class="active"><a href="minutes.html">MINUTES</a></li>
                 <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
@@ -121,6 +122,132 @@
             that explains how to scale games and will look at implementing this feature when
             the main game features are complete.</li>
         <li>The first draft of the website has been submitted to meet the class deadline.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 6 - 26/10/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Implement controls menu.</li>
+        <li>Design a better looking main menu.</li>
+        <li>Start working on the map for the game.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>Solo minutes discussing my tasks and what I have accomplished each week have been taken.</li>
+        <li>I have also implemented a working menu with a rough design. The menu can be navigated and selections can be made with the keyboard and mouse, the included keyboard buttons are W, S, up and down arrows and the enter button. The main menu also has background music and button click sounds playing.</li>
+        <li>All of the concept art for the game has been completed and entered into the documentation section of the website.</li>
+        <li>In terms of scaling the game I have purchased a book written by the Phaser creator that explains how to scale games and will look at implementing this feature when the main game features are complete.</li>
+        <li>The first draft of the website has been submitted to meet the class deadline.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 7 - 02/11/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Implement map into game with Tiled.</li>
+        <li>Get player object moving.</li>
+        <li>Get player shooting.</li>
+        <li>Set up collision with player object and level walls.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>Submitted website draft with completed documentation.</li>
+        <li>Added in new page for minutes instead of having them on the documentation page.</li>
+        <li>Re-wrote and drastically increased amount of detail in the game idea research section of the documentation.</li>
+        <li>Re-designed main menu for game.</li>
+        <li>Created more detailed graphics for the games main menu.</li>
+        <li>Implemented newly designed main menu.</li>
+        <li>Created basic version of my game map in Tiled software.</li>
+        <li>Got basic version of map working in Phaser.</li>
+        <li>Added scaling ability to game so that it can fit more monitor sizes better, due to this I made the navigation bar at the top of the website only include links to the game and home page in the game page of the website.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 8 - 09/11/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Work on enemy spawning system.</li>
+        <li>Make enemies path finding towards player.</li>
+        <li>Enemy damage.</li>
+        <li>Destroy dead enemy objects.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>Game map was created in Tiled and was then implemented into the game.</li>
+        <li>Collision between the player and the walls in the level was implemented.</li>
+        <li>Player object has been created in the game with animated legs.</li>
+        <li>Player object can now move around the level and the camera will follow the player objects.</li>
+        <li>Input for the player shooting has been implemented.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 9 - 16/11/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Animate zombies – walk, attack and die.</li>
+        <li>Zombie hit player.</li>
+        <li>Player death.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>Enemy spawning system implemented enemy count and max health are set to gradually increase in order to increase difficulty as the player advances through the game.</li>
+        <li>The enemy objects now path find towards the player object by using Phasers built in moveToXY function, this may be updated in the future using an official pathfinding system such as A*.</li>
+        <li>The enemy objects now take damage and all of the damage values for each gun has been set and what damage to apply is decided on using a switch statement and an int to set what gun is equipped.</li>
+        <li>Enemy objects are deleted once their health is equal to or below 0.</li>
+        <li>All of the enemy animations are implemented into the game.</li>
+        <li>The zombies can now damage the player and the players health will reduce by 10 points every hit.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 10 - 23/11/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Player death animation.</li>
+        <li>Game interface – health count, ammo count and money.</li>
+        <li>Add in lighting effect that only shows a small area around the player.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>The walk and attack animations for the zombies have been implemented.</li>
+        <li>The zombie will now hit the player when the player is within a certain range.</li>
+        <li>When the players health is below 0 the game changes to the upgrade page.</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 11 - 30/11/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Particles – blood splatter and shell casing.</li>
+        <li>Add in new weapons for the player to use and purchase.</li>
+        <li>Hide menu during gameplay then show it in the game menus.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>Created GUI for the game to display the players health, ammo and money amounts, in order for me to get the GUI to be positioned relative to the game camera I used the Phaser .fixedToCamera = true; function.</li>
+        <li>When the players health gets to 0 a death animation now plays for the player object before changing to the upgrades page.</li>
+        <li>A new sprite was added to the game and follows the player to give the illusion that the only light in the game is radiating from the player</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 12 - 07/12/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Log player data with php.</li>
+        <li>Player Buy upgrades.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>The menu to change pages has been hidden by manipulating its style within the JavaScript files in order to keep the in game level clear from unneeded clutter. The menu is also shown outside of the gameplay.</li>
+        <li>Added in a custom pixel font to fit in with the style and theme of the game using Google webfonts.</li>
+        <li>Particles for blood splatter when enemies shot and player killed, smoke when bullets collide with solid object and shell casings added to the game.</li>
+        <li>The weapons that the player can purchasing during the game has been implemented with the players damage, ammo and fire rate being updated when a gun is bought</li>
+    </ul>
+
+    <h1>Minutes of Meeting Week 13 - 14/12/2015</h1>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
+    <ul class="minutesList">
+        <li>Add the final pieces of required documentation to the website.</li>
+        <li>Add the final minutes to the website.</li>
+        <li>Submit project.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Tasks completed from previous week:</p>
+    <ul class="minutesList">
+        <li>I added in the upgrade system for the player to buy upgrades that increase their health, amount of ammo and how much damage the do.</li>
+        <li>I added in the user log functionality in with php.</li>
     </ul>
 </div>
 
