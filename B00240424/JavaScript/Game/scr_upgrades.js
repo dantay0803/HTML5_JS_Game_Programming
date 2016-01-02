@@ -2,7 +2,7 @@
  * Created by Dan on 01/11/2015.
  */
 
-MyGame.StateE = function(){
+MyGame.StateF = function(){
     //SetCostOfEachUpgrade
     this.healthMultiplierCost = (healthMultiplier + 0.5) * BASEMULTIPLIERCOST;
     this.ammoMultiplierCost = (ammoMultiplier + 0.5) * BASEMULTIPLIERCOST;
@@ -15,7 +15,7 @@ MyGame.StateE = function(){
     this.currentMoneyDisplay=null;
 };
 
-MyGame.StateE.prototype = {
+MyGame.StateF.prototype = {
     //SetUpControlsState
     create: function(){
         //SetCoursorImage
@@ -278,11 +278,15 @@ MyGame.StateE.prototype = {
 
     //ReturnToLevel
     playAgain: function(){
+        //PlayButtonClick
+        MyGame.playButtonClick();
         game.state.start('level');
     },
 
     //GoToMainMenu
     goToMainMenu: function(){
+        //PlayButtonClick
+        MyGame.playButtonClick();
         game.state.start('mainMenu');
         //ShowHTMLMenu
         this.showHTMLMenu();
@@ -292,6 +296,8 @@ MyGame.StateE.prototype = {
     purchaseHealthMultiplier: function() {
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.healthMultiplierCost){
+            //PlayButtonClick
+            MyGame.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.healthMultiplierCost;
             //UpdateMultiplier
@@ -308,6 +314,8 @@ MyGame.StateE.prototype = {
     purchaseAmmoMultiplier: function(){
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.ammoMultiplierCost) {
+            //PlayButtonClick
+            MyGame.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.ammoMultiplierCost;
             //UpdateMultiplier
@@ -324,6 +332,8 @@ MyGame.StateE.prototype = {
     purchaseDamageMultiplier: function(){
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.damageMultiplierCost) {
+            //PlayButtonClick
+            MyGame.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.damageMultiplierCost;
             //UpdateMultiplier

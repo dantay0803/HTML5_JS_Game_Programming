@@ -17,7 +17,7 @@ var zombieHealthMultiplier=1;
 //TheAmountToIncreaseTheZombieHealthBy
 var zombieHealthIncrease=0.5;
 //SetZombieDamage
-var  zombieDamage=10;
+var zombieDamage=10;
 //Check how many zombies are in the level
 var zombiesAlive=0;
 //The number of zombies to spawn in the level
@@ -25,7 +25,7 @@ var zombiesToCreate=3;
 //The number of zombies to add to the base create number
 var zombieCreateMultiplier=3;
 
-MyGame.StateD = function(){
+MyGame.StateE = function(){
     //MovementKeys
     this.up, this.down, this.left, this.right, this.purchaseKey = null;
     //CreatePlayerObject
@@ -38,9 +38,11 @@ MyGame.StateD = function(){
     this.bloodSplatter, this.shellCasings = null;
     //ArrayToHoldTheSpritesForTheAvailableWeaponsThatCanBeBoughtInTheLevel
     this.avalibleWeapons = [];
+    //TimerToSpawnZombies
+    this.timerSpawnZombies = null;
 };
 
-MyGame.StateD.prototype = {
+MyGame.StateE.prototype = {
     //InitializeGame
     init: function(){
         //StartArcadePhysics
@@ -81,10 +83,28 @@ MyGame.StateD.prototype = {
         this.setUpInput();
         //SetCameraToFollowPlayer
         game.camera.follow(this.obj_player);
+        //SetUpSpawnTimer
+        this.timerSpawnZombies = this.time.create(false);
     },
 
     //updateGame
     update: function() {
+        //CheckNoZombiesAreInLevel
+        this.checkZombies();
+        //ZombieMovementAndPlayerAttacking
+        this.zombieActions();
+        //RotateZombieToFacePlayer
+        this.rotateZombie();
+        //MoveThePlayer
+        this.movePlayerObject();
+        //PlayerStoodOnTopOfGuns
+        this.playerCollideWithGunIcon();
+        //RotatePlayerObjectToFaceMouse
+        this.rotatePlayerObject();
+        //PlayerShootAutomaticGun
+        if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
+            this.playerShoot();
+        }
         //ZombieCollisionWithZombies
         game.physics.arcade.collide(this.zombieGroup);
         //CheckPlayerCollisionWithZombies
@@ -106,44 +126,125 @@ MyGame.StateD.prototype = {
         //SetCollisionWithShellCasingAndWall
         game.physics.arcade.collide(this.shellCasings, this.Wall1);
         game.physics.arcade.collide(this.shellCasings, this.Wall2);
-        //LightEffectToFollowPlayer
-        this.lightEffectFollow();
-        //MoveThePlayer
-        this.movePlayerObject();
-        //PlayerStoodOnTopOfGuns
-        this.playerCollideWithGunIcon();
-        //RotatePlayerObjectToFaceMouse
-        this.rotatePlayerObject();
-        //ZombieMovementAndPlayerAttacking
-        this.zombieActions();
-        //RotateZombieToFacePlayer
-        this.rotateZombie();
-        //PlayerShootAutomaticGun
-        if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
-            this.playerShoot();
+    },
+
+    //PlayAmbientSoundsDuringBreaks
+    playAmbientSounds: function(){
+        //CheckMusicStatus
+        if(MyGame.playMusic){
+            //StopGameMusic
+            this.stopGameMusic();
+            //RandomlyPickTrackToPlay
+            switch(game.rnd.integerInRange(0, 2)){
+                case 0:
+                    MyGame.music_noCombat1.fadeIn(2000);
+                    break;
+                case 1:
+                    MyGame.music_noCombat2.fadeIn(2000);
+                    break;
+                case 2:
+                    MyGame.music_noCombat3.fadeIn(2000);
+                    break;
+            }
         }
-        //CheckNoZombiesAreInLevel
-        this.checkZombies();
+    },
+
+    //StopAmbientSounds
+    stopAmbientSounds: function(){
+        //CheckMusicStatus
+        if(MyGame.playMusic) {
+            //StopAnyAmbientTracksPlaying
+            if (MyGame.music_noCombat1.isPlaying) {
+                MyGame.music_noCombat1.fadeOut(2000);
+            }
+            if (MyGame.music_noCombat2.isPlaying) {
+                MyGame.music_noCombat2.fadeOut(2000);
+            }
+            if (MyGame.music_noCombat3.isPlaying) {
+                MyGame.music_noCombat3.fadeOut(2000);
+            }
+        }
+    },
+
+    //PlayGameMusic
+    playGameMusic: function(){
+        //CheckMusicStatus
+        if(MyGame.playMusic){
+            //StopAmbientSounds
+            this.stopAmbientSounds();
+            //RandomlyPickTrackToPlay
+            switch(game.rnd.integerInRange(0, 5)){
+                case 0:
+                    MyGame.music_combat1.fadeIn(2000);
+                    break;
+                case 1:
+                    MyGame.music_combat2.fadeIn(2000);
+                    break;
+                case 2:
+                    MyGame.music_combat3.fadeIn(2000);
+                    break;
+                case 3:
+                    MyGame.music_combat4.fadeIn(2000);
+                    break;
+                case 4:
+                    MyGame.music_combat5.fadeIn(2000);
+                    break;
+                case 5:
+                    MyGame.music_combat6.fadeIn(2000);
+                    break;
+            }
+        }
+    },
+
+    //StopGameMusic
+    stopGameMusic: function(){
+        //CheckMusicStatus
+        if(MyGame.playMusic){
+            //StopAnyPlayingMusicTrack
+            if(MyGame.music_combat1.isPlaying){
+                MyGame.music_combat1.fadeOut(2000);
+            }
+            if(MyGame.music_combat2.isPlaying){
+                MyGame.music_combat2.fadeOut(2000);
+            }
+            if(MyGame.music_combat3.isPlaying){
+                MyGame.music_combat3.fadeOut(2000);
+            }
+            if(MyGame.music_combat4.isPlaying){
+                MyGame.music_combat4.fadeOut(2000);
+            }
+            if(MyGame.music_combat5.isPlaying){
+                MyGame.music_combat5.fadeOut(2000);
+            }
+            if(MyGame.music_combat6.isPlaying){
+                MyGame.music_combat6.fadeOut(2000);
+            }
+        }
     },
 
     //CheckNoZombiesAreInLevel
     checkZombies: function(){
         if(zombiesAlive == 0){
+            //PlayAmbientMusic
+            this.playAmbientSounds();
             //ReduceTheCountByOneToStopTimerBeingCalledMoreThanOnce
             zombiesAlive = -1;
             //StartTimeToSpawnNextRoundOfZombies
-            game.time.events.add(3000, this.spawnZombies, this);
-            //PlayAmbientMusic
+            this.timerSpawnZombies.add(Phaser.Timer.SECOND*6, this.spawnZombies, this);
+            this.timerSpawnZombies.start();
         }
     },
 
     //SpawnZombies
     spawnZombies: function(){
         //PlayMusic
+        this.playGameMusic();
         //IncreaseTheAmountOfZombiesToSpawn
         zombiesToCreate += zombieCreateMultiplier;
-        //IncreaseHowManyZombiesHaveBeenSpawned
+        console.log("zombies to create: " + zombiesToCreate);
+        //SetTheAmountOfZombiesAlive
         zombiesAlive = zombiesToCreate;
+        console.log("zombies alive: " + zombiesAlive);
         //IncreaseTheMultiplierValueToSetTheZombieHealth
         zombieHealthMultiplier += zombieHealthIncrease;
         //SpawnInZombies
@@ -412,16 +513,6 @@ MyGame.StateD.prototype = {
         this.light.anchor.setTo(0.5, 0.5);
     },
 
-    //LightEffectToFollowPlayer
-    lightEffectFollow: function(){
-        if(this.obj_player.x < game.world.width - (70*5) && this.obj_player.x > 64 * 5){
-            this.light.x = this.obj_player.x;
-        }
-        if(this.obj_player.y < game.world.height - (64*5) && this.obj_player.y > 64 * 3){
-            this.light.y = this.obj_player.y;
-        }
-    },
-
     //SetUpGUI
     setUpGUI: function(){
         //AddGUIImages
@@ -641,6 +732,12 @@ MyGame.StateD.prototype = {
         }
         //SetThePositionOfThePlayerLegObjectToThePositionOfThePlayerBody
         this.obj_playerLegs.position = this.obj_player.position;
+        if(this.obj_player.x < game.world.width - (70*5) && this.obj_player.x > 64 * 5){
+            this.light.x = this.obj_player.x;
+        }
+        if(this.obj_player.y < game.world.height - (64*5) && this.obj_player.y > 64 * 3){
+            this.light.y = this.obj_player.y;
+        }
     },
 
     //RotatePlayerObjectsToFaceMouse
@@ -743,9 +840,10 @@ MyGame.StateD.prototype = {
     },
 
     //ApplyDamageToZombies
-    damageZombie: function(zombie, bullet){
+    damageZombie: function(zombie, bullet) {
         //BulletDestroy
         bullet.kill();
+        if (zombie.hp > 0) {
         //PlayBloodSplatterAnimation
         this.spawnBloodSplatterParticle(zombie);
         //AddMoneyForDamagingAZombie
@@ -753,19 +851,21 @@ MyGame.StateD.prototype = {
         //ApplyDamage
         zombie.hp -= bulletDamage;
         //CheckZombieHealthForDestroying
-        if(zombie.hp <= 0){
-            //ReduceTheAmountOfZombiesAlive
-            zombiesAlive--;
+        if (zombie.hp <= 0) {
             //AddMoneyForKillingAZombie
             playerMoney += MONEY_ZOMBIEKILL;
             //PlayDeathAnimation
             zombie.play('zombieDeath');
             //KillObjectOnceDeathAnimationIsComplete
-            zombie.animations.currentAnim.onComplete.addOnce(function(){
+            zombie.animations.currentAnim.onComplete.addOnce(function () {
                 zombie.kill();
+                //ReduceTheAmountOfZombiesAlive
+                zombiesAlive -= 1;
+                console.log("zombies alive: " + zombiesAlive);
             });
         }
         //UpdateGUI
         GUIElements[0][1].text = playerMoney;
+        }
     }
 };

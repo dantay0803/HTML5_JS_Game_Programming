@@ -7,7 +7,7 @@ var password;
 
 var obj;
 
-MyGame.StateB = function (){
+MyGame.StateC = function (){
     this.background = null;
     this.mainMenuButtons = [];
     //DefineKeysForMenuNavigation
@@ -17,8 +17,7 @@ MyGame.StateB = function (){
     this.sfxStatusIndecator = null;
 };
 
-
-MyGame.StateB.prototype = {
+MyGame.StateC.prototype = {
     //SetUpMainMenuState
     create: function(){
         //GetOrCreateUserName
@@ -144,7 +143,7 @@ MyGame.StateB.prototype = {
     //StartGameWhenButtonClicked
     startSelected: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         //IfMusicIsPlayingStopIt
         if(MyGame.music_menus.isPlaying){
             MyGame.music_menus.stop();
@@ -158,7 +157,7 @@ MyGame.StateB.prototype = {
     //GoToControlsPageWhenButtonClicked
     controlsPageSelected: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         //GoToControlsPage
         this.state.start('controls');
     },
@@ -166,7 +165,7 @@ MyGame.StateB.prototype = {
     //ToggleStatusOfMusic
     toggleMusic: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         if(MyGame.playMusic && MyGame.music_menus.isPlaying){
             MyGame.playMusic = false;
             //stopMusic
@@ -201,7 +200,7 @@ MyGame.StateB.prototype = {
             }
         }
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
     },
 
     //PlayMusic
@@ -209,6 +208,13 @@ MyGame.StateB.prototype = {
         //AddMusic
         if(MyGame.playMusic && !MyGame.music_menus.isPlaying){
             MyGame.music_menus.play();
+        }
+    },
+
+    //PlayButtonClick
+    playButtonClick: function(){
+        if(MyGame.playSFX){
+            MyGame.buttonClick.play();
         }
     },
 

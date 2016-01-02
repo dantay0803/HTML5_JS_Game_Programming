@@ -3,13 +3,13 @@
  */
 
 
-MyGame.StateC = function(){
+MyGame.StateD = function(){
     this.background = null;
     this.backButton = null;
     this.enterKey = null;
 };
 
-MyGame.StateC.prototype = {
+MyGame.StateD.prototype = {
 
     //SetUpControlsState
     create: function(){
@@ -47,8 +47,15 @@ MyGame.StateC.prototype = {
     //GoToControlsPageWhenButtonClicked
     backButtonPressed: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         //GoToControlsPage
         this.state.start('mainMenu');
+    },
+
+    //PlayButtonClick
+    playButtonClick: function(){
+        if(MyGame.playSFX){
+            MyGame.buttonClick.play();
+        }
     }
 };
