@@ -5,17 +5,25 @@
 var GUIElements = [[null, null], [null, null], [null, null], [null, null]];
 //SetTheDelayBetweenShots
 var fireRateDelay = FIRERATE_PISTOL;
-var currentFireRateDelay = 0;
+var currentFireRateDelay=0;
 //SetBulletDamage;
-var bulletDamage;
+var bulletDamage=0;
 //InGamePlayerMoney
-var playerMoney = 20000;
+var playerMoney=0;
 //DefineAmmoAmount
-var playerAmmo;
+var playerAmmo=0;
 //UsedToIncreaseTheZombiesHealthForEverRoundThePlayerSurvives
-var zombieHealthMultiplier = 1;
+var zombieHealthMultiplier=1;
+//TheAmountToIncreaseTheZombieHealthBy
+var zombieHealthIncrease=0.5;
 //SetZombieDamage
-var  zombieDamage = 10;
+var  zombieDamage=10;
+//Check how many zombies are in the level
+var zombiesAlive=0;
+//The number of zombies to spawn in the level
+var zombiesToCreate=3;
+//The number of zombies to add to the base create number
+var zombieCreateMultiplier=3;
 
 MyGame.StateD = function(){
     //MovementKeys
@@ -28,7 +36,7 @@ MyGame.StateD = function(){
     this.zombieGroup = null;
     //ParticleEmitters
     this.bloodSplatter, this.shellCasings = null;
-    //ArrayToHoldTheSpritesForTheAvalibleWeaponsThatCanBeBoughtInTheLevel
+    //ArrayToHoldTheSpritesForTheAvailableWeaponsThatCanBeBoughtInTheLevel
     this.avalibleWeapons = [];
 };
 
@@ -73,25 +81,33 @@ MyGame.StateD.prototype = {
         this.setUpInput();
         //SetCameraToFollowPlayer
         game.camera.follow(this.obj_player);
-        //GetTheFirstBulletInstanceFromThePreCreatedGroup
-        var zombie = this.zombieGroup.getFirstExists(false);
-        if(zombie){
-            //PlaceTheBulletAtThePlayerObject
-            zombie.reset(this.obj_player.x, this.obj_player.y+128);
-        }
-        var zombie2 = this.zombieGroup.getFirstExists(false);
-        if(zombie2){
-            //PlaceTheBulletAtThePlayerObject
-            zombie2.reset(this.obj_player.x+100, this.obj_player.y+128);
-        }
     },
 
     //updateGame
     update: function() {
+        //ZombieCollisionWithZombies
+        game.physics.arcade.collide(this.zombieGroup);
+        //CheckPlayerCollisionWithZombies
+        game.physics.arcade.collide(this.obj_player, this.zombieGroup);
+        //ZombieCollisionWithWalls
+        game.physics.arcade.collide(this.zombieGroup, this.Wall1);
+        game.physics.arcade.collide(this.zombieGroup, this.Wall2);
+        game.physics.arcade.collide(this.zombieGroup, this.Debris);
+        //CheckForCollisionWithMapObjects
+        game.physics.arcade.collide(this.obj_player, this.Wall1);
+        game.physics.arcade.collide(this.obj_player, this.Wall2);
+        game.physics.arcade.collide(this.obj_player, this.Debris);
+        //ZombiesCollisionWithBullets
+        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
+        //BulletsHitWalls
+        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
+        game.physics.arcade.collide(this.bullets, this.Debris, this.destroyBullets, null, this);
+        //SetCollisionWithShellCasingAndWall
+        game.physics.arcade.collide(this.shellCasings, this.Wall1);
+        game.physics.arcade.collide(this.shellCasings, this.Wall2);
         //LightEffectToFollowPlayer
         this.lightEffectFollow();
-        //CheckForInGameCollision
-        this.collisionChecking();
         //MoveThePlayer
         this.movePlayerObject();
         //PlayerStoodOnTopOfGuns
@@ -105,6 +121,87 @@ MyGame.StateD.prototype = {
         //PlayerShootAutomaticGun
         if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
             this.playerShoot();
+        }
+        //CheckNoZombiesAreInLevel
+        this.checkZombies();
+    },
+
+    //CheckNoZombiesAreInLevel
+    checkZombies: function(){
+        if(zombiesAlive == 0){
+            //ReduceTheCountByOneToStopTimerBeingCalledMoreThanOnce
+            zombiesAlive = -1;
+            //StartTimeToSpawnNextRoundOfZombies
+            game.time.events.add(3000, this.spawnZombies, this);
+            //PlayAmbientMusic
+        }
+    },
+
+    //SpawnZombies
+    spawnZombies: function(){
+        //PlayMusic
+        //IncreaseTheAmountOfZombiesToSpawn
+        zombiesToCreate += zombieCreateMultiplier;
+        //IncreaseHowManyZombiesHaveBeenSpawned
+        zombiesAlive = zombiesToCreate;
+        //IncreaseTheMultiplierValueToSetTheZombieHealth
+        zombieHealthMultiplier += zombieHealthIncrease;
+        //SpawnInZombies
+        for(var i=0; i<zombiesToCreate; i++){
+            //GetTheFirstBulletInstanceFromThePreCreatedGroup
+            var zombie = this.zombieGroup.getFirstExists(false);
+            if (zombie) {
+                //SetHealth
+                zombie.hp = 100 * zombieHealthMultiplier;
+                //SetZombieAsImmovableSoThePlayerCannotPushThem
+                zombie.body.immovable = true;
+                //SetPosition
+                var xPos=0, yPos=0;
+                //RandomlySelectSpawnPosition
+                switch(game.rnd.integerInRange(0, 9)){
+                    case 0:
+                        xPos = 512;
+                        yPos = 192;
+                        break;
+                    case 1:
+                        xPos = 128;
+                        yPos = 3776;
+                        break;
+                    case 2:
+                        xPos = 1152;
+                        yPos = 3776;
+                        break;
+                    case 3:
+                        xPos = 3520;
+                        yPos = 2112;
+                        break;
+                    case 4:
+                        xPos = 4864;
+                        yPos = 1856;
+                        break;
+                    case 5:
+                        xPos = 3520;
+                        yPos = 1792;
+                        break;
+                    case 6:
+                        xPos = 4032;
+                        yPos = 3712;
+                        break;
+                    case 7:
+                        xPos = 4800;
+                        yPos = 3712;
+                        break;
+                    case 8:
+                        xPos = 1472;
+                        yPos = 3776;
+                        break;
+                    case 9:
+                        xPos = 3200;
+                        yPos = 3712;
+                        break;
+                }
+                zombie.reset(xPos, yPos);
+            }
         }
     },
 
@@ -205,32 +302,6 @@ MyGame.StateD.prototype = {
         playerAmmo *= ammoMultiplier;
         //UpdateAmmoGUI
         GUIElements[2][1].text = playerAmmo;
-    },
-
-    //CheckForInGameCollision
-    collisionChecking: function(){
-        //CheckForCollisionWithMapObjects
-        game.physics.arcade.collide(this.obj_player, this.Wall1);
-        game.physics.arcade.collide(this.obj_player, this.Wall2);
-        game.physics.arcade.collide(this.obj_player, this.Debris);
-        //CheckPlayerCollisionWithZombies
-        game.physics.arcade.collide(this.obj_player, this.zombieGroup);
-        game.physics.arcade.collide(this.zombieGroup, this.obj_player);
-        //ZombieCollisionWithZombies
-        game.physics.arcade.collide(this.zombieGroup);
-        //ZombieCollisionWithWalls
-        game.physics.arcade.collide(this.zombieGroup, this.Wall1);
-        game.physics.arcade.collide(this.zombieGroup, this.Wall2);
-        game.physics.arcade.collide(this.zombieGroup, this.Debris);
-        //ZombiesCollisionWithBullets
-        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
-        //BulletsHitWalls
-        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
-        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
-        game.physics.arcade.collide(this.bullets, this.Debris, this.destroyBullets, null, this);
-        //SetCollisionWithShellCasingAndWall
-        game.physics.arcade.collide(this.shellCasings, this.Wall1);
-        game.physics.arcade.collide(this.shellCasings, this.Wall2);
     },
 
     //Particles
@@ -425,10 +496,8 @@ MyGame.StateD.prototype = {
         //EnablePhysicsOnPlayerBody
         this.physics.enable(this.obj_player, Phaser.Physics.ARCADE);
         this.obj_player.enableBody = true;
-        //SetPlayerAsImmovableSoZombiesCannotPushItAround
-        this.obj_player.body.immovable = true;
         //SetPlayerHealth
-        this.obj_player.hp = 10 * healthMultiplier;
+        this.obj_player.hp = 100 * healthMultiplier;
         //ApplyDamageToPlayer
         this.obj_player.applyDamage = function(){
             //ReduceHealth
@@ -437,6 +506,8 @@ MyGame.StateD.prototype = {
             GUIElements[1][1].text = this.hp;
             //GameOver
             if(this.hp <= 0){
+                //SetPlayerVelocity
+                this.body.velocity.set(0);
                 //PlayerBloodEffect
                 this.bloodEffect();
                 //ShowGameOverText
@@ -581,21 +652,19 @@ MyGame.StateD.prototype = {
     //CreateZombieObjects
     createZombieGroup: function(){
         //CreateGroup
-        this.zombieGroup = game.add.group();
+        this.zombieGroup = game.add.physicsGroup(Phaser.Physics.ARCADE);
         //EnableBodyProperties
         this.zombieGroup.enableBody = true;
-        //EnablePhysics
-        this.zombieGroup.physicsBodyType = Phaser.Physics.ARCADE;
         //PreCreateZombies
-        this.zombieGroup.createMultiple(100, 'spr_game', 'Zombie_Stand.png');
+        this.zombieGroup.createMultiple(256, 'spr_game', 'Zombie_Stand.png');
         //AddPropertiesToEachZombieInTheGroup
         this.zombieGroup.forEach(function(zombie){
             //SetAnchorPoints
             zombie.anchor.setTo(0.5, 0.5);
             //SetBaseHealth
-            zombie.hp = 100;
+            zombie.hp = 100 * zombieHealthMultiplier;
             //DelayToStopZombiesAttackingTooFast
-            zombie.zombieAttackDelay = 5000;
+            zombie.zombieAttackDelay = 2000;
             zombie.zombieAttackTimer = game.time.now + zombie.zombieAttackDelay;
             //CreateZombieAnimations
             //ZombieWalkAnimation
@@ -613,11 +682,14 @@ MyGame.StateD.prototype = {
         var player = this.obj_player;
         //UpdateMovementForAllZombies
         this.zombieGroup.forEach(function(zombie){
-            //IfTheZombieIsWithinA64x64BoxAroundThePlayerStopMoving
-            if(zombie.hp <= 0 || zombie.x >= player.x - 70 && zombie.x <= player.x + 70 && zombie.y <= player.y + 70 && zombie.y >= player.y - 70){
+            //StopMovingWhenDead
+            if(zombie.hp <= 0){
                 //StopZombieFromMoving
                 zombie.body.velocity.x = 0;
                 zombie.body.velocity.y = 0;
+            }
+            //IfTheZombieIsAroundThePlayer
+            if(zombie.x >= player.x - 80 && zombie.x <= player.x + 80 && zombie.y <= player.y + 80 && zombie.y >= player.y - 80){
                 //ZombieAttackPlayerWhenTheAttackDelayIsSmallerThanTheCurrentTime
                 if(game.time.now > zombie.zombieAttackTimer && zombie.hp > 0) {
                     //PlayAttackAnimation
@@ -625,7 +697,7 @@ MyGame.StateD.prototype = {
                     //DamagePlayerFunction
                     zombie.animations.currentAnim.onComplete.addOnce(function(){
                         //CheckPlayerIsStillInRange
-                        if(zombie.x >= player.x - 80 && zombie.x <= player.x + 80 && zombie.y <= player.y + 80 && zombie.y >= player.y - 80){
+                        if(zombie.x >= player.x - 90 && zombie.x <= player.x + 90 && zombie.y <= player.y + 90 && zombie.y >= player.y - 90){
                             //SetZombieToIdleAnimationAfterAttack
                             zombie.frameName = "Zombie_Stand.png";
                             //IfTrueApplyDamage
@@ -634,6 +706,11 @@ MyGame.StateD.prototype = {
                     });
                     //IncreaseTheValueOfTheZombieAttackDelay
                     zombie.zombieAttackTimer = game.time.now + zombie.zombieAttackDelay;
+                }
+                if(player.body.velocity.x == 0 && player.body.velocity.y == 0){
+                    //StopZombieFromMoving
+                    zombie.body.velocity.x = 0;
+                    zombie.body.velocity.y = 0;
                 }
             }
             else if(zombie.hp > 0 && (zombie.x < player.x - 70 || zombie.x > player.x + 70 || zombie.y < player.y - 70 || zombie.y > player.y + 70)){
@@ -677,6 +754,8 @@ MyGame.StateD.prototype = {
         zombie.hp -= bulletDamage;
         //CheckZombieHealthForDestroying
         if(zombie.hp <= 0){
+            //ReduceTheAmountOfZombiesAlive
+            zombiesAlive--;
             //AddMoneyForKillingAZombie
             playerMoney += MONEY_ZOMBIEKILL;
             //PlayDeathAnimation

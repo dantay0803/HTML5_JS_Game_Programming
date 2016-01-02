@@ -2,18 +2,42 @@
  * Created by Dan on 25/10/2015.
  */
 
+var user;
+var password;
+
+var obj;
+
 MyGame.StateB = function (){
     this.background = null;
     this.mainMenuButtons = [];
     //DefineKeysForMenuNavigation
     this.enterKey, this.wKey, this.upKey, this.sKey, this.downKey = null;
     //ObjectsToActIsIndecatorsToTheStatusOfTheAudio
-    this.musicStatusIndecator, this.sfxStatusIndecator = null;
+    this.musicStatusIndecator = null;
+    this.sfxStatusIndecator = null;
 };
+
 
 MyGame.StateB.prototype = {
     //SetUpMainMenuState
     create: function(){
+        //GetOrCreateUserName
+        /*user = prompt("Please enter your name", "");
+        //GetOrCreatePassword
+        password = prompt("Please enter your password", "");
+        if(user != null) {
+            //CheckForPreviouslyCreatedAccount
+            MyGame.getUserData();
+            //IfNoAccountFoundCreateOne
+            obj = {
+                'user': user,
+                'password': password,
+                'upgradeHealth': healthMultiplier,
+                'upgradeAmmo': ammoMultiplier,
+                'upgradeDamage': damageMultiplier
+            };
+            //MyGame.uploadUserData();
+        }*/
         //AddImagesToMainMenu
         this.addImages();
         //CheckAudioVariablesStatusToUpdateImages
@@ -308,14 +332,14 @@ MyGame.StateB.prototype = {
         if(this.musicStatusIndecator != null && this.mainMenuButtons[2].frameName === 'spr_musicButtonSelected.png'){
             this.musicStatusIndecator.y = 525;
         }
-        else{
+        else if(this.musicStatusIndecator != null && this.mainMenuButtons[2].frameName === 'spr_musicButton.png'){
             this.musicStatusIndecator.y = 515;
         }
         //CheckIfTheSFXIsNotMutedAndTheSFXToggleButtonIsSelectedToMoveTheStatusIndicator
         if(this.sfxStatusIndecator != null && this.mainMenuButtons[3].frameName === 'spr_sfxButtonSelected.png'){
             this.sfxStatusIndecator.y = 525;
         }
-        else{
+        else if(this.sfxStatusIndecator != null && this.mainMenuButtons[3].frameName === 'spr_sfxButton.png'){
             this.sfxStatusIndecator.y = 515;
         }
     },
