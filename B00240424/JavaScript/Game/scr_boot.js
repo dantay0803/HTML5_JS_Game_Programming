@@ -40,7 +40,16 @@ var MyGame = {
     music_combat4: null,
     music_combat5: null,
     music_combat6: null,
-    buttonClick: null
+    buttonClick: null,
+    purchaseGun: null,
+    shotAssaultRiffle: null,
+    shotKAR98: null,
+    shotPistol: null,
+    shotShotgun: null,
+    zombieHit1: null,
+    zombieHit2: null,
+    zombieHit3: null,
+    zombieHit4: null
 };
 
 MyGame.StateA = function (){
@@ -59,6 +68,16 @@ MyGame.StateA.prototype = {
 
     //LoadAssets
     preload: function(){
+        //LoadGameImages
+        game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
+        //LoadMapJsonFile
+        game.load.tilemap('map_Level1', './Assets/Game/Maps/Level1.json', null, Phaser.Tilemap.TILED_JSON);
+        //LoadFloorAndWallTiles
+        game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
+        //LoadDebrisTiles
+        game.load.image('MapTiles2', './Assets/Game/Maps/MapTiles2.png');
+        //LoadFont
+        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
         //LoadGameMusic
         //MenuMusic
         game.load.audio('music_mainMenu', './Assets/Game/Audio/Music/AdventureMeme.ogg');
@@ -88,16 +107,6 @@ MyGame.StateA.prototype = {
         game.load.audio('snd_ZombieHit2', './Assets/Game/Audio/SFX/ZombieHit2.ogg');
         game.load.audio('snd_ZombieHit3', './Assets/Game/Audio/SFX/ZombieHit3.ogg');
         game.load.audio('snd_ZombieHit4', './Assets/Game/Audio/SFX/ZombieHit4.ogg');
-        //LoadMapJsonFile
-        game.load.tilemap('map_Level1', './Assets/Game/Maps/Level1.json', null, Phaser.Tilemap.TILED_JSON);
-        //LoadFloorAndWallTiles
-        game.load.image('MapTiles', './Assets/Game/Maps/MapTiles.png');
-        //LoadDebrisTiles
-        game.load.image('MapTiles2', './Assets/Game/Maps/MapTiles2.png');
-        //LoadGameImages
-        game.load.atlasJSONHash('spr_game', './Assets/Game/Sprites/sprietsheet_TheDeadOfNight.png', './Assets/Game/Sprites/spritesheet_TheDeadOfNight.json');
-        //LoadFont
-        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
     },
 
     create: function(){

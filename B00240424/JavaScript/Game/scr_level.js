@@ -1,15 +1,15 @@
 /**
  * Created by Dan on 31/10/2015.
  */
-//0=moneyDisplay, 1=healthDisplay, 2=ammoDisplay, 3=weaponPurchaseInfo
-var GUIElements = [[null, null], [null, null], [null, null], [null, null]];
+//0=moneyDisplay, 1=healthDisplay, 2=ammoDisplay, 3=weaponPurchaseInfo, 4=roundInfo
+var GUIElements = [[null, null], [null, null], [null, null], [null, null], [null, null]];
 //SetTheDelayBetweenShots
 var fireRateDelay = FIRERATE_PISTOL;
 var currentFireRateDelay=0;
 //SetBulletDamage;
 var bulletDamage=0;
 //InGamePlayerMoney
-var playerMoney=0;
+var playerMoney=10000;
 //DefineAmmoAmount
 var playerAmmo=0;
 //UsedToIncreaseTheZombiesHealthForEverRoundThePlayerSurvives
@@ -18,12 +18,14 @@ var zombieHealthMultiplier=1;
 var zombieHealthIncrease=0.5;
 //SetZombieDamage
 var zombieDamage=10;
-//Check how many zombies are in the level
+//CheckHowManyZombiesAreInTheLevel
 var zombiesAlive=0;
-//The number of zombies to spawn in the level
+//TheNumberOfZombiesToSpawnInTheLevel
 var zombiesToCreate=3;
-//The number of zombies to add to the base create number
+//TheNumberOfZombiesToAddToTheBaseCreateNumber
 var zombieCreateMultiplier=3;
+//KeepTrackOfTheRoundThePlayerIsOn
+var roundCount = 0;
 
 MyGame.StateE = function(){
     //MovementKeys
@@ -101,7 +103,7 @@ MyGame.StateE.prototype = {
         this.playerCollideWithGunIcon();
         //RotatePlayerObjectToFaceMouse
         this.rotatePlayerObject();
-        //PlayerShootAutomaticGun
+        //PlayerShootAnAutomaticGun
         if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
             this.playerShoot();
         }
@@ -137,13 +139,13 @@ MyGame.StateE.prototype = {
             //RandomlyPickTrackToPlay
             switch(game.rnd.integerInRange(0, 2)){
                 case 0:
-                    MyGame.music_noCombat1.fadeIn(2000);
+                    MyGame.music_noCombat1.fadeIn(1000);
                     break;
                 case 1:
-                    MyGame.music_noCombat2.fadeIn(2000);
+                    MyGame.music_noCombat2.fadeIn(1000);
                     break;
                 case 2:
-                    MyGame.music_noCombat3.fadeIn(2000);
+                    MyGame.music_noCombat3.fadeIn(1000);
                     break;
             }
         }
@@ -239,6 +241,10 @@ MyGame.StateE.prototype = {
     spawnZombies: function(){
         //PlayMusic
         this.playGameMusic();
+        //IncreaseTheRoundCount
+        roundCount++;
+        //UpdateGUI
+        GUIElements[4][1].text = "Round: " + roundCount;
         //IncreaseTheAmountOfZombiesToSpawn
         zombiesToCreate += zombieCreateMultiplier;
         console.log("zombies to create: " + zombiesToCreate);
@@ -320,12 +326,41 @@ MyGame.StateE.prototype = {
 
     //PlayerStoodOnTopOfGuns
     playerCollideWithGunIcon: function(){
+        //Pistol
+        if((this.obj_player.x >= this.avalibleWeapons[0].x && this.obj_player.x <= this.avalibleWeapons[0].x+64) &&
+            (this.obj_player.y >= this.avalibleWeapons[0].y && this.obj_player.y <= this.avalibleWeapons[0].y+64)){
+            GUIElements[3][1].text = "M1911 \nPress Space to purchase, Cost: " + COST_PISTOL;
+        }
+        //KAR98
+        else if((this.obj_player.x >= this.avalibleWeapons[1].x && this.obj_player.x <= this.avalibleWeapons[1].x+64) &&
+            (this.obj_player.y >= this.avalibleWeapons[1].y && this.obj_player.y <= this.avalibleWeapons[1].y+64)){
+            GUIElements[3][1].text = "KARK98 \nPress Space to purchase, Cost: " + COST_KAR98;
+
+        }
+        //Thompson
+        else if((this.obj_player.x >= this.avalibleWeapons[2].x && this.obj_player.x <= this.avalibleWeapons[2].x+64) &&
+            (this.obj_player.y >= this.avalibleWeapons[2].y && this.obj_player.y <= this.avalibleWeapons[2].y+64)){
+            GUIElements[3][1].text = "Thompson \nPress Space to purchase, Cost: " + COST_THOMPSON;
+
+        }
+        //Shotgun
+        else if((this.obj_player.x >= this.avalibleWeapons[3].x && this.obj_player.x <= this.avalibleWeapons[3].x+64) &&
+            (this.obj_player.y >= this.avalibleWeapons[3].y && this.obj_player.y <= this.avalibleWeapons[3].y+64)){
+            GUIElements[3][1].text = "Shotgun \nPress Space to purchase, Cost: " + COST_SHOTGUN;
+        }
+        //NotOnTopOfAnyGunIcons
+        else{
+            GUIElements[3][1].text = "";
+        }
+    },
+
+    //RunWhenSpacebarPressedToAllowPlayerToBuyWeapon
+    playerPurchaseGun: function(){
         //HoldWeaponValuesWhenPlayerIsStandingOnThem
         var weaponCost, weaponKey;
         //Pistol
         if((this.obj_player.x >= this.avalibleWeapons[0].x && this.obj_player.x <= this.avalibleWeapons[0].x+64) &&
             (this.obj_player.y >= this.avalibleWeapons[0].y && this.obj_player.y <= this.avalibleWeapons[0].y+64)){
-            GUIElements[3][1].text = "M1911 \nPress Space to purchase, Cost: " + COST_PISTOL;
             //SetWeaponValuesWhenOnTopOfIcon
             weaponCost = COST_PISTOL;
             weaponKey = 0;
@@ -333,7 +368,6 @@ MyGame.StateE.prototype = {
         //KAR98
         else if((this.obj_player.x >= this.avalibleWeapons[1].x && this.obj_player.x <= this.avalibleWeapons[1].x+64) &&
             (this.obj_player.y >= this.avalibleWeapons[1].y && this.obj_player.y <= this.avalibleWeapons[1].y+64)){
-            GUIElements[3][1].text = "KARK98 \nPress Space to purchase, Cost: " + COST_KAR98;
             //SetWeaponValuesWhenOnTopOfIcon
             weaponCost = COST_KAR98;
             weaponKey = 1;
@@ -341,7 +375,6 @@ MyGame.StateE.prototype = {
         //Thompson
         else if((this.obj_player.x >= this.avalibleWeapons[2].x && this.obj_player.x <= this.avalibleWeapons[2].x+64) &&
             (this.obj_player.y >= this.avalibleWeapons[2].y && this.obj_player.y <= this.avalibleWeapons[2].y+64)){
-            GUIElements[3][1].text = "Thompson \nPress Space to purchase, Cost: " + COST_THOMPSON;
             //SetWeaponValuesWhenOnTopOfIcon
             weaponCost = COST_THOMPSON;
             weaponKey = 2;
@@ -349,21 +382,21 @@ MyGame.StateE.prototype = {
         //Shotgun
         else if((this.obj_player.x >= this.avalibleWeapons[3].x && this.obj_player.x <= this.avalibleWeapons[3].x+64) &&
             (this.obj_player.y >= this.avalibleWeapons[3].y && this.obj_player.y <= this.avalibleWeapons[3].y+64)){
-            GUIElements[3][1].text = "Shotgun \nPress Space to purchase, Cost: " + COST_SHOTGUN;
             //SetWeaponValuesWhenOnTopOfIcon
             weaponCost = COST_SHOTGUN;
             weaponKey = 3;
         }
-        //NotOnTopOfAnyGunIcons
-        else{
-            GUIElements[3][1].text = "";
-        }
         //CheckForSpacebarPressAndCheckPlayerMoneyToBuyNewGunOrAmmo
-        if(this.purchaseKey.isDown && playerMoney >= weaponCost){
+        if(playerMoney >= weaponCost){
+            //PlayPurchaseSound
+            if(!MyGame.purchaseGun.isPlaying){
+                MyGame.purchaseGun.play();
+            }
             this.gunPurchased(weaponKey);
             //UpdateGUI
             GUIElements[0][1].text = playerMoney;
         }
+
     },
 
     //PlayerPurchaseGun
@@ -523,7 +556,7 @@ MyGame.StateE.prototype = {
         //AmmoImage
         GUIElements[2][0] = this.add.sprite(game.camera.width - 75, game.camera.height - 70, 'spr_game', 'spr_ammoDisplay.png');
         //SetScaleOfGUISpritesAndFixThemToTheCamera
-        for(var i=0; i<GUIElements.length-1; i++){
+        for(var i=0; i<GUIElements.length-2; i++){
             GUIElements[i][0].fixedToCamera = true;
             GUIElements[i][0].scale.setTo(3, 3);
         }
@@ -539,12 +572,14 @@ MyGame.StateE.prototype = {
         //GunInfo
         GUIElements[3][1] = game.add.text(game.camera.width/2, game.camera.height/2+40, "", {fontSize: '35px', fill: '#ffffff'});
         GUIElements[3][1].anchor.setTo(0.5, 0.5);
+        //RoundCount
+        GUIElements[4][1] = game.add.text(game.camera.x + 10, game.camera.height - 75, "Round: " + roundCount, {fontSize: '30px', fill: '#ffffff'});
         //SetGUITextProperties
-        for(var i=0; i<GUIElements.length; i++){
+        for(var j=0; j<GUIElements.length; j++){
             //SetFont
-            GUIElements[i][1].font = 'VT323';
+            GUIElements[j][1].font = 'VT323';
             //FixToCameraPosition
-            GUIElements[i][1].fixedToCamera = true;
+            GUIElements[j][1].fixedToCamera = true;
         }
     },
 
@@ -640,12 +675,25 @@ MyGame.StateE.prototype = {
     //PlayerShootSingleShotGun
     playerShoot: function(){
         //AddShootingDelay
-        if(game.time.now > currentFireRateDelay && playerAmmo > 0 && fireRateDelay != 50){
+        if(game.time.now > currentFireRateDelay && playerAmmo > 0){
             //GetTheFirstBulletInstanceFromThePreCreatedGroup
             var bullet = this.bullets.getFirstExists(false);
             if(bullet){
-                //ApplyScreenShakeWhenShooting
-                game.time.events.repeat(10, 5, this.screenShake, this);
+                //PlayGunShot
+                switch(fireRateDelay){
+                    case FIRERATE_PISTOL:
+                        MyGame.shotPistol.play();
+                        break;
+                    case FIRERATE_KAR98:
+                        MyGame.shotKAR98.play();
+                        break;
+                    case FIRERATE_SHOTGUN:
+                        MyGame.shotShotgun.play();
+                        break;
+                    case FIRERATE_THOMPSON:
+                        MyGame.shotAssaultRiffle.play();
+                        break;
+                }
                 //SpawnShellCasingParticle
                 this.spawnShellCasingParticle();
                 //PlaceTheBulletAtThePlayerObject
@@ -658,12 +706,6 @@ MyGame.StateE.prototype = {
                 GUIElements[2][1].text = playerAmmo;
             }
         }
-    },
-
-    //ScreenShakeEffect
-    screenShake: function(){
-        game.camera.x += game.rnd.integerInRange(-10, 10);
-        game.camera.y += game.rnd.integerInRange(-10, 10);
     },
 
     //CreateBulletGroup
@@ -697,6 +739,7 @@ MyGame.StateE.prototype = {
         this.left = game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.right = game.input.keyboard.addKey(Phaser.Keyboard.D);
         this.purchaseKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.purchaseKey.onDown.add(this.playerPurchaseGun, this);
         //PlayerShooting
         game.input.onDown.add(this.playerShoot, this);
     },
@@ -841,6 +884,8 @@ MyGame.StateE.prototype = {
 
     //ApplyDamageToZombies
     damageZombie: function(zombie, bullet) {
+        //PlayZombieHurtSound
+        this.zombieHitSound();
         //BulletDestroy
         bullet.kill();
         if (zombie.hp > 0) {
@@ -866,6 +911,24 @@ MyGame.StateE.prototype = {
         }
         //UpdateGUI
         GUIElements[0][1].text = playerMoney;
+        }
+    },
+
+    //PlayZombieHitSounds
+    zombieHitSound: function(){
+        switch(game.rnd.integerInRange(0, 13)){
+            case 0:
+                MyGame.zombieHit1.play();
+                break;
+            case 1:
+                MyGame.zombieHit2.play();
+                break;
+            case 2:
+                MyGame.zombieHit3.play();
+                break;
+            case 3:
+                MyGame.zombieHit4.play();
+                break;
         }
     }
 };
