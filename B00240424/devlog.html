@@ -34,9 +34,8 @@
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="documentation.html">DOCUMENTATION</a></li>
                 <li class="active"><a href="devlog.html">DEVELOPMENT LOG</a></li>
-                <li><a href="team.html">TEAM</a></li>
+                <li><a href="team.html">DEVELOPER INFO</a></li>
                 <li><a href="minutes.html">MINUTES</a></li>
-                <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
             </ul>
         </div>
     </div>
@@ -238,7 +237,30 @@
         l adjust them once I have the game tested.</p>
     <br>
 
-
+    <h1>Final Additions & Changes</h1>
+    <h2>Audio</h2>
+    <p>The last addition to the game I made was to add and play all of the audio files, I added in most of the sound effects
+        discussed in the previous post on audio except for the voice overs and some of the zombie noises. The reason I left
+        these sounds out was due to the poor quality of them and I felt like they did not add anything to the game. I also
+        had to convert the sounds to .ogg format as the amount of mp3 files took too long to load. Due to learning that it
+        can take a few seconds to load multiple audio files for playback on the web I added in a check to make sure the game
+        does not start until the final audio file has finished being decoded, to go with this I added in a loading screen to
+        let the player know the game is currently being loaded.</p>
+    <h2>Level Set-up & Collision</h2>
+    <p>I used to have 3 map layers that were used for collision with the walls and debris in the game level, due to receiving
+        some feedback that the game was slow on some older systems I decided to try and improve the games performance. To help
+        with the performance I decided to use a single map layer that the objects in the game would collide with, on my
+        personal system I did not notice a massive jump in perforce but it did allow me to remove some lines of code and
+        reduce the amount of updates being run.</p>
+    <h2>Zombie Spawns</h2>
+    <p>I was originally going to spawn the zombies outside of the level and provide a number of walls only the zombies could
+        walk through, however due to the game not using any true pathfinding the zombies would easily get stuck behind solid
+        objects. In order to help the zombies get to the player more quickly I change the spawn points of the zombies to
+        inside the level.</p>
+    <h2>Cleaning Code</h2>
+    <p>To finish improving the performance of the game I spent some time removing unneeded code, the first of the code I
+        removed was the screen shake feature. I removed this feature as it was not very noticeable and I did not want to
+        have too many visual effects. After this I read through my functions and any that could be removed or shortened.</p>
 </div>
 </body>
 </html>

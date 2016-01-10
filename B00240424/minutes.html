@@ -36,9 +36,8 @@
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="documentation.html">DOCUMENTATION</a></li>
                 <li><a href="devlog.html">DEVELOPMENT LOG</a></li>
-                <li><a href="team.html">TEAM</a></li>
+                <li><a href="team.html">DEVELOPER INFO</a></li>
                 <li class="active"><a href="minutes.html">MINUTES</a></li>
-                <li><a href="https://twitter.com/dantay0803">TWITTER</a></li>
             </ul>
         </div>
     </div>
@@ -46,6 +45,53 @@
 
 <!--Minutes of Meeting-->
 <div class="col-md-8 col-centered" id="minutesOfMeeting">
+
+    <h1>Project Reflection</h1>
+    <h2>Website Design & Implementation</h2>
+    <p>When I was originally designing my website I knew that I wanted to go for a very minimalistic design were each page of the website could be displayed entirely on the screen without needing to scroll. Due to having to include our documentation for the project on the website this was not possible to do for every single web page, I did use this design idea on the home, game, screenshot and about pages of the website as a compromise. I did try to achieve the one screen design with the documentation pages by embedding a PDF file with all the documentation on the page. After asking peoples opinion on it and thinking about it, I decided not to do this as it did not fit the overall look and feel of the website. To help create the website slightly faster and get access to certain features to improve the overall look of the website I used the Bootstrap 3 framework, even though the framework is typically used and primarily aimed at creating mobile websites it’s features still look great and add to the look of desktop sites as well.<br>
+    The website is made up of 8 pages of content. The home or landing page of the site contains nothing more than a full screen gif of some gameplay, I decided to do this so the user can instantly see what the game is like and will hopefully make them want to play it even more. The game page also contains nothing more than the game itself and by using Phasers’ scaling ability it will fit as much of the screen as possible. The screenshot page contains a verity of images from the game in a slide show again to show off some gameplay, similar to the home page this was done to instantly show the user some of the games content which will hopefully lead to them playing and sharing some of the images to show their friends who will hopefully try the game as well. The documentation page contains all the games documentation as its name would suggest, the page contains the minimum requirements for the project as well as extra information I felt added to the design and description of the game I was aiming to create. The development log page was created some time into the development of the game and features blog style posts of the games development on the more interesting and advanced mechanics of the game.
+    <br>The developer page gives a background on myself and links to my portfolio, GitHub and twitter were users and potential employers can follow and contact me as well as see my other available games. It also has links to graphical and audio assets that I used in the development of the game as well as links to any code, HTML and CSS that I used during the project. The minute’s page displays the tasks that I had planned to complete that week as well as any tasks I completed the previous week.
+    <br>Overall I am extremely happy with the outcome of the website; I feel I managed to create the website as close to my original design idea as I could. As well as hosting the game and documentation on the website I feel that the home, about and screenshot pages contain content that you would expect to see in a website used to advertise a video game from a professional company.</p>
+    <h2>Documentation</h2>
+    <p>For the documentation on the games design and implementation I am extremely happy with everything that I have covered, we did have a minimum amount of documentation to cover but as I managed to complete this quickly I decided to add in extra documentation I felt was relevant to the project. The extra documentation I added, included information on the software being used and the reasoning on why I was using it, the development method I implemented during the project, a risk analysis and a mind map showing were my idea for the game came from.
+    <br>Writing the first couple of the minutes of meeting was confusing as I have been working on the project on my own, the way I completed the minutes was to write a line or two across two sections. With the first section being the tasks planned for that week and the second section giving a bit more of an explanation on what I did from the previous week. In terms of the minutes I feel that they could have included a bit more content but as I said doing the on my own was a bit confusing on what to include, even with that said however I am happy with them especially since I managed to cover them as I was instructed to.
+    <br>After getting the basic parts of the game implemented and before moving on to the more technical parts I decided that I wanted to write a development log on the game for my personal website. This was so potential employers could see how I work and how I progress during projects, after including a few posts on my own website I decided that adding the development log to the website would be quite a good idea as it shows my thoughts and the progress of creating the game. When writing the blogs I wanted to try and keep them as short and concise as possible so they do not contain a lot of useless or irrelevant information, I also included screenshot of the game and code as well as gifs of the game running to add a bit more quality to the posts and have a nice visual representation of my work were possible.</p>
+    <h2>The Game</h2>
+    <p>My initial design for the game was to create a cross between Call of Duty Zombies, Killing Floor and Hotline Miami by combining all of the elements I felt gave each game its own personality and that made them stand out. Comparing my initial idea for the game compared to the final product I am really happy with the final product and I also feel that I have accomplished my design tasks and much more. My reason behind this thought is I feel I have added all of the elements from these games into my own game such as:</p>
+    <p style="font-weight: bold; text-decoration: underline;">Call of Duty</p>
+    <ul class="minutesList">
+        <li>Purchase guns from around the level.</li>
+        <li>Endless wave based style of gameplay.</li>
+        <li>Verity of weapons.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Killing Floor</p>
+    <ul class="minutesList">
+        <li>Character elements such as health, ammo and damage can be upgraded.</li>
+        <li>Dark atmosphere.</li>
+    </ul>
+    <p style="font-weight: bold; text-decoration: underline;">Hotline Miami</p>
+    <ul class="minutesList">
+        <li>Challenging top down gameplay.</li>
+        <li>Fast paced and heart pumping music.</li>
+    </ul>
+    <p>As well as the minimum intended functionality, I also added in a number of extra features to increase the overall quality and experience with the game such as:</p>
+    <ul class="minutesList">
+        <li>A fully working GUI.</li>
+        <li>Lighting effect sprite to add to the games atmosphere.</li>
+        <li>A main menu with the ability to view the controls.</li>
+        <li>The ability to enable or disable the games music and sound effects.</li>
+        <li>Randomly playing music during and in between the rounds with a fade in and out effect.</li>
+        <li>Blood, smoke and shell casing particles.</li>
+        <li>Sound effects for all of the games weapons.</li>
+        <li>Randomly playing sound effects for the zombies being shot.</li>
+    </ul>
+    <p>All of these extras helped to build upon my initial idea and I am glad that I implemented these features as they got a great response from people who played the game.
+    <br>One issue I do have with the game however is the use of Phasers’ moveToXY function, this was the closest thing I could find to pathfinding in the framework but it is not perfect. The main issue with this is that objects in a group will not collide with each other whilst using this function, this lead to the enemies in the game bunching up and ending up on top of one another.  So even though five enemies may be chasing the player, the player would only see one enemy. To get around this visual issue I first added in as many spawn points for the zombies as possible to try and reduce them from bunching up, this slightly helped with the issue but the overlapping of the enemies was still easily noticeable. I then decided to make two changes to the zombies that would help stop or at least reduce the amount of overlapping, the first change I made was I made the speed for each zombie that is spawned in the level random. The final change I made was I added between -24 to 24 pixels to both the X and Y position of the player that the zombies are trying to reach, by adding in both of these pieces of code it has added a nice bit of randomisation which will help keep the game fresh and it has also reduced the amount of overlapping from the zombies but it is still not perfect.</p>
+    <h2>PHP & SQL Database</h2>
+    <p>When it came to do the PHP and database portion of the game I was not expecting to do anything more than the bare minimum just down to the fact I have no experience with PHP, AJAX or SQL. What I managed to do in the end was check if the players entered name and password existed in the database and if it did I would load their saved upgrade values, if there was no user with a matching user name and password then one would be created for them as soon as play is pressed. The final part I implemented is when the player purchases one of the upgrades the new value of the upgrades will be applied to their saved data using the update function from PHP. In the future I would like to add a bit more to improve the PHP functionality such as detecting if a user name is already taken and inform the user so they can make up a new name and the ability to reset their password. For now though I am happy with the features currently implemented.</p>
+    <h2>Final Remarks</h2>
+    <p>Looking at the project as a whole I am completely happy with what I have manged to accomplish, as previously said I managed to get all of the assessment and my personal minimum requirements complete and added as much extra content as possible. My knowledge and skill with JavaScript is not as high as most people in my class and I feel from completing this project my knowledge and skill has increased quite a bit. Using the Phaser framework was very enjoyable and I plan to continue development of the game after the module and I will be sticking with Phaser, the project also let me learn more about particles and get more experience with them which I enjoyed.  This was also the first time I have ever had melee attacks within a game so that is an extra that I have managed to learn.</p>
+
     <h1>Minutes of Meeting Week 2 - 28/09/2015</h1>
     <p style="font-weight: bold; text-decoration: underline;">Tasks to be completed:</p>
     <ul class="minutesList">

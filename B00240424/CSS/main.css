@@ -13,7 +13,7 @@
     -o-background-size: cover;
 }
 .pageTeam{
-    background: url('../Assets/Site/Screenshots/ss7.png') no-repeat center center fixed;
+    background: url('../Assets/Site/WebsiteBackground.png') no-repeat center center fixed;
 }
 .pageAbout, .pageDocumentation, .minutes, .devLog{
     background: url('../Assets/Site/WebsiteBackground.png') no-repeat center center fixed;

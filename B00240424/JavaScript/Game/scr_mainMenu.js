@@ -1,12 +1,6 @@
 /**
  * Created by Dan on 25/10/2015.
  */
-
-var user;
-var password;
-
-var obj;
-
 MyGame.StateC = function (){
     this.background = null;
     this.mainMenuButtons = [];
@@ -20,23 +14,6 @@ MyGame.StateC = function (){
 MyGame.StateC.prototype = {
     //SetUpMainMenuState
     create: function(){
-        //GetOrCreateUserName
-        /*user = prompt("Please enter your name", "");
-        //GetOrCreatePassword
-        password = prompt("Please enter your password", "");
-        if(user != null) {
-            //CheckForPreviouslyCreatedAccount
-            MyGame.getUserData();
-            //IfNoAccountFoundCreateOne
-            obj = {
-                'user': user,
-                'password': password,
-                'upgradeHealth': healthMultiplier,
-                'upgradeAmmo': ammoMultiplier,
-                'upgradeDamage': damageMultiplier
-            };
-            //MyGame.uploadUserData();
-        }*/
         //AddImagesToMainMenu
         this.addImages();
         //CheckAudioVariablesStatusToUpdateImages
@@ -150,8 +127,9 @@ MyGame.StateC.prototype = {
         }
         //GoToLevel1
         this.state.start('level');
-
+        //HideHTMLMenu
         this.hideHTMLMenu();
+
     },
 
     //GoToControlsPageWhenButtonClicked

@@ -9,7 +9,7 @@ var currentFireRateDelay=0;
 //SetBulletDamage;
 var bulletDamage=0;
 //InGamePlayerMoney
-var playerMoney=10000;
+var playerMoney=0;
 //DefineAmmoAmount
 var playerAmmo=0;
 //UsedToIncreaseTheZombiesHealthForEverRoundThePlayerSurvives
@@ -57,6 +57,17 @@ MyGame.StateE.prototype = {
 
     //SetUpControlsState
     create: function(){
+        //ResetRoundCOunter
+        roundCount=0;
+        //ResetMoney
+        playerMoney=0;
+        //ResetHowManyZombiesAreAlive
+        zombiesAlive=0;
+        //TheNumberOfZombiesToSpawnInTheLevel
+        zombiesToCreate=3;
+        //ResetFireRateDelay
+        fireRateDelay = FIRERATE_PISTOL;
+        currentFireRateDelay= 0;
         //SetAmmo
         playerAmmo = CLIPSIZE_PISTOL * ammoMultiplier;
         //SetDamage
@@ -91,6 +102,20 @@ MyGame.StateE.prototype = {
 
     //updateGame
     update: function() {
+        //ZombieCollisionWithZombies
+        game.physics.arcade.collide(this.zombieGroup);
+        //CheckPlayerCollisionWithZombies
+        game.physics.arcade.collide(this.obj_player, this.zombieGroup);
+        //ZombieCollisionWithWalls
+        game.physics.arcade.collide(this.zombieGroup, this.WallCollision);
+        //CheckForCollisionWithMapObjects
+        game.physics.arcade.collide(this.obj_player, this.WallCollision);
+        //ZombiesCollisionWithBullets
+        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
+        //BulletsHitWalls
+        game.physics.arcade.collide(this.bullets, this.WallCollision, this.destroyBullets, null, this);
+        //SetCollisionWithShellCasingAndWall
+        game.physics.arcade.collide(this.shellCasings, this.WallCollision);
         //CheckNoZombiesAreInLevel
         this.checkZombies();
         //ZombieMovementAndPlayerAttacking
@@ -107,27 +132,6 @@ MyGame.StateE.prototype = {
         if(game.input.activePointer.isDown && fireRateDelay == FIRERATE_THOMPSON){
             this.playerShoot();
         }
-        //ZombieCollisionWithZombies
-        game.physics.arcade.collide(this.zombieGroup);
-        //CheckPlayerCollisionWithZombies
-        game.physics.arcade.collide(this.obj_player, this.zombieGroup);
-        //ZombieCollisionWithWalls
-        game.physics.arcade.collide(this.zombieGroup, this.Wall1);
-        game.physics.arcade.collide(this.zombieGroup, this.Wall2);
-        game.physics.arcade.collide(this.zombieGroup, this.Debris);
-        //CheckForCollisionWithMapObjects
-        game.physics.arcade.collide(this.obj_player, this.Wall1);
-        game.physics.arcade.collide(this.obj_player, this.Wall2);
-        game.physics.arcade.collide(this.obj_player, this.Debris);
-        //ZombiesCollisionWithBullets
-        game.physics.arcade.overlap(this.zombieGroup, this.bullets, this.damageZombie, null, this);
-        //BulletsHitWalls
-        game.physics.arcade.collide(this.bullets, this.Wall1, this.destroyBullets, null, this);
-        game.physics.arcade.collide(this.bullets, this.Wall2, this.destroyBullets, null, this);
-        game.physics.arcade.collide(this.bullets, this.Debris, this.destroyBullets, null, this);
-        //SetCollisionWithShellCasingAndWall
-        game.physics.arcade.collide(this.shellCasings, this.Wall1);
-        game.physics.arcade.collide(this.shellCasings, this.Wall2);
     },
 
     //PlayAmbientSoundsDuringBreaks
@@ -135,35 +139,18 @@ MyGame.StateE.prototype = {
         //CheckMusicStatus
         if(MyGame.playMusic){
             //StopGameMusic
-            this.stopGameMusic();
+            MyGame.stopGameMusic();
             //RandomlyPickTrackToPlay
             switch(game.rnd.integerInRange(0, 2)){
                 case 0:
-                    MyGame.music_noCombat1.fadeIn(1000);
+                    MyGame.music_noCombat1.fadeIn(500);
                     break;
                 case 1:
-                    MyGame.music_noCombat2.fadeIn(1000);
+                    MyGame.music_noCombat2.fadeIn(500);
                     break;
                 case 2:
-                    MyGame.music_noCombat3.fadeIn(1000);
+                    MyGame.music_noCombat3.fadeIn(500);
                     break;
-            }
-        }
-    },
-
-    //StopAmbientSounds
-    stopAmbientSounds: function(){
-        //CheckMusicStatus
-        if(MyGame.playMusic) {
-            //StopAnyAmbientTracksPlaying
-            if (MyGame.music_noCombat1.isPlaying) {
-                MyGame.music_noCombat1.fadeOut(2000);
-            }
-            if (MyGame.music_noCombat2.isPlaying) {
-                MyGame.music_noCombat2.fadeOut(2000);
-            }
-            if (MyGame.music_noCombat3.isPlaying) {
-                MyGame.music_noCombat3.fadeOut(2000);
             }
         }
     },
@@ -173,7 +160,7 @@ MyGame.StateE.prototype = {
         //CheckMusicStatus
         if(MyGame.playMusic){
             //StopAmbientSounds
-            this.stopAmbientSounds();
+            MyGame.stopAmbientSounds();
             //RandomlyPickTrackToPlay
             switch(game.rnd.integerInRange(0, 5)){
                 case 0:
@@ -198,35 +185,10 @@ MyGame.StateE.prototype = {
         }
     },
 
-    //StopGameMusic
-    stopGameMusic: function(){
-        //CheckMusicStatus
-        if(MyGame.playMusic){
-            //StopAnyPlayingMusicTrack
-            if(MyGame.music_combat1.isPlaying){
-                MyGame.music_combat1.fadeOut(2000);
-            }
-            if(MyGame.music_combat2.isPlaying){
-                MyGame.music_combat2.fadeOut(2000);
-            }
-            if(MyGame.music_combat3.isPlaying){
-                MyGame.music_combat3.fadeOut(2000);
-            }
-            if(MyGame.music_combat4.isPlaying){
-                MyGame.music_combat4.fadeOut(2000);
-            }
-            if(MyGame.music_combat5.isPlaying){
-                MyGame.music_combat5.fadeOut(2000);
-            }
-            if(MyGame.music_combat6.isPlaying){
-                MyGame.music_combat6.fadeOut(2000);
-            }
-        }
-    },
-
     //CheckNoZombiesAreInLevel
     checkZombies: function(){
         if(zombiesAlive == 0){
+            console.log("spawing");
             //PlayAmbientMusic
             this.playAmbientSounds();
             //ReduceTheCountByOneToStopTimerBeingCalledMoreThanOnce
@@ -247,10 +209,8 @@ MyGame.StateE.prototype = {
         GUIElements[4][1].text = "Round: " + roundCount;
         //IncreaseTheAmountOfZombiesToSpawn
         zombiesToCreate += zombieCreateMultiplier;
-        console.log("zombies to create: " + zombiesToCreate);
         //SetTheAmountOfZombiesAlive
         zombiesAlive = zombiesToCreate;
-        console.log("zombies alive: " + zombiesAlive);
         //IncreaseTheMultiplierValueToSetTheZombieHealth
         zombieHealthMultiplier += zombieHealthIncrease;
         //SpawnInZombies
@@ -262,6 +222,23 @@ MyGame.StateE.prototype = {
                 zombie.hp = 100 * zombieHealthMultiplier;
                 //SetZombieAsImmovableSoThePlayerCannotPushThem
                 zombie.body.immovable = true;
+                //RandomlyAssignMovementSpeedWhenZombieSpawned
+                //zombie.movementSpeed = game.rnd.integerInRange(250, 260);
+                switch(game.rnd.integerInRange(0, 3)){
+
+                    case 0:
+                        zombie.movementSpeed = 245;
+                        break;
+                    case 1:
+                        zombie.movementSpeed = 250;
+                        break;
+                    case 2:
+                        zombie.movementSpeed = 255;
+                        break;
+                    case 3:
+                        zombie.movementSpeed = 260;
+                        break;
+                }
                 //SetPosition
                 var xPos=0, yPos=0;
                 //RandomlySelectSpawnPosition
@@ -389,7 +366,7 @@ MyGame.StateE.prototype = {
         //CheckForSpacebarPressAndCheckPlayerMoneyToBuyNewGunOrAmmo
         if(playerMoney >= weaponCost){
             //PlayPurchaseSound
-            if(!MyGame.purchaseGun.isPlaying){
+            if(MyGame.playSFX && !MyGame.purchaseGun.isPlaying){
                 MyGame.purchaseGun.play();
             }
             this.gunPurchased(weaponKey);
@@ -592,15 +569,16 @@ MyGame.StateE.prototype = {
         this.map.addTilesetImage('MapTiles2', 'MapTiles2');
         //CreateMapLayer
         //LayerNameMustBeTheSameAsInTiled
-        this.Floor = this.map.createLayer('Floor');
-        this.Wall1 = this.map.createLayer('Wall1');
-        this.Wall2 = this.map.createLayer('Wall2');
-        this.Debris = this.map.createLayer('Debris');
-        this.DebrisDetails = this.map.createLayer('DebrisDetail');
+        var Floor = this.map.createLayer('Floor');
+        this.WallCollision = this.map.createLayer('WallCollision');
+        var Wall1 = this.map.createLayer('Wall1');
+        var Wall2 = this.map.createLayer('Wall2');
+        var Debris = this.map.createLayer('Debris');
+        var DebrisDetails = this.map.createLayer('DebrisDetail');
         //SetUpCollisionsOnMapWallLayers
-        this.map.setCollisionBetween(0, 20, true, 'Wall1');
-        this.map.setCollisionBetween(0, 20, true, 'Wall2');
-        this.map.setCollisionBetween(1, 34, true, 'Debris');
+        this.map.setCollisionBetween(1, 2, true, 'WallCollision');
+        //HidTheCollisionTiledLayer
+        this.WallCollision.alpha = 0;
     },
 
     //SetUpPlayer
@@ -667,6 +645,28 @@ MyGame.StateE.prototype = {
         };
         //ChangeToUpgradeLevel
         this.obj_player.goToUpGrades = function(){
+            //StopMusic
+            if(MyGame.playMusic){
+                //StopAnyPlayingMusicTrack
+                if(MyGame.music_combat1.isPlaying){
+                    MyGame.music_combat1.stop();
+                }
+                if(MyGame.music_combat2.isPlaying){
+                    MyGame.music_combat2.stop();
+                }
+                if(MyGame.music_combat3.isPlaying){
+                    MyGame.music_combat3.stop();
+                }
+                if(MyGame.music_combat4.isPlaying){
+                    MyGame.music_combat4.stop();
+                }
+                if(MyGame.music_combat5.isPlaying){
+                    MyGame.music_combat5.stop();
+                }
+                if(MyGame.music_combat6.isPlaying){
+                    MyGame.music_combat6.stop();
+                }
+            }
             //ChangeToUpgradesLevel
             game.state.start('upgrades');
         };
@@ -679,20 +679,23 @@ MyGame.StateE.prototype = {
             //GetTheFirstBulletInstanceFromThePreCreatedGroup
             var bullet = this.bullets.getFirstExists(false);
             if(bullet){
-                //PlayGunShot
-                switch(fireRateDelay){
-                    case FIRERATE_PISTOL:
-                        MyGame.shotPistol.play();
-                        break;
-                    case FIRERATE_KAR98:
-                        MyGame.shotKAR98.play();
-                        break;
-                    case FIRERATE_SHOTGUN:
-                        MyGame.shotShotgun.play();
-                        break;
-                    case FIRERATE_THOMPSON:
-                        MyGame.shotAssaultRiffle.play();
-                        break;
+                //EnsureSFXAreON
+                if(MyGame.playSFX){
+                    //PlayGunShot
+                    switch (fireRateDelay) {
+                        case FIRERATE_PISTOL:
+                            MyGame.shotPistol.play();
+                            break;
+                        case FIRERATE_KAR98:
+                            MyGame.shotKAR98.play();
+                            break;
+                        case FIRERATE_SHOTGUN:
+                            MyGame.shotShotgun.play();
+                            break;
+                        case FIRERATE_THOMPSON:
+                            MyGame.shotAssaultRiffle.play();
+                            break;
+                    }
                 }
                 //SpawnShellCasingParticle
                 this.spawnShellCasingParticle();
@@ -806,6 +809,8 @@ MyGame.StateE.prototype = {
             //DelayToStopZombiesAttackingTooFast
             zombie.zombieAttackDelay = 2000;
             zombie.zombieAttackTimer = game.time.now + zombie.zombieAttackDelay;
+            //AssigDefaulttMovementSpeed
+            zombie.movementSpeed = 250;
             //CreateZombieAnimations
             //ZombieWalkAnimation
             zombie.animations.add('zombieWalk', ['Zombie_Walk_LeftStep_01.png', 'Zombie_Walk_LeftStep_02.png', 'Zombie_Walk_RightStep_01.png', 'Zombie_Walk_RightStep_02.png'], 5, true);
@@ -829,7 +834,7 @@ MyGame.StateE.prototype = {
                 zombie.body.velocity.y = 0;
             }
             //IfTheZombieIsAroundThePlayer
-            if(zombie.x >= player.x - 80 && zombie.x <= player.x + 80 && zombie.y <= player.y + 80 && zombie.y >= player.y - 80){
+            if(zombie.x >= player.x - 70 && zombie.x <= player.x + 70 && zombie.y <= player.y + 70 && zombie.y >= player.y - 70){
                 //ZombieAttackPlayerWhenTheAttackDelayIsSmallerThanTheCurrentTime
                 if(game.time.now > zombie.zombieAttackTimer && zombie.hp > 0) {
                     //PlayAttackAnimation
@@ -837,7 +842,7 @@ MyGame.StateE.prototype = {
                     //DamagePlayerFunction
                     zombie.animations.currentAnim.onComplete.addOnce(function(){
                         //CheckPlayerIsStillInRange
-                        if(zombie.x >= player.x - 90 && zombie.x <= player.x + 90 && zombie.y <= player.y + 90 && zombie.y >= player.y - 90){
+                        if(zombie.x >= player.x - 80 && zombie.x <= player.x + 80 && zombie.y <= player.y + 80 && zombie.y >= player.y - 80){
                             //SetZombieToIdleAnimationAfterAttack
                             zombie.frameName = "Zombie_Stand.png";
                             //IfTrueApplyDamage
@@ -854,8 +859,11 @@ MyGame.StateE.prototype = {
                 }
             }
             else if(zombie.hp > 0 && (zombie.x < player.x - 70 || zombie.x > player.x + 70 || zombie.y < player.y - 70 || zombie.y > player.y + 70)){
+                //AddASmallOffsetToThePositionTheZombiesShouldMoveToInOrderToReduceTheAmountOfOverlapping
+                var xOffset = game.rnd.integerInRange(-24, 24);
+                var yOffset = game.rnd.integerInRange(-24, 24);
                 //MoveZombieToPlayer
-                game.physics.arcade.moveToXY(zombie, player.x, player.y, SPEED_ZOMBIE);
+                game.physics.arcade.moveToXY(zombie, player.x + xOffset, player.y + yOffset, zombie.movementSpeed);
                 zombie.play('zombieWalk');
             }
         });
@@ -884,8 +892,11 @@ MyGame.StateE.prototype = {
 
     //ApplyDamageToZombies
     damageZombie: function(zombie, bullet) {
-        //PlayZombieHurtSound
-        this.zombieHitSound();
+        //EnsureSFXAreOn
+        if (MyGame.playSFX) {
+            //PlayZombieHurtSound
+            this.zombieHitSound();
+        }
         //BulletDestroy
         bullet.kill();
         if (zombie.hp > 0) {

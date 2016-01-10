@@ -7,7 +7,7 @@ if (!$con)
     exit;
 }
 // Select the database. Enter the name of your database (not the same as the table name)
-$db = mysql_select_db('thedeadofnightdb');
+$db = mysql_select_db('phaserdb');
 if (!$db)
 {
     echo "Failed to select db.";
@@ -22,9 +22,6 @@ if (isset($_POST['json'])) {
 		$upgradeHealth = $request_json['upgradeHealth'];
 		$upgradeAmmo = $request_json['upgradeAmmo'];
 		$upgradeDamage = $request_json['upgradeDamage'];
-
-		echo "This is a message from PHP. The user:".$theuser;
-        
 	    $sql = "INSERT INTO upgrades_tbl (userID, password, upgrade_Health, upgrade_Ammo, upgrade_Damage) VALUES ('".$theuser."', '".$thepassword."', $upgradeHealth, $upgradeAmmo, $upgradeDamage)";
 	    $query = mysql_query($sql);
     }

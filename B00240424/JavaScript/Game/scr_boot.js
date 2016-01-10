@@ -1,9 +1,6 @@
 /**
  * Created by Dan on 02/01/2016.
  */
-/**
- * Created by Dan on 30/09/2015.
- */
 //SetDamageOfGuns
 const DAMAGE_PISTOL = 20, DAMAGE_KAR98 = 100, DAMAGE_THOMPSON = 50, DAMAGE_SHOTGUN = 200;
 //SetPriceOfWeapons
@@ -14,14 +11,22 @@ const FIRERATE_PISTOL = 200, FIRERATE_KAR98 = 300, FIRERATE_THOMPSON = 100, FIRE
 const CLIPSIZE_PISTOL = 80, CLIPSIZE_KAR98 = 100, CLIPSIZE_THOMPSON = 124, CLIPSIZE_SHOTGUN = 40;
 //SetTheMoneyAmountForHittingAndKillingZombie
 const MONEY_ZOMBIEHIT = 10, MONEY_ZOMBIEKILL = 60;
-//SetSpeedOfObjects
-const SPEED_BULLET = 750, SPEED_PLAYER = 250, SPEED_ZOMBIE = 250;
+//SetSpeedOfObjects player default = 250
+const SPEED_BULLET = 750, SPEED_PLAYER = 240;
 //SetBasicCostOfUpgrades
 const BASEMULTIPLIERCOST = 1000;
 //UpgradeVariables
 var healthMultiplier = 1;
 var ammoMultiplier = 1;
 var damageMultiplier = 1;
+//StoreTheVariablesRetrievedFromTheSQLDatabase
+var userDB, passwordDB, healthUpgradeDB, ammoUpgradeDB, damageUpgradeDB;
+//StoreUserDataFromDatabase
+var databaseInfo = "";
+//StoreUsername
+var user=null;
+//StorePassword
+var password=null;
 
 //NewGameObject
 var MyGame = {
@@ -113,5 +118,4 @@ MyGame.StateA.prototype = {
         //LoadMenuAfterAssetsAreLoaded
         this.state.start('preloader');
     }
-
 };

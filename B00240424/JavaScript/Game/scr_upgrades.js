@@ -4,9 +4,9 @@
 
 MyGame.StateF = function(){
     //SetCostOfEachUpgrade
-    this.healthMultiplierCost = (healthMultiplier + 0.5) * BASEMULTIPLIERCOST;
-    this.ammoMultiplierCost = (ammoMultiplier + 0.5) * BASEMULTIPLIERCOST;
-    this.damageMultiplierCost = (damageMultiplier + 0.5) * BASEMULTIPLIERCOST;
+    this.healthMultiplierCost = null;
+    this.ammoMultiplierCost = null;
+    this.damageMultiplierCost = null;
     //LevelObjects
     this.background = null, this.buttons = [], this.buttonsText = [];
     //DefineKeysForMenuNavigation
@@ -18,6 +18,10 @@ MyGame.StateF = function(){
 MyGame.StateF.prototype = {
     //SetUpControlsState
     create: function(){
+        //SetCostOfEachUpgrade
+        this.healthMultiplierCost = (healthMultiplier + 0.5) * BASEMULTIPLIERCOST;
+        this.ammoMultiplierCost = (ammoMultiplier + 0.5) * BASEMULTIPLIERCOST;
+        this.damageMultiplierCost = (damageMultiplier + 0.5) * BASEMULTIPLIERCOST;
         //SetCoursorImage
         this.updateCursor();
         //DisplayScene
@@ -247,31 +251,31 @@ MyGame.StateF.prototype = {
         //HealthUpgradeButtonSelected
         if(this.buttons[0].y == 239.5){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             this.purchaseHealthMultiplier();
         }
         //AmmoUpgradeButtonSelected
         else if(this.buttons[1].y == 239.5){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             this.purchaseAmmoMultiplier();
         }
         //DamageUpgradeButtonSelected
         else if(this.buttons[2].y == 514.5){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             this.purchaseDamageMultiplier();
         }
         //PlayAgainButtonSelected
         else if(this.buttons[3].y == canvasHeight-54.5){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             this.playAgain();
         }
         //SelectMainMenuButton
         else if(this.buttons[4].y == canvasHeight-54.5){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             this.goToMainMenu();
         }
     },
@@ -279,14 +283,14 @@ MyGame.StateF.prototype = {
     //ReturnToLevel
     playAgain: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         game.state.start('level');
     },
 
     //GoToMainMenu
     goToMainMenu: function(){
         //PlayButtonClick
-        MyGame.playButtonClick();
+        this.playButtonClick();
         game.state.start('mainMenu');
         //ShowHTMLMenu
         this.showHTMLMenu();
@@ -297,7 +301,7 @@ MyGame.StateF.prototype = {
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.healthMultiplierCost){
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.healthMultiplierCost;
             //UpdateMultiplier
@@ -309,13 +313,15 @@ MyGame.StateF.prototype = {
             this.buttonsText[1].text = 'Current Multiplier: ' + healthMultiplier;
             //UpdateCurrentPlayerMoneyDisplay
             this.currentMoneyDisplay.text = 'Current Money: ' + playerMoney;
+            //UploadUserData
+            MyGame.updateUserData();
         }
     },
     purchaseAmmoMultiplier: function(){
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.ammoMultiplierCost) {
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.ammoMultiplierCost;
             //UpdateMultiplier
@@ -327,13 +333,15 @@ MyGame.StateF.prototype = {
             this.buttonsText[3].text = 'Current Multiplier: ' + ammoMultiplier;
             //UpdateCurrentPlayerMoneyDisplay
             this.currentMoneyDisplay.text = 'Current Money: ' + playerMoney;
+            //UploadUserData
+            MyGame.updateUserData();
         }
     },
     purchaseDamageMultiplier: function(){
         //EnsurePlayerHasEnoughMoneyForUpgrade
         if(playerMoney >= this.damageMultiplierCost) {
             //PlayButtonClick
-            MyGame.playButtonClick();
+            this.playButtonClick();
             //ReduceCurrentMoney
             playerMoney -= this.damageMultiplierCost;
             //UpdateMultiplier
@@ -345,6 +353,8 @@ MyGame.StateF.prototype = {
             this.buttonsText[5].text = 'Current Multiplier: ' + damageMultiplier;
             //UpdateCurrentPlayerMoneyDisplay
             this.currentMoneyDisplay.text = 'Current Money: ' + playerMoney;
+            //UploadUserData
+            MyGame.updateUserData();
         }
     },
 
@@ -434,5 +444,12 @@ MyGame.StateF.prototype = {
         var elementToChange = document.getElementsByTagName("body")[0];
         //HideCursor
         elementToChange.style.cursor = "url(./Assets/spr_cursor.png), none";
+    },
+
+    //PlayButtonClick
+    playButtonClick: function(){
+        if(MyGame.playSFX){
+            MyGame.buttonClick.play();
+        }
     }
 };
